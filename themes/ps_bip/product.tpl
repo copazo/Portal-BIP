@@ -440,7 +440,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 													<!--	este div es para pago con cheques en la pestana "tiendas" y "usados" - copazo	-->
 			<div id="cuotas" style="display:none;" align="left">
 				<form name="frmCuotas">
-						<table width="200px" cellspacing="0" cellpadding="2" border="0">
+						<table width="300px" cellspacing="0" cellpadding="2" border="0">
 								<tbody>
 										<tr>
 												<td height="20" align="center" colspan="3">Calcula el valor de tus cheques</td>
