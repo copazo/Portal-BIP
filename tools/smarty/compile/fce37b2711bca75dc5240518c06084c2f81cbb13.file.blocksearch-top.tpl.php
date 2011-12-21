@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-12-20 08:50:25
+<?php /* Smarty version Smarty-3.0.7, created on 2011-12-21 18:01:48
          compiled from "/var/www/html/demo.cl/exeBIPdev/modules/blocksearch/blocksearch-top.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:19495772374ef07681eb7111-17949520%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15329275614ef2493cc21c80-29093049%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'fce37b2711bca75dc5240518c06084c2f81cbb13' => 
     array (
       0 => '/var/www/html/demo.cl/exeBIPdev/modules/blocksearch/blocksearch-top.tpl',
-      1 => 1324068646,
+      1 => 1324497218,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '19495772374ef07681eb7111-17949520',
+  'nocache_hash' => '15329275614ef2493cc21c80-29093049',
   'function' => 
   array (
   ),
@@ -22,8 +22,8 @@ $_smarty_tpl->decodeProperties(array (
 <!-- Block search module TOP -->
 <div id="search_block_top">
 
-	<form method="get" action="<?php echo $_smarty_tpl->getVariable('link')->value->getPageLink('search.php');?>
-" id="searchbox">
+	<form method="get" action="<?php echo $_smarty_tpl->getVariable('link')->value->getURLSiteBase();?>
+4012-busqueda/" id="searchbox">
 		<p>
 			<label for="search_query_top"><!-- image on background --></label>
 			<input type="hidden" name="orderby" value="position" />

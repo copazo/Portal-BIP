@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-12-20 01:30:08
+<?php /* Smarty version Smarty-3.0.7, created on 2011-12-21 18:03:07
          compiled from "/var/www/html/demo.cl/exeBIPdev/themes/ps_bip/category-count.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3516852274ef00f50b2e6f2-11330993%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:21337943984ef2498b1639c2-95160281%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3516852274ef00f50b2e6f2-11330993',
+  'nocache_hash' => '21337943984ef2498b1639c2-95160281',
   'function' => 
   array (
   ),
