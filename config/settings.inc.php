@@ -1,13 +1,13 @@
 <?php
 
-define('__PS_BASE_URI__', '/exeBIPdev/');
+define('__PS_BASE_URI__', '/exeBIP/');
 define('_MEDIA_SERVER_1_', '');
 define('_MEDIA_SERVER_2_', '');
 define('_MEDIA_SERVER_3_', '');
 define('_PS_CACHING_SYSTEM_', 'MCached');
 define('_PS_CACHE_ENABLED_', '0');
 define('_THEME_NAME_', 'ps_bip');
-define('_DB_NAME_', 'ps_exe_bip_dev');
+define('_DB_NAME_', 'ps_exe_bip');
 define('_MYSQL_ENGINE_', 'InnoDB');
 define('_DB_SERVER_', 'localhost');
 define('_DB_USER_', 'root');
