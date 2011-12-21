@@ -1727,8 +1727,10 @@ class BlockLayered extends Module
 
 		return $html;
 	}
-	private function getSelectedFiltersByQ()
+	private function getSelectedFiltersByQ($isajax = true)
 	{
+            if($isajax==false)
+            $_SESSION['search_q'] = '';
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', 1));
 		if ($id_parent == 1)
 			return;
@@ -1736,6 +1738,8 @@ class BlockLayered extends Module
 		// Force attributes selection (by url '.../2-mycategory/color-blue' or by get parameter 'selected_filters')
 		if (strpos($_SERVER['SCRIPT_FILENAME'], 'blocklayered-ajax.php') === false || Tools::getValue('selected_filters') !== false)
 		{
+
+                        
 			if (Tools::getValue('selected_filters'))
 				$url = Tools::getValue('selected_filters');
 			else
@@ -1744,17 +1748,22 @@ class BlockLayered extends Module
 			$urlAttributes = explode('/', $url);
 			array_shift($urlAttributes);
 			$selectedFilters = array('category' => array());
+
 			if (!empty($urlAttributes))
 			{
-				foreach ($urlAttributes as $urlAttribute)
-				{
-					$urlParameters = explode('-', $urlAttribute);
-                                        if($urlParameters[0]=='q'){
-                                            $_SESSION['search_q'] = $urlParameters[1]; // store session data
-                                            return $urlParameters[1];
+
+                                       $arrUUrl = parse_url($_SERVER['REQUEST_URI']);
+                                       $arrUUrlParse = explode('&',$arrUUrl['query']);
+                                       $arrUUrlParse2 = explode('=',$arrUUrlParse[2]);
+                                            
+                                        if($arrUUrlParse2[0]=='search_query'){
+                                            $_SESSION['search_q'] = $arrUUrlParse2[1]; // store session data
+                                            return $arrUUrlParse2[1];
                                         }else{
-                                            continue;}
-				}
+                                            if($isajax==false)
+                                            $_SESSION['search_q'] = '';
+                                        }
+				
 			}
 		}
                 return 0;
@@ -1862,17 +1871,21 @@ class BlockLayered extends Module
 	{
 		global $cookie;
                 
-                
                 $whereLikeFilter  = $this->getSelectedFiltersByQ();
                 if(!$whereLikeFilter or $whereLikeFilter=='' or $whereLikeFilter==0)
                    $whereLikeFilter = $_SESSION['search_q'];
-                
+                $whereLikeFilter = str_replace("+", " ", $whereLikeFilter);
+                //echo $whereLikeFilter;
 
 		if (!empty($this->products))
 			return $this->products;
 
 		/* If the current category isn't defined or if it's homepage, we have nothing to display */
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', 1));
+                
+                if($id_parent != 4011){
+                    $whereLikeFilter = '';
+                }
 		if ($id_parent == 1)
 			return false;
 
@@ -1880,11 +1893,18 @@ class BlockLayered extends Module
 		$queryFiltersFrom = '';
 		
 		$parent = new Category((int)$id_parent);
-		if (!count($selectedFilters['category']))
+		if (!count($selectedFilters['category'])){
+                    if($whereLikeFilter!=''){
+			$queryFiltersFrom .= ' INNER JOIN '._DB_PREFIX_.'category_product cp
+			ON p.id_product = cp.id_product
+			INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)';
+                    }else{
 			$queryFiltersFrom .= ' INNER JOIN '._DB_PREFIX_.'category_product cp
 			ON p.id_product = cp.id_product
 			INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category
-			AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.')';
+			AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.')';  
+                    }
+                }
 
 		foreach ($selectedFilters as $key => $filterValues)
 		{
@@ -1978,7 +1998,7 @@ class BlockLayered extends Module
 				break;
 			}
 		}
-		
+
 		$idCurrency = Currency::getCurrent()->id;
 		$priceFilterQueryIn = ''; // All products with price range between price filters limits
 		$priceFilterQueryOut = ''; // All products with a price filters limit on it price range
@@ -1998,37 +2018,44 @@ class BlockLayered extends Module
 				AND psi.`id_product` = p.`id_product`
 				AND psi.`id_currency` = '.(int)$idCurrency;
 		}
-		
-		$allProductsOut = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-		SELECT p.`id_product` id_product
-		FROM `'._DB_PREFIX_.'product` p
-		'.$priceFilterQueryOut.'
-		'.$queryFiltersFrom.'
-		WHERE 1 '.$queryFiltersWhere.' GROUP BY id_product', false);
-		
-		$allProductsIn = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-		SELECT p.`id_product` id_product
-		FROM `'._DB_PREFIX_.'product` p
-		'.$priceFilterQueryIn.'
-		'.$queryFiltersFrom.'
-		WHERE 1 '.$queryFiltersWhere.' GROUP BY id_product', false);
-/*
-                echo '
-		SELECT p.`id_product` id_product
-		FROM `'._DB_PREFIX_.'product` p
-		'.$priceFilterQueryIn.'
-		'.$queryFiltersFrom.'
-		WHERE 1 '.$queryFiltersWhere.' GROUP BY id_product  <br>';
                 
-                echo '
-                    
-		SELECT p.`id_product` id_product
-		FROM `'._DB_PREFIX_.'product` p
-		'.$priceFilterQueryOut.'
-		'.$queryFiltersFrom.'
-		WHERE 1 '.$queryFiltersWhere.' GROUP BY id_product';
-                exit;
-                */
+                
+                if($whereLikeFilter!=''){
+                    $allProductsOut = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT p.`id_product` id_product
+                    FROM `'._DB_PREFIX_.'product` p
+                    '.$priceFilterQueryOut.'
+                    '.$queryFiltersFrom.'
+                    LEFT JOIN ps_product_lang pl ON  p.id_product = pl.id_product
+                    WHERE 1 '.$queryFiltersWhere.' AND pl.name like "%'.$whereLikeFilter.'%" GROUP BY id_product', false);
+
+                    $allProductsIn = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT p.`id_product` id_product
+                    FROM `'._DB_PREFIX_.'product` p
+                    '.$priceFilterQueryIn.'
+                    '.$queryFiltersFrom.'
+                    LEFT JOIN ps_product_lang pl ON  p.id_product = pl.id_product
+                    WHERE 1 '.$queryFiltersWhere.'  AND pl.name like "%'.$whereLikeFilter.'%"  GROUP BY id_product', false);
+    
+                }else{
+                    $allProductsOut = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT p.`id_product` id_product
+                    FROM `'._DB_PREFIX_.'product` p
+                    '.$priceFilterQueryOut.'
+                    '.$queryFiltersFrom.'
+                    WHERE 1 '.$queryFiltersWhere.' GROUP BY id_product', false);
+
+                    $allProductsIn = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT p.`id_product` id_product
+                    FROM `'._DB_PREFIX_.'product` p
+                    '.$priceFilterQueryIn.'
+                    '.$queryFiltersFrom.'
+                    WHERE 1 '.$queryFiltersWhere.' GROUP BY id_product', false);  
+                }
+                
+    
+               
+                
                 
 		$productIdList = array();
 		
@@ -2045,7 +2072,25 @@ class BlockLayered extends Module
 					continue;
 				$productIdList[] = (int)$product['id_product'];
 			}
-           
+                        
+           if($whereLikeFilter!=''){
+                $products_cnt = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+			SELECT p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
+			p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
+			DATEDIFF(p.`date_add`,
+			DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
+			FROM `'._DB_PREFIX_.'category_product` cp
+			LEFT JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)
+			LEFT JOIN `'._DB_PREFIX_.'product` p ON p.`id_product` = cp.`id_product`
+			LEFT JOIN '._DB_PREFIX_.'product_lang pl ON (pl.id_product = p.id_product)
+			LEFT JOIN '._DB_PREFIX_.'image i ON (i.id_product = p.id_product AND i.cover = 1)
+			LEFT JOIN '._DB_PREFIX_.'image_lang il ON (i.id_image = il.id_image AND il.id_lang = '.(int)($cookie->id_lang).')
+			LEFT JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
+			WHERE p.`active` = 1 AND  pl.id_lang = '.(int)$cookie->id_lang.'  AND pl.name like "%'.$whereLikeFilter.'%"
+			AND p.id_product IN ('.implode(',', $productIdList).')'
+			.' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true));
+                
+           }else{
                 $products_cnt = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 			SELECT p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
 			p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
@@ -2060,8 +2105,8 @@ class BlockLayered extends Module
 			LEFT JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
 			WHERE p.`active` = 1 AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.' AND pl.id_lang = '.(int)$cookie->id_lang.'
 			AND p.id_product IN ('.implode(',', $productIdList).')'
-			.' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true));
-                        
+			.' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true));   
+           }   
                 $this->nbr_products = count($products_cnt);
 		
 		if ($this->nbr_products == 0)
@@ -2069,26 +2114,49 @@ class BlockLayered extends Module
 		else
 		{
                     if($whereLikeFilter!=''){
-			$n = (int)Tools::getValue('n', Configuration::get('PS_PRODUCTS_PER_PAGE'));
-			$this->products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-			SELECT p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
-			p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
-			DATEDIFF(p.`date_add`,
-			DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
-			FROM `'._DB_PREFIX_.'category_product` cp
-			LEFT JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)
-			LEFT JOIN `'._DB_PREFIX_.'product` p ON p.`id_product` = cp.`id_product`
-			LEFT JOIN '._DB_PREFIX_.'product_lang pl ON (pl.id_product = p.id_product)
-			LEFT JOIN '._DB_PREFIX_.'image i ON (i.id_product = p.id_product AND i.cover = 1)
-			LEFT JOIN '._DB_PREFIX_.'image_lang il ON (i.id_image = il.id_image AND il.id_lang = '.(int)($cookie->id_lang).')
-			LEFT JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
-			WHERE (p.`active` = 1 AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.' AND pl.id_lang = '.(int)$cookie->id_lang.'
-			) OR (pl.name like "%'.$whereLikeFilter.'%")'
-			.' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true).' '.Tools::getProductsOrder('way', Tools::getValue('orderway')).
-			' LIMIT '.(((int)Tools::getValue('p', 1) - 1) * $n.','.$n));
-                /*echo var_dump($productIdList);
-                
-                exit;*/
+                        if(Tools::getValue('orderby')=='price'){
+                            $n = (int)Tools::getValue('n', Configuration::get('PS_PRODUCTS_PER_PAGE'));
+                            $this->products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                            SELECT p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
+                            p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
+                            DATEDIFF(p.`date_add`,
+                            DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
+                            FROM `'._DB_PREFIX_.'category_product` cp
+                            LEFT JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)
+                            LEFT JOIN `'._DB_PREFIX_.'product` p ON p.`id_product` = cp.`id_product`
+                            LEFT JOIN '._DB_PREFIX_.'product_lang pl ON (pl.id_product = p.id_product)
+                            LEFT JOIN '._DB_PREFIX_.'image i ON (i.id_product = p.id_product AND i.cover = 1)
+                            LEFT JOIN '._DB_PREFIX_.'image_lang il ON (i.id_image = il.id_image AND il.id_lang = '.(int)($cookie->id_lang).')
+                            LEFT JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
+                            LEFT JOIN '._DB_PREFIX_.'product_attribute ppat ON (p.id_product = ppat.id_product)  
+                            LEFT JOIN '._DB_PREFIX_.'product_attribute_combination pcat ON (ppat.id_product_attribute = pcat.id_product_attribute) 
+
+                            WHERE pcat.id_attribute = 21 AND p.`active` = 1 AND  pl.id_lang = '.(int)$cookie->id_lang.'
+                            AND p.id_product IN ('.implode(',', $productIdList).')'
+                            .'  GROUP BY p.id_product ORDER BY ppat.price '.Tools::getProductsOrder('way', Tools::getValue('orderway')).
+                            ' LIMIT '.(((int)Tools::getValue('p', 1) - 1) * $n.','.$n));
+     
+                        }else{
+                            $n = (int)Tools::getValue('n', Configuration::get('PS_PRODUCTS_PER_PAGE'));
+                            $this->products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                            SELECT p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
+                            p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
+                            DATEDIFF(p.`date_add`,
+                            DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
+                            FROM `'._DB_PREFIX_.'category_product` cp
+                            LEFT JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)
+                            LEFT JOIN `'._DB_PREFIX_.'product` p ON p.`id_product` = cp.`id_product`
+                            LEFT JOIN '._DB_PREFIX_.'product_lang pl ON (pl.id_product = p.id_product)
+                            LEFT JOIN '._DB_PREFIX_.'image i ON (i.id_product = p.id_product AND i.cover = 1)
+                            LEFT JOIN '._DB_PREFIX_.'image_lang il ON (i.id_image = il.id_image AND il.id_lang = '.(int)($cookie->id_lang).')
+                            LEFT JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
+                            WHERE (p.`active` = 1 AND pl.id_lang = '.(int)$cookie->id_lang.'
+                            ) AND p.id_product IN ('.implode(',', $productIdList).')'
+                            .' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true).' '.Tools::getProductsOrder('way', Tools::getValue('orderway')).
+                            ' LIMIT '.(((int)Tools::getValue('p', 1) - 1) * $n.','.$n));
+                            
+                        }
+                        
                     }else{
                     
                     if(Tools::getValue('orderby')=='price'){
@@ -2146,11 +2214,10 @@ class BlockLayered extends Module
 		global $cookie;
 		static $cache = null;
 		
-                
                 $whereLikeFilter  = $this->getSelectedFiltersByQ();
                 if(!$whereLikeFilter or $whereLikeFilter=='' or $whereLikeFilter==0)
                    $whereLikeFilter = $_SESSION['search_q'];
-
+                $whereLikeFilter = str_replace("+", " ", $whereLikeFilter);
 		if (is_array($cache))
 			return $cache;
 		
@@ -2158,8 +2225,13 @@ class BlockLayered extends Module
 		if ($id_parent == 1)
 			return;
 		
+                if($id_parent != 4011){
+                    $whereLikeFilter = '';
+                }
+                
 		$parent = new Category((int)$id_parent);
 		
+                
 		/* Get the filters for the current category */
 		$filters = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT * FROM '._DB_PREFIX_.'layered_category WHERE id_category = '.(int)$id_parent.'
 		GROUP BY `type`, id_value ORDER BY position ASC');
@@ -2233,6 +2305,18 @@ class BlockLayered extends Module
 					break;
 
 				case 'manufacturer':
+                                    if($whereLikeFilter!=''){
+					$sqlQuery['select'] = 'SELECT m.name, COUNT(DISTINCT p.id_product) nbr, m.id_manufacturer ';
+					$sqlQuery['from'] = '
+					FROM `'._DB_PREFIX_.'category_product` cp
+					INNER JOIN  `'._DB_PREFIX_.'category` c ON (c.id_category = cp.id_category)
+					INNER JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1)
+					INNER JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
+                                        LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product)   ';
+					$sqlQuery['where'] = '
+					WHERE pl.name like "%'.$whereLikeFilter.'%"';
+					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer ';
+                                    }else{
 					$sqlQuery['select'] = 'SELECT m.name, COUNT(DISTINCT p.id_product) nbr, m.id_manufacturer ';
 					$sqlQuery['from'] = '
 					FROM `'._DB_PREFIX_.'category_product` cp
@@ -2241,11 +2325,47 @@ class BlockLayered extends Module
 					INNER JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer) ';
 					$sqlQuery['where'] = '
 					WHERE c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.' ';
-					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer ';
+					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer ';  
+                                    }
 					break;
 
 				case 'id_attribute_group':// attribute group
+                                    if($whereLikeFilter!=''){
 					$sqlQuery['select'] = '
+					SELECT COUNT(DISTINCT p.id_product) nbr, lpa.id_attribute_group,
+					a.color, al.name attribute_name, agl.public_name attribute_group_name , lpa.id_attribute, ag.is_color_group,
+					liagl.url_name name_url_name, liagl.meta_title name_meta_title, lial.url_name value_url_name, lial.meta_title value_meta_title';
+					$sqlQuery['from'] = '
+					FROM '._DB_PREFIX_.'layered_product_attribute lpa
+					INNER JOIN '._DB_PREFIX_.'attribute a
+					ON a.id_attribute = lpa.id_attribute
+					INNER JOIN '._DB_PREFIX_.'attribute_lang al
+					ON al.id_attribute = a.id_attribute
+					AND al.id_lang = '.(int)$cookie->id_lang.'
+					INNER JOIN '._DB_PREFIX_.'product as p
+					ON p.id_product = lpa.id_product
+					AND p.active = 1
+                                        LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product) 
+					INNER JOIN '._DB_PREFIX_.'attribute_group ag
+					ON ag.id_attribute_group = lpa.id_attribute_group
+					INNER JOIN '._DB_PREFIX_.'attribute_group_lang agl
+					ON agl.id_attribute_group = lpa.id_attribute_group
+					AND agl.id_lang = '.(int)$cookie->id_lang.'
+					LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_group_lang_value liagl
+					ON (liagl.id_attribute_group = lpa.id_attribute_group AND liagl.id_lang = '.(int)$cookie->id_lang.')
+					LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_lang_value lial
+					ON (lial.id_attribute = lpa.id_attribute AND lial.id_lang = '.(int)$cookie->id_lang.') ';
+					$sqlQuery['where'] = 'WHERE a.id_attribute_group = '.(int)$filter['id_value'].'
+					AND pl.name like "%'.$whereLikeFilter.'%" AND p.id_product IN (
+					SELECT id_product
+					FROM '._DB_PREFIX_.'category_product cp
+					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)) ';
+					$sqlQuery['group'] = '
+					GROUP BY lpa.id_attribute
+					ORDER BY id_attribute_group, id_attribute ';
+                                        
+                                    }else{
+                                        					$sqlQuery['select'] = '
 					SELECT COUNT(DISTINCT p.id_product) nbr, lpa.id_attribute_group,
 					a.color, al.name attribute_name, agl.public_name attribute_group_name , lpa.id_attribute, ag.is_color_group,
 					liagl.url_name name_url_name, liagl.meta_title name_meta_title, lial.url_name value_url_name, lial.meta_title value_meta_title';
@@ -2275,11 +2395,34 @@ class BlockLayered extends Module
 					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.')) ';
 					$sqlQuery['group'] = '
 					GROUP BY lpa.id_attribute
-					ORDER BY id_attribute_group, id_attribute ';
-					
+					ORDER BY id_attribute_group, id_attribute ';                                        
+                                    }
 					break;
 
 				case 'id_feature':
+                                    if($whereLikeFilter!=''){
+					$sqlQuery['select'] = 'SELECT fl.name feature_name, fp.id_feature, fv.id_feature_value, fvl.value,
+					COUNT(DISTINCT p.id_product) nbr,
+					lifl.url_name name_url_name, lifl.meta_title name_meta_title, lifvl.url_name value_url_name, lifvl.meta_title value_meta_title ';
+					$sqlQuery['from'] = '
+					FROM '._DB_PREFIX_.'feature_product fp
+					INNER JOIN '._DB_PREFIX_.'product p ON (p.id_product = fp.id_product AND p.active = 1)
+                                        LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product) 
+					LEFT JOIN '._DB_PREFIX_.'feature_lang fl ON (fl.id_feature = fp.id_feature AND fl.id_lang = '.(int)$cookie->id_lang.')
+					INNER JOIN '._DB_PREFIX_.'feature_value fv ON (fv.id_feature_value = fp.id_feature_value AND (fv.custom IS NULL OR fv.custom = 0))
+					LEFT JOIN '._DB_PREFIX_.'feature_value_lang fvl ON (fvl.id_feature_value = fp.id_feature_value AND fvl.id_lang = '.(int)$cookie->id_lang.')
+					LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_lang_value lifl
+					ON (lifl.id_feature = fp.id_feature AND lifl.id_lang = '.(int)$cookie->id_lang.')
+					LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_value_lang_value lifvl
+					ON (lifvl.id_feature_value = fp.id_feature_value AND lifvl.id_lang = '.(int)$cookie->id_lang.') ';
+					$sqlQuery['where'] = 'WHERE p.`active` = 1 AND fp.id_feature = '.(int)$filter['id_value'].'
+					AND pl.name like "%'.$whereLikeFilter.'%" AND p.id_product IN (
+					SELECT id_product
+					FROM '._DB_PREFIX_.'category_product cp
+					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)) ';
+					$sqlQuery['group'] = 'GROUP BY fv.id_feature_value order by CAST(fvl.value as UNSIGNED) asc,fvl.value asc';
+                                        
+                                    }else{
 					$sqlQuery['select'] = 'SELECT fl.name feature_name, fp.id_feature, fv.id_feature_value, fvl.value,
 					COUNT(DISTINCT p.id_product) nbr,
 					lifl.url_name name_url_name, lifl.meta_title name_meta_title, lifvl.url_name value_url_name, lifvl.meta_title value_meta_title ';
@@ -2298,10 +2441,32 @@ class BlockLayered extends Module
 					SELECT id_product
 					FROM '._DB_PREFIX_.'category_product cp
 					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.')) ';
-					$sqlQuery['group'] = 'GROUP BY fv.id_feature_value ';
+					$sqlQuery['group'] = 'GROUP BY fv.id_feature_value order by CAST(fvl.value as UNSIGNED) asc,fvl.value asc';  
+                                    }
+                                        
 					break;
 
 				case 'category':
+                                    
+                                    if($whereLikeFilter!=''){
+                                        
+                                        $sqlQuery['select'] = ' SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
+                                        
+                                        $sqlQuery['from'] = 'FROM '._DB_PREFIX_.'category_product cp
+					LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) 
+                                        LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product) ';
+                                        
+                                        $sqlQuery['where'] = ' WHERE cp.id_category = c.id_category and pl.name like "%'.$whereLikeFilter.'%"  ';
+                                        
+                                        $sqlQuery['group'] = ') count_products
+					FROM '._DB_PREFIX_.'category c
+					LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
+					WHERE (SELECT count(DISTINCT p.id_product) cont FROM ps_category_product cp 
+                                            LEFT JOIN ps_product p ON (p.id_product = cp.id_product AND p.active = 1) 
+                                            LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product) 
+                                            WHERE cp.id_category = c.id_category and pl.name like "%'.$whereLikeFilter.'%"  )>=1
+					GROUP BY cl.name ORDER BY level_depth, c.position';
+                                        }else{
 					$sqlQuery['select'] = '
 					SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
 					$sqlQuery['from'] = '
@@ -2314,6 +2479,8 @@ class BlockLayered extends Module
 					LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
 					WHERE c.id_parent = '.(int)$id_parent.'
 					GROUP BY c.id_category ORDER BY level_depth, c.position';
+                                    }
+                                        
 			}
 
 			foreach ($filters as $filterTmp)
@@ -2332,6 +2499,7 @@ class BlockLayered extends Module
 							$selected_filters_cleaned = @$selectedFilters[$filterTmp['type']];
 						$subQueryFilter = self::$methodName($selected_filters_cleaned, $filter['type'] == $filterTmp['type']);
 					}
+                                        if($filter['type']!="category")
 					foreach ($subQueryFilter as $key => $value)
 						$sqlQuery[$key] .= $value;
 				}
@@ -2341,7 +2509,6 @@ class BlockLayered extends Module
 			if (!empty($sqlQuery['from']))
 				$products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS($sqlQuery['select']."\n".$sqlQuery['from']."\n".$sqlQuery['join']."\n".$sqlQuery['where']."\n".$sqlQuery['group']);
 
-                        
                         foreach ($filters as $filterTmp)
 			{
 				$methodName = 'filterProductsBy'.ucfirst($filterTmp['type']);
@@ -2709,7 +2876,6 @@ class BlockLayered extends Module
 			INNER JOIN `'._DB_PREFIX_.'layered_price_index` psi 
 			ON (psi.id_product = p.id_product AND psi.id_currency = '.(int)$idCurrency.') ';
 		}
-		
 		return array('join' => $priceFilterQuery, 'select' => ', psi.price_min, psi.price_max');
 	}
 	
