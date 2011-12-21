@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/docs/csv_import
+END
+manufacturer_import.csv
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/docs/csv_import/manufacturer_import.csv
+END
+products_import.csv
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/docs/csv_import/products_import.csv
+END
+customers_import.csv
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/docs/csv_import/customers_import.csv
+END
+categories_import.csv
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/docs/csv_import/categories_import.csv
+END
+combinations_import.csv
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/docs/csv_import/combinations_import.csv
+END
+suppliers_import.csv
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/docs/csv_import/suppliers_import.csv
+END
+adresses_import.csv
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/docs/csv_import/adresses_import.csv
+END

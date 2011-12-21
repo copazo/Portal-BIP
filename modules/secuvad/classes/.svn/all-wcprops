@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/modules/secuvad/classes
+END
+Secuvad_connection.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/modules/secuvad/classes/Secuvad_connection.php
+END
+PaymentCC.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/modules/secuvad/classes/PaymentCC.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/secuvad/classes/index.php
+END
+Secuvad_flux.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/secuvad/classes/Secuvad_flux.php
+END

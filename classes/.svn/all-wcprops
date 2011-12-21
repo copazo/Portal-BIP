@@ -1,0 +1,743 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/bip/!svn/ver/465/branches/exeBIPdev/classes
+END
+Alias.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Alias.php
+END
+Tax.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Tax.php
+END
+CacheFS.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/CacheFS.php
+END
+WebserviceOutputXML.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceOutputXML.php
+END
+RangeWeight.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/RangeWeight.php
+END
+PDF.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/classes/PDF.php
+END
+StockMvt.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/StockMvt.php
+END
+Zone.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Zone.php
+END
+Order.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Order.php
+END
+Referrer.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Referrer.php
+END
+OrderReturnState.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/classes/OrderReturnState.php
+END
+AdminTab.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/AdminTab.php
+END
+Employee.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Employee.php
+END
+FileLogger.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bip/!svn/ver/120/branches/exeBIPdev/classes/FileLogger.php
+END
+Logger.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Logger.php
+END
+Image.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Image.php
+END
+Message.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Message.php
+END
+MCached.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/MCached.php
+END
+OrderDiscount.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/OrderDiscount.php
+END
+TaxRule.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/TaxRule.php
+END
+Address.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Address.php
+END
+WebserviceSpecificManagementSearch.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceSpecificManagementSearch.php
+END
+FeatureValue.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bip/!svn/ver/120/branches/exeBIPdev/classes/FeatureValue.php
+END
+Validate.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Validate.php
+END
+Feature.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Feature.php
+END
+OrderHistory.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bip/!svn/ver/120/branches/exeBIPdev/classes/OrderHistory.php
+END
+QuickAccess.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/QuickAccess.php
+END
+Connection.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Connection.php
+END
+Tools.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Tools.php
+END
+Chart.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Chart.php
+END
+Combination.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Combination.php
+END
+Attribute.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Attribute.php
+END
+Cache.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Cache.php
+END
+Search.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/129/branches/exeBIPdev/classes/Search.php
+END
+MySQL.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/MySQL.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/index.php
+END
+Configuration.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Configuration.php
+END
+ModuleGraph.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ModuleGraph.php
+END
+SpecificPrice.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/SpecificPrice.php
+END
+ProductDownload.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ProductDownload.php
+END
+Upgrader.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Upgrader.php
+END
+WebserviceException.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceException.php
+END
+Helper.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Helper.php
+END
+CMSCategory.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/CMSCategory.php
+END
+WebserviceSpecificManagementInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceSpecificManagementInterface.php
+END
+Guest.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Guest.php
+END
+Discount.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Discount.php
+END
+TranslatedConfiguration.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/classes/TranslatedConfiguration.php
+END
+CustomerThread.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/classes/CustomerThread.php
+END
+SearchEngine.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bip/!svn/ver/120/branches/exeBIPdev/classes/SearchEngine.php
+END
+ModuleGrid.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ModuleGrid.php
+END
+Contact.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Contact.php
+END
+Store.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Store.php
+END
+Scene.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Scene.php
+END
+ModuleGraphEngine.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ModuleGraphEngine.php
+END
+CarrierModule.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/CarrierModule.php
+END
+Link.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Link.php
+END
+OrderDetail.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/OrderDetail.php
+END
+WebserviceOutputInterface.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceOutputInterface.php
+END
+Profile.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Profile.php
+END
+Customer.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Customer.php
+END
+Supplier.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Supplier.php
+END
+Country.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Country.php
+END
+Backup.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Backup.php
+END
+WebserviceKey.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceKey.php
+END
+WebserviceRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceRequest.php
+END
+Customization.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Customization.php
+END
+GroupReduction.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/classes/GroupReduction.php
+END
+Shop.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Shop.php
+END
+ControllerFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ControllerFactory.php
+END
+OrderReturn.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/OrderReturn.php
+END
+OrderState.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bip/!svn/ver/120/branches/exeBIPdev/classes/OrderState.php
+END
+Page.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Page.php
+END
+Pack.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Pack.php
+END
+RangePrice.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bip/!svn/ver/120/branches/exeBIPdev/classes/RangePrice.php
+END
+ImportModule.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ImportModule.php
+END
+AttributeGroup.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/classes/AttributeGroup.php
+END
+ModuleGridEngine.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ModuleGridEngine.php
+END
+SubDomain.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/classes/SubDomain.php
+END
+Language.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Language.php
+END
+PaymentModule.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/PaymentModule.php
+END
+TaxRulesGroup.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/TaxRulesGroup.php
+END
+Db.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Db.php
+END
+ProductSale.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ProductSale.php
+END
+Meta.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Meta.php
+END
+ObjectModel.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ObjectModel.php
+END
+WebserviceSpecificManagementImages.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceSpecificManagementImages.php
+END
+Attachment.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Attachment.php
+END
+Cart.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Cart.php
+END
+DateRange.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/classes/DateRange.php
+END
+Currency.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Currency.php
+END
+Manufacturer.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bip/!svn/ver/249/branches/exeBIPdev/classes/Manufacturer.php
+END
+Group.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Group.php
+END
+FrontController.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/classes/FrontController.php
+END
+AddressFormat.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/classes/AddressFormat.php
+END
+Hook.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Hook.php
+END
+AbstractLogger.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/classes/AbstractLogger.php
+END
+ConnectionsSource.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ConnectionsSource.php
+END
+OrderSlip.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/classes/OrderSlip.php
+END
+CustomerMessage.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/classes/CustomerMessage.php
+END
+Tab.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Tab.php
+END
+ConfigurationTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ConfigurationTest.php
+END
+Cookie.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Cookie.php
+END
+HelpAccess.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bip/!svn/ver/120/branches/exeBIPdev/classes/HelpAccess.php
+END
+Tag.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Tag.php
+END
+Blowfish.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Blowfish.php
+END
+Category.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/465/branches/exeBIPdev/classes/Category.php
+END
+OrderMessage.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bip/!svn/ver/120/branches/exeBIPdev/classes/OrderMessage.php
+END
+Product.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/457/branches/exeBIPdev/classes/Product.php
+END
+State.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/classes/State.php
+END
+County.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/classes/County.php
+END
+Mail.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Mail.php
+END
+CMS.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/classes/CMS.php
+END
+StockMvtReason.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/classes/StockMvtReason.php
+END
+Delivery.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Delivery.php
+END
+PaymentCC.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/classes/PaymentCC.php
+END
+ImageType.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/classes/ImageType.php
+END
+Module.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/317/branches/exeBIPdev/classes/Module.php
+END
+WebserviceOutputBuilder.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/classes/WebserviceOutputBuilder.php
+END
+LocalizationPack.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/classes/LocalizationPack.php
+END
+Carrier.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Carrier.php
+END
+CompareProduct.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/classes/CompareProduct.php
+END
+Rijndael.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/classes/Rijndael.php
+END

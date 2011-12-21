@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost
+END
+it.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/it.php
+END
+canadapost.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/canadapost.php
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/config.xml
+END
+logo.gif
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/logo.gif
+END
+carrier.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/carrier.jpg
+END
+xml-package.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/xml-package.tpl
+END
+en.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/en.php
+END
+sql-install.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/sql-install.php
+END
+sql-uninstall.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/sql-uninstall.php
+END
+es.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/es.php
+END
+fr.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/fr.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/index.php
+END
+de.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/de.php
+END
+xml.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/modules/canadapost/xml.tpl
+END

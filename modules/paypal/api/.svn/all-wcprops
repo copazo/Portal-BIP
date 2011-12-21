@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/api
+END
+paypallib.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/api/paypallib.php
+END
+paypalconnect.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/api/paypalconnect.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/api/index.php
+END

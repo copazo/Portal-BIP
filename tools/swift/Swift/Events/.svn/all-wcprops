@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events
+END
+ListenerMapper.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/ListenerMapper.php
+END
+SendEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/SendEvent.php
+END
+DisconnectEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/DisconnectEvent.php
+END
+ConnectEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/ConnectEvent.php
+END
+SendListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/SendListener.php
+END
+DisconnectListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/DisconnectListener.php
+END
+ConnectListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/ConnectListener.php
+END
+ResponseEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/ResponseEvent.php
+END
+ResponseListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/ResponseListener.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/index.php
+END
+BeforeCommandListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/BeforeCommandListener.php
+END
+CommandEvent.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/CommandEvent.php
+END
+BeforeSendListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/BeforeSendListener.php
+END
+CommandListener.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/CommandListener.php
+END
+Listener.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Events/Listener.php
+END

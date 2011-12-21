@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket
+END
+redirect.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/redirect.php
+END
+cashticket-accept-payment.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/cashticket-accept-payment.tpl
+END
+disposition-error.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/disposition-error.tpl
+END
+Disposition.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/Disposition.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/index.php
+END
+fr.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/fr.php
+END
+es.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/es.php
+END
+it.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/it.php
+END
+payment.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/payment.php
+END
+prepaidservices.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/prepaidservices.js
+END
+logo.gif
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/logo.gif
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/config.xml
+END
+cashticket-confirmation.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/cashticket-confirmation.tpl
+END
+cashticket.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/cashticket.php
+END
+PrepaidServicesAPI.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/PrepaidServicesAPI.php
+END
+payment.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/payment.tpl
+END
+de.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/de.php
+END
+PrepaidServices.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/modules/cashticket/PrepaidServices.php
+END

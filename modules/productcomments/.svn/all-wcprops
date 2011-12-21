@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments
+END
+productcomments.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/productcomments.tpl
+END
+ProductCriterion.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/ProductCriterion.php
+END
+en.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/en.php
+END
+ProductComment.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/ProductComment.php
+END
+productcommentscriterion.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/productcommentscriterion.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/index.php
+END
+fr.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/fr.php
+END
+es.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/es.php
+END
+it.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/it.php
+END
+logo.gif
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/logo.gif
+END
+install.sql
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/install.sql
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/config.xml
+END
+tab.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/tab.tpl
+END
+ProductCommentCriterion.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/ProductCommentCriterion.php
+END
+products-comparison.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/products-comparison.tpl
+END
+productcomments.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/productcomments.php
+END
+de.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/productcomments/de.php
+END

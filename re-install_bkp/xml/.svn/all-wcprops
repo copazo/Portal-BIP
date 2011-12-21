@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml
+END
+createDB.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/createDB.php
+END
+doUpgrade.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/doUpgrade.php
+END
+getNonNativeModules.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/getNonNativeModules.php
+END
+getVersionFromDb.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/getVersionFromDb.php
+END
+checkMail.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/checkMail.php
+END
+checkConfig.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/checkConfig.php
+END
+checkDB.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/checkDB.php
+END
+uploadLogo.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/uploadLogo.php
+END
+checkShopInfos.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/checkShopInfos.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/re-install_bkp/xml/index.php
+END

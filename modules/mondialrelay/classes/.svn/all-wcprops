@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes
+END
+MRCreateTickets.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/MRCreateTickets.php
+END
+MRManagement.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/MRManagement.php
+END
+MRRelayDetail.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/MRRelayDetail.php
+END
+MRTools.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/MRTools.php
+END
+JSMin.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/JSMin.php
+END
+IMondialRelayWSMethod.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/IMondialRelayWSMethod.php
+END
+MRGetRelayPoint.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/MRGetRelayPoint.php
+END
+MRGetTickets.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/MRGetTickets.php
+END
+MondialRelayClass.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/MondialRelayClass.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/classes/index.php
+END

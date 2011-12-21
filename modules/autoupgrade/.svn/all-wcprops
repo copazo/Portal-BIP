@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade
+END
+AdminSelfTab.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/AdminSelfTab.php
+END
+ajax-upgradetab.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/ajax-upgradetab.php
+END
+SelfModule.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/SelfModule.php
+END
+en.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/en.php
+END
+init.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/init.php
+END
+Tools14.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/Tools14.php
+END
+Backup.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/Backup.php
+END
+pclzip.lib.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/pclzip.lib.php
+END
+fr.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/fr.php
+END
+es.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/es.php
+END
+ConfigurationTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/ConfigurationTest.php
+END
+functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/functions.php
+END
+Upgrader.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/Upgrader.php
+END
+AdminSelfUpgrade.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/AdminSelfUpgrade.php
+END
+AdminPreferences.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/AdminPreferences.php
+END
+it.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/it.php
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/config.xml
+END
+logo.gif
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/logo.gif
+END
+jquery.xml2json.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/jquery.xml2json.js
+END
+autoupgrade.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/autoupgrade.php
+END
+de.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/de.php
+END
+AdminSelfUpgrade.gif
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/AdminSelfUpgrade.gif
+END
+jquery-1.6.2.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/modules/autoupgrade/jquery-1.6.2.min.js
+END

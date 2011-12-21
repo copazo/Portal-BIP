@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Plugin/VerboseSending
+END
+AbstractView.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Plugin/VerboseSending/AbstractView.php
+END
+DefaultView.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Plugin/VerboseSending/DefaultView.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Plugin/VerboseSending/index.php
+END

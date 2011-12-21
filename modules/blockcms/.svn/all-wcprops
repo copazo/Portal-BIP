@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/125/branches/exeBIPdev/modules/blockcms
+END
+it.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/it.php
+END
+blockcms.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/blockcms.php
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/config.xml
+END
+logo.gif
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/logo.gif
+END
+ajax_blockcms.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/ajax_blockcms.php
+END
+blockcms.js
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/blockcms.js
+END
+en.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/en.php
+END
+blockcms.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/125/branches/exeBIPdev/modules/blockcms/blockcms.tpl
+END
+es.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/es.php
+END
+fr.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/fr.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/index.php
+END
+de.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockcms/de.php
+END

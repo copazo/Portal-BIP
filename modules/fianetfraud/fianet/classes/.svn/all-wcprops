@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/fianetfraud/fianet/classes
+END
+fianet_key_64bits.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/bip/!svn/ver/120/branches/exeBIPdev/modules/fianetfraud/fianet/classes/fianet_key_64bits.php
+END
+fianet_socket.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/bip/!svn/ver/120/branches/exeBIPdev/modules/fianetfraud/fianet/classes/fianet_socket.php
+END
+fianet_key_32bits.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/bip/!svn/ver/120/branches/exeBIPdev/modules/fianetfraud/fianet/classes/fianet_key_32bits.php
+END
+fianet_sender.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/bip/!svn/ver/120/branches/exeBIPdev/modules/fianetfraud/fianet/classes/fianet_sender.php
+END
+fianet_sender.private.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/bip/!svn/ver/120/branches/exeBIPdev/modules/fianetfraud/fianet/classes/fianet_sender.private.inc.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/modules/fianetfraud/fianet/classes/index.php
+END

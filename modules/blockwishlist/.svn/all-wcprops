@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist
+END
+cart.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/cart.php
+END
+blockwishlist.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/blockwishlist.tpl
+END
+en.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/en.php
+END
+WishList.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/WishList.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/index.php
+END
+fr.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/fr.php
+END
+es.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/es.php
+END
+blockwishlist-extra.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/blockwishlist-extra.tpl
+END
+blockwishlist-ajax.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/blockwishlist-ajax.tpl
+END
+view.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/view.php
+END
+it.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/it.php
+END
+mywishlist.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/mywishlist.php
+END
+install.sql
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/install.sql
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/config.xml
+END
+logo.gif
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/logo.gif
+END
+blockwishlist-header.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/blockwishlist-header.tpl
+END
+managewishlist.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/managewishlist.php
+END
+sendwishlist.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/sendwishlist.php
+END
+blockwishlist.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/blockwishlist.php
+END
+view.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/view.tpl
+END
+mywishlist.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/mywishlist.tpl
+END
+buywishlistproduct.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/buywishlistproduct.php
+END
+managewishlist.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/managewishlist.tpl
+END
+my-account.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/my-account.tpl
+END
+de.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/blockwishlist/de.php
+END

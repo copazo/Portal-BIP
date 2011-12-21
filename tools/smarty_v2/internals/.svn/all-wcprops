@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals
+END
+core.assign_smarty_interface.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.assign_smarty_interface.php
+END
+core.load_resource_plugin.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.load_resource_plugin.php
+END
+core.rm_auto.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.rm_auto.php
+END
+core.write_compiled_include.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.write_compiled_include.php
+END
+core.process_cached_inserts.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.process_cached_inserts.php
+END
+core.write_cache_file.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.write_cache_file.php
+END
+core.rmdir.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.rmdir.php
+END
+core.write_compiled_resource.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.write_compiled_resource.php
+END
+core.load_plugins.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.load_plugins.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/index.php
+END
+core.is_secure.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.is_secure.php
+END
+core.create_dir_structure.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.create_dir_structure.php
+END
+core.is_trusted.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.is_trusted.php
+END
+core.assemble_plugin_filepath.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.assemble_plugin_filepath.php
+END
+core.run_insert_handler.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.run_insert_handler.php
+END
+core.get_microtime.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.get_microtime.php
+END
+core.smarty_include_php.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.smarty_include_php.php
+END
+core.write_file.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.write_file.php
+END
+core.read_cache_file.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.read_cache_file.php
+END
+core.process_compiled_include.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.process_compiled_include.php
+END
+core.get_php_resource.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.get_php_resource.php
+END
+core.display_debug_console.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.display_debug_console.php
+END
+core.get_include_path.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/bip/!svn/ver/120/branches/exeBIPdev/tools/smarty_v2/internals/core.get_include_path.php
+END

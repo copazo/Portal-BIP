@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops
+END
+widget.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/widget.tpl
+END
+order-confirmation-tsbp-classic.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/order-confirmation-tsbp-classic.tpl
+END
+display_products.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/display_products.tpl
+END
+cron.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/cron.php
+END
+en.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/en.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/index.php
+END
+fr.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/fr.php
+END
+es.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/es.php
+END
+cron_garantee.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/cron_garantee.php
+END
+WidgetCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/WidgetCache.php
+END
+trustedshops.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/trustedshops.php
+END
+order-confirmation.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/order-confirmation.tpl
+END
+it.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/it.php
+END
+RatingAlert.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/RatingAlert.php
+END
+logo.gif
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/logo.gif
+END
+config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/config.xml
+END
+TrustedShopsSoapApi.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/TrustedShopsSoapApi.php
+END
+seal_of_approval.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/seal_of_approval.tpl
+END
+de.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/modules/trustedshops/de.php
+END

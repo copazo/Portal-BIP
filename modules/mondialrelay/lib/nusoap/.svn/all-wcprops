@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap
+END
+class.soap_server.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.soap_server.php
+END
+class.wsdl.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.wsdl.php
+END
+nusoapmime.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/nusoapmime.php
+END
+class.soap_fault.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.soap_fault.php
+END
+class.soap_transport_http.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.soap_transport_http.php
+END
+class.wsdlcache.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.wsdlcache.php
+END
+class.soap_parser.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.soap_parser.php
+END
+class.nusoap_base.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.nusoap_base.php
+END
+class.soapclient.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.soapclient.php
+END
+class.xmlschema.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.xmlschema.php
+END
+nusoap.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/nusoap.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/index.php
+END
+class.soap_val.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/bip/!svn/ver/120/branches/exeBIPdev/modules/mondialrelay/lib/nusoap/class.soap_val.php
+END

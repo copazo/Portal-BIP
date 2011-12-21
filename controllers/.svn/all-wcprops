@@ -1,0 +1,209 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/bip/!svn/ver/466/branches/exeBIPdev/controllers
+END
+AddressController.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/AddressController.php
+END
+BestSalesController.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/BestSalesController.php
+END
+CompareController.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/CompareController.php
+END
+PageNotFoundController.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/PageNotFoundController.php
+END
+CartController.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/CartController.php
+END
+ManufacturerController.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/ManufacturerController.php
+END
+OrderFollowController.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/OrderFollowController.php
+END
+AuthController.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/AuthController.php
+END
+SitemapController.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/SitemapController.php
+END
+MyAccountController.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/MyAccountController.php
+END
+OrderSlipController.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/OrderSlipController.php
+END
+SearchController.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/323/branches/exeBIPdev/controllers/SearchController.php
+END
+GuestTrackingController.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/GuestTrackingController.php
+END
+OrderOpcController.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/OrderOpcController.php
+END
+CategoryController.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/466/branches/exeBIPdev/controllers/CategoryController.php
+END
+ProductController.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/198/branches/exeBIPdev/controllers/ProductController.php
+END
+CMSController.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/CMSController.php
+END
+OrderConfirmationController.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/OrderConfirmationController.php
+END
+ParentOrderController.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/ParentOrderController.php
+END
+DiscountController.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/DiscountController.php
+END
+IdentityController.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/IdentityController.php
+END
+ContactController.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/ContactController.php
+END
+OrderDetailController.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/OrderDetailController.php
+END
+HistoryController.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/HistoryController.php
+END
+PasswordController.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/PasswordController.php
+END
+SupplierController.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/SupplierController.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/index.php
+END
+IndexController.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/IndexController.php
+END
+PricesDropController.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/PricesDropController.php
+END
+OrderReturnController.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/OrderReturnController.php
+END
+OrderController.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/OrderController.php
+END
+NewProductsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/NewProductsController.php
+END
+AddressesController.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/AddressesController.php
+END
+StoresController.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/controllers/StoresController.php
+END

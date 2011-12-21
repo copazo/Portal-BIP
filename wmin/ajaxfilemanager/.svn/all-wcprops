@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager
+END
+ajax_image_editor.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_image_editor.php
+END
+ajax_editor_reset.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_editor_reset.php
+END
+ajax_file_cut.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_file_cut.php
+END
+ajax_text_editor.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_text_editor.php
+END
+_ajax_load_folders.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/_ajax_load_folders.php
+END
+ajax_save_name.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_save_name.php
+END
+ajax_create_folder.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_create_folder.php
+END
+debug.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/debug.html
+END
+ajax_image_save.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_image_save.php
+END
+ajax_delete_file.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_delete_file.php
+END
+mediaplayer.swf
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/mediaplayer.swf
+END
+ajax_save_text.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_save_text.php
+END
+ajax_get_folder_listing.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_get_folder_listing.php
+END
+ajax_save_as_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_save_as_form.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/index.php
+END
+ajax_download.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_download.php
+END
+ajax_image_undo.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_image_undo.php
+END
+ajax_get_file_listing.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_get_file_listing.php
+END
+ajax_login.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_login.php
+END
+ajax_file_copy.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_file_copy.php
+END
+_ajax_get_thumbnail_listing.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/_ajax_get_thumbnail_listing.php
+END
+ajax_file_paste.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_file_paste.php
+END
+ajaxfilemanager.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajaxfilemanager.php
+END
+_ajax_get_details_listing.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/_ajax_get_details_listing.php
+END
+ajax_preview.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_preview.php
+END
+ajax_file_upload.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_file_upload.php
+END
+ajax_image_thumbnail.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajaxfilemanager/ajax_image_thumbnail.php
+END

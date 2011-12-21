@@ -1,0 +1,24 @@
+/* category.tpl */
+body#category #subcategories li {
+    background-color: #FFFFFF;
+    border: 5px solid #EBEBEB;
+    color: #606265;
+    float: left;
+    height: 180px;
+    margin: 7px;
+    padding: 15px;
+    width: 180px;
+}
+div.cat_desc {
+	margin: 0 1em
+}
+body#category div#subcategories .inline_list a img {
+	display: inline
+}
+#category img#categoryImage {
+	margin-top: 1em
+}
+#subcategories {
+    height: 430px;
+    width: 958px;
+}

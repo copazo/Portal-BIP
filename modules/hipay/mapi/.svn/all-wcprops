@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi
+END
+mapi_affiliate.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_affiliate.php
+END
+mapi_utf8.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_utf8.php
+END
+mapi_simplepayment.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_simplepayment.php
+END
+mapi_multiplepayment.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_multiplepayment.php
+END
+mapi_installment.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_installment.php
+END
+mapi_package.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_package.php
+END
+mapi_tax.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_tax.php
+END
+mapi_item.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_item.php
+END
+mapi_exception.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_exception.php
+END
+mapi_utils.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_utils.php
+END
+mapi_xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_xml.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/index.php
+END
+mapi_send_xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_send_xml.php
+END
+mapi_order.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_order.php
+END
+mapi_comm_xml.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_comm_xml.php
+END
+mapi_lockable.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_lockable.php
+END
+mapi_payment.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_payment.php
+END
+mapi_product.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_product.php
+END
+mapi_paymentparams.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_paymentparams.php
+END
+mapi_defs.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/modules/hipay/mapi/mapi_defs.php
+END

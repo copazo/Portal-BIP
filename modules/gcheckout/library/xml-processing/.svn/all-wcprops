@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/gcheckout/library/xml-processing
+END
+gc_xmlbuilder.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/bip/!svn/ver/120/branches/exeBIPdev/modules/gcheckout/library/xml-processing/gc_xmlbuilder.php
+END
+gc_xmlparser.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/bip/!svn/ver/120/branches/exeBIPdev/modules/gcheckout/library/xml-processing/gc_xmlparser.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/bip/!svn/ver/120/branches/exeBIPdev/modules/gcheckout/library/xml-processing/index.php
+END

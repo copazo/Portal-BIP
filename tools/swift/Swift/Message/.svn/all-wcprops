@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message
+END
+EmbeddedFile.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/EmbeddedFile.php
+END
+Headers.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/Headers.php
+END
+Encoder.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/Encoder.php
+END
+Image.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/Image.php
+END
+MimeException.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/MimeException.php
+END
+Part.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/Part.php
+END
+Mime.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/Mime.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/index.php
+END
+Attachment.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/tools/swift/Swift/Message/Attachment.php
+END

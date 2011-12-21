@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/payment
+END
+submit.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/payment/submit.php
+END
+paypalpayment.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/payment/paypalpayment.php
+END
+payment.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/payment/payment.tpl
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bip/!svn/ver/120/branches/exeBIPdev/modules/paypal/payment/index.php
+END

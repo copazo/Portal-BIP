@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/bip/!svn/ver/120/branches/exeBIPdev/docs
+END
+readme_es.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/docs/readme_es.txt
+END
+readme_fr.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/docs/readme_fr.txt
+END
+readme_de.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/docs/readme_de.txt
+END
+CHANGELOG
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/bip/!svn/ver/120/branches/exeBIPdev/docs/CHANGELOG
+END
+readme_it.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/docs/readme_it.txt
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/bip/!svn/ver/120/branches/exeBIPdev/docs/index.php
+END
+readme_en.txt
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/docs/readme_en.txt
+END

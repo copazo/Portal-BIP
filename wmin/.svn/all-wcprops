@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/bip/!svn/ver/172/branches/exeBIPdev/wmin
+END
+confirm.php
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/confirm.php
+END
+ajax_send_mail_test.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajax_send_mail_test.php
+END
+header.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/header.inc.php
+END
+ajax_products_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajax_products_list.php
+END
+password.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/password.php
+END
+init.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/init.php
+END
+backup.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/backup.php
+END
+ajax_lang_packs.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajax_lang_packs.php
+END
+footer.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/footer.inc.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/index.php
+END
+login.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/login.php
+END
+functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/functions.php
+END
+displayImage.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/displayImage.php
+END
+pdf.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/pdf.php
+END
+cron_currency_rates.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/cron_currency_rates.php
+END
+ajax_category_list.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajax_category_list.php
+END
+grider.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/grider.php
+END
+get-file-admin.php
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/get-file-admin.php
+END
+ajax.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajax.php
+END
+drawer.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/drawer.php
+END
+uploadProductFile.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/uploadProductFile.php
+END
+ajax-tab.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/ajax-tab.php
+END
+searchcron.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bip/!svn/ver/120/branches/exeBIPdev/wmin/searchcron.php
+END
