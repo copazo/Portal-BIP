@@ -1883,7 +1883,7 @@ class BlockLayered extends Module
 		/* If the current category isn't defined or if it's homepage, we have nothing to display */
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', 1));
                 
-                if($id_parent != 4011){
+                if($id_parent != 4012){
                     $whereLikeFilter = '';
                 }
 		if ($id_parent == 1)
@@ -2225,7 +2225,7 @@ class BlockLayered extends Module
 		if ($id_parent == 1)
 			return;
 		
-                if($id_parent != 4011){
+                if($id_parent != 4012){
                     $whereLikeFilter = '';
                 }
                 
