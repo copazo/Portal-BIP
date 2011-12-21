@@ -144,11 +144,12 @@ function changeTab(tab)
 		$('#group_5').val('24');
 
 	}else{
+            $('#cl_internet').show();
             $('.s_precio_mall').hide();
             $('.s_precio_tiendas').hide();
             $('.s_precio_internet').show();
-$('#our_price_display_internet').show();
-$('#our_price_display_tienda').hide();
+            $('#our_price_display_internet').show();
+            $('#our_price_display_tienda').hide();
         }
 	if(typeof findCombination == 'function') {
 		findCombination();

@@ -230,25 +230,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 
 	<!-- left infos-->
 	<div id="pb-left-column">
-		{if $product->description_short OR $packItems|@count > 0}
-		<div id="short_description_block">
-			{if $product->description_short}
-				<div id="short_description_content" class="rte align_justify">{$product->description_short}</div>
-			{/if}
-			{if $product->description}
-			<p class="buttons_bottom_block"><a href="javascript:{ldelim}{rdelim}" class="button">{l s='More details'}</a></p>
-			{/if}
-			{if $packItems|@count > 0}
-				<h3>{l s='Pack content'}</h3>
-				{foreach from=$packItems item=packItem}
-					<div class="pack_content">
-						{$packItem.pack_quantity} x <a href="{$link->getProductLink($packItem.id_product, $packItem.link_rewrite, $packItem.category)}">{$packItem.name|escape:'htmlall':'UTF-8'}</a>
-						<p>{$packItem.description_short}</p>
-					</div>
-				{/foreach}
-			{/if}
-		</div>
-		{/if}
+
 
 		{if isset($colors) && $colors}
 		<!-- colors -->
@@ -276,26 +258,33 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
 			</p>
 			<h1>{$product->name|escape:'htmlall':'UTF-8'} (C&oacute;d. {$product->id|intval})</h1>
-			{if $features}
-				<!-- product's features -->
-				<ul>
-				{assign var='iter_f' value=0}
-				{foreach from=$features item=feature name=i}
-					{if  $iter_f++ < 4}
-					{if  $feature.name!='Garantia'}
-					<li><span>{$feature.name|escape:'htmlall':'UTF-8'}:</span> {$feature.value|escape:'htmlall':'UTF-8'}</li>
-					{else}
-						{assign var='iter_f' value=$iter_f-1}
-					{/if}
-					{/if}
-				{/foreach}
-				{foreach from=$features item=feature name=i}
-					{if  $feature.name=='Garantia'}
-					<li><span>{$feature.name|escape:'htmlall':'UTF-8'}:</span> {$feature.value|escape:'htmlall':'UTF-8'}</li>
-					{/if}
-				{/foreach}
-				</ul>
-			{/if}
+			
+                        {if $product->description_short}
+                            <div id="short_description_content" class="rte align_justify">{$product->description_short}</div>
+                        
+                        {else}
+                            {if $features}
+                                    <!-- product's features -->
+                                    <ul id="short_description_content" class="rte align_justify">
+                                    {assign var='iter_f' value=0}
+                                    {foreach from=$features item=feature name=i}
+                                            {if  $iter_f++ < 20}
+                                            {if  $feature.name!='Garantia'}
+                                            <li>{$feature.value|escape:'htmlall':'UTF-8'}</li>
+                                            {else}
+                                                    {assign var='iter_f' value=$iter_f-1}
+                                            {/if}
+                                            {/if}
+                                    {/foreach}
+                                    {foreach from=$features item=feature name=i}
+                                            {if  $feature.name=='Garantia'}
+                                            <li><span>{$feature.name|escape:'htmlall':'UTF-8'}:</span> {$feature.value|escape:'htmlall':'UTF-8'}</li>
+                                            {/if}
+                                    {/foreach}
+                                    </ul>
+                            {/if}
+                        {/if}    
+
 			<!-- prices -->
 			{if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
 				<p class="price">
@@ -423,12 +412,12 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 				<table width="100%" cellspacing="0" cellpadding="0" border="0">
 						<tbody>
 								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Transferecia Electr&oacute;nica</td>
-										<td width="140" align="left">&nbsp;</td>
+										<td width="*" align="left" colspan=2>&nbsp;&nbsp;&middot; Transferecia Electr&oacute;nica</td>
+										
 								</tr>
 								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Transbank - Tarjetas de Cr&eacute;dito</td>
-										<td width="140" align="left"><img border="0" src="{$img_dir}icono_tarjetas.gif"></td>
+										<td width="*" align="left" colspan=2>&nbsp;&nbsp;&middot; Transbank - Tarjetas de Cr&eacute;dito
+										<img border="0" src="{$img_dir}icono_tarjetas.gif"></td>
 								</tr> 
                                                                 <tr height="22"><td colspan=2>
                                                                 <a style="cursor: pointer; cursor: hand;" onclick="changeTab('t_tiendas2');">Ver Cuotas</a>
@@ -451,7 +440,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 													<!--	este div es para pago con cheques en la pestana "tiendas" y "usados" - copazo	-->
 			<div id="cuotas" style="display:none;" align="left">
 				<form name="frmCuotas">
-						<table width="100%" cellspacing="0" cellpadding="2" border="0">
+						<table width="200px" cellspacing="0" cellpadding="2" border="0">
 								<tbody>
 										<tr>
 												<td height="20" align="center" colspan="3">Calcula el valor de tus cheques</td>
@@ -482,14 +471,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 										</td>
 										
 								</tr>
-								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Efectivo</td>
-										<td width="140" align="left">&nbsp;</td>
-								</tr>
-								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Tarjetas de Cr&eacute;dito</td>
-										<td width="140" align="left"><img border="0" src="{$img_dir}icono_tarjetas.gif"></td>
-								</tr>
+								
 						</tbody>
 				</table>
 				</div>

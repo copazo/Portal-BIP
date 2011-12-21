@@ -63,6 +63,10 @@ class LinkCore
 	  * @param string $alias Friendly URL (only if $id_OBJ is the object)
 	  * @return string link
 	  */
+        public function getURLSiteBase()
+	{
+            return _PS_BASE_URL_.__PS_BASE_URI__;       
+        }
 	public function getProductLink($id_product, $alias = NULL, $category = NULL, $ean13 = NULL, $id_lang = NULL)
 	{
 		global $cookie;
@@ -108,7 +112,7 @@ class LinkCore
 					$link .= $category.'/';
 				else 
 				 	$link .= '';
-				 
+				
 				$link .= (int)$id_product.'-'.$alias;
 				
 				if ($ean13) 
@@ -261,6 +265,7 @@ class LinkCore
 	
 	public function getPageLink($filename, $ssl = false, $id_lang = NULL)
 	{
+            //buscar
 		global $cookie;
 		if ($id_lang == NULL)
 			$id_lang = (int)($cookie->id_lang);
