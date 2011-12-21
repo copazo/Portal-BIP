@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-12-20 08:50:26
+<?php /* Smarty version Smarty-3.0.7, created on 2011-12-21 18:01:49
          compiled from "/var/www/html/demo.cl/exeBIPdev/themes/ps_bip/header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:10713053544ef076827e8ab0-67334052%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:5194858204ef2493d528f82-66297767%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b6ffddbe3fe886407d7ff9e4ec3931a383704811' => 
     array (
       0 => '/var/www/html/demo.cl/exeBIPdev/themes/ps_bip/header.tpl',
-      1 => 1324348341,
+      1 => 1324493887,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '10713053544ef076827e8ab0-67334052',
+  'nocache_hash' => '5194858204ef2493d528f82-66297767',
   'function' => 
   array (
   ),
@@ -169,11 +169,12 @@ function changeTab(tab)
 		$('#group_5').val('24');
 
 	}else{
+            $('#cl_internet').show();
             $('.s_precio_mall').hide();
             $('.s_precio_tiendas').hide();
             $('.s_precio_internet').show();
-$('#our_price_display_internet').show();
-$('#our_price_display_tienda').hide();
+            $('#our_price_display_internet').show();
+            $('#our_price_display_tienda').hide();
         }
 	if(typeof findCombination == 'function') {
 		findCombination();
