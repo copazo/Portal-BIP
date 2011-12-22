@@ -538,7 +538,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 				checkMinimalQuantity();
 			</script>
 			{/if}
-allo:{$allow_oosp}
+alloaaaaaaaaaaaaaaaaa:{$allow_oosp}
 			<!-- availability -->
 			<p id="availability_statut"{if ($product->quantity <= 0 && !$product->available_later && $allow_oosp) OR ($product->quantity > 0 && !$product->available_now) OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
 				<span id="availability_label">{l s='Availability:'}</span>
