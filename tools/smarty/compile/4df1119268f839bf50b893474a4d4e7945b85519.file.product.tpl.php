@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.7, created on 2011-12-20 00:19:48
+<?php /* Smarty version Smarty-3.0.7, created on 2011-12-21 17:21:01
          compiled from "/var/www/html/demo.cl/exeBIPdev/themes/ps_bip/product.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14345051374eeffed4c79f38-85716416%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:18042772264ef23fadef9428-23036851%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '4df1119268f839bf50b893474a4d4e7945b85519' => 
     array (
       0 => '/var/www/html/demo.cl/exeBIPdev/themes/ps_bip/product.tpl',
-      1 => 1324348370,
+      1 => 1324494948,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '14345051374eeffed4c79f38-85716416',
+  'nocache_hash' => '18042772264ef23fadef9428-23036851',
   'function' => 
   array (
   ),
@@ -374,36 +374,7 @@ icon/cancel_16x18.gif" alt="<?php echo smartyTranslate(array('s'=>'Cancel'),$_sm
 
 	<!-- left infos-->
 	<div id="pb-left-column">
-		<?php if ($_smarty_tpl->getVariable('product')->value->description_short||count($_smarty_tpl->getVariable('packItems')->value)>0){?>
-		<div id="short_description_block">
-			<?php if ($_smarty_tpl->getVariable('product')->value->description_short){?>
-				<div id="short_description_content" class="rte align_justify"><?php echo $_smarty_tpl->getVariable('product')->value->description_short;?>
-</div>
-			<?php }?>
-			<?php if ($_smarty_tpl->getVariable('product')->value->description){?>
-			<p class="buttons_bottom_block"><a href="javascript:{}" class="button"><?php echo smartyTranslate(array('s'=>'More details'),$_smarty_tpl);?>
-</a></p>
-			<?php }?>
-			<?php if (count($_smarty_tpl->getVariable('packItems')->value)>0){?>
-				<h3><?php echo smartyTranslate(array('s'=>'Pack content'),$_smarty_tpl);?>
-</h3>
-				<?php  $_smarty_tpl->tpl_vars['packItem'] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('packItems')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-if ($_smarty_tpl->_count($_from) > 0){
-    foreach ($_from as $_smarty_tpl->tpl_vars['packItem']->key => $_smarty_tpl->tpl_vars['packItem']->value){
-?>
-					<div class="pack_content">
-						<?php echo $_smarty_tpl->tpl_vars['packItem']->value['pack_quantity'];?>
- x <a href="<?php echo $_smarty_tpl->getVariable('link')->value->getProductLink($_smarty_tpl->tpl_vars['packItem']->value['id_product'],$_smarty_tpl->tpl_vars['packItem']->value['link_rewrite'],$_smarty_tpl->tpl_vars['packItem']->value['category']);?>
-"><?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['packItem']->value['name'],'htmlall','UTF-8');?>
-</a>
-						<p><?php echo $_smarty_tpl->tpl_vars['packItem']->value['description_short'];?>
-</p>
-					</div>
-				<?php }} ?>
-			<?php }?>
-		</div>
-		<?php }?>
+
 
 		<?php if (isset($_smarty_tpl->getVariable('colors',null,true,false)->value)&&$_smarty_tpl->getVariable('colors')->value){?>
 		<!-- colors -->
@@ -450,38 +421,45 @@ if ($_smarty_tpl->_count($_from) > 0){
 			<h1><?php echo smarty_modifier_escape($_smarty_tpl->getVariable('product')->value->name,'htmlall','UTF-8');?>
  (C&oacute;d. <?php echo intval($_smarty_tpl->getVariable('product')->value->id);?>
 )</h1>
-			<?php if ($_smarty_tpl->getVariable('features')->value){?>
-				<!-- product's features -->
-				<ul>
-				<?php $_smarty_tpl->tpl_vars['iter_f'] = new Smarty_variable(0, null, null);?>
-				<?php  $_smarty_tpl->tpl_vars['feature'] = new Smarty_Variable;
+			
+                        <?php if ($_smarty_tpl->getVariable('product')->value->description_short){?>
+                            <div id="short_description_content" class="rte align_justify"><?php echo $_smarty_tpl->getVariable('product')->value->description_short;?>
+</div>
+                        
+                        <?php }else{ ?>
+                            <?php if ($_smarty_tpl->getVariable('features')->value){?>
+                                    <!-- product's features -->
+                                    <ul id="short_description_content" class="rte align_justify">
+                                    <?php $_smarty_tpl->tpl_vars['iter_f'] = new Smarty_variable(0, null, null);?>
+                                    <?php  $_smarty_tpl->tpl_vars['feature'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('features')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['feature']->key => $_smarty_tpl->tpl_vars['feature']->value){
 ?>
-					<?php if ($_smarty_tpl->getVariable('iter_f')->value++<4){?>
-					<?php if ($_smarty_tpl->tpl_vars['feature']->value['name']!='Garantia'){?>
-					<li><span><?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['feature']->value['name'],'htmlall','UTF-8');?>
-:</span> <?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['feature']->value['value'],'htmlall','UTF-8');?>
+                                            <?php if ($_smarty_tpl->getVariable('iter_f')->value++<20){?>
+                                            <?php if ($_smarty_tpl->tpl_vars['feature']->value['name']!='Garantia'){?>
+                                            <li><?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['feature']->value['value'],'htmlall','UTF-8');?>
 </li>
-					<?php }else{ ?>
-						<?php $_smarty_tpl->tpl_vars['iter_f'] = new Smarty_variable($_smarty_tpl->getVariable('iter_f')->value-1, null, null);?>
-					<?php }?>
-					<?php }?>
-				<?php }} ?>
-				<?php  $_smarty_tpl->tpl_vars['feature'] = new Smarty_Variable;
+                                            <?php }else{ ?>
+                                                    <?php $_smarty_tpl->tpl_vars['iter_f'] = new Smarty_variable($_smarty_tpl->getVariable('iter_f')->value-1, null, null);?>
+                                            <?php }?>
+                                            <?php }?>
+                                    <?php }} ?>
+                                    <?php  $_smarty_tpl->tpl_vars['feature'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('features')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['feature']->key => $_smarty_tpl->tpl_vars['feature']->value){
 ?>
-					<?php if ($_smarty_tpl->tpl_vars['feature']->value['name']=='Garantia'){?>
-					<li><span><?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['feature']->value['name'],'htmlall','UTF-8');?>
+                                            <?php if ($_smarty_tpl->tpl_vars['feature']->value['name']=='Garantia'){?>
+                                            <li><span><?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['feature']->value['name'],'htmlall','UTF-8');?>
 :</span> <?php echo smarty_modifier_escape($_smarty_tpl->tpl_vars['feature']->value['value'],'htmlall','UTF-8');?>
 </li>
-					<?php }?>
-				<?php }} ?>
-				</ul>
-			<?php }?>
+                                            <?php }?>
+                                    <?php }} ?>
+                                    </ul>
+                            <?php }?>
+                        <?php }?>    
+
 			<!-- prices -->
 			<?php if ($_smarty_tpl->getVariable('product')->value->show_price&&!isset($_smarty_tpl->getVariable('restricted_country_mode',null,true,false)->value)&&!$_smarty_tpl->getVariable('PS_CATALOG_MODE')->value){?>
 				<p class="price">
@@ -661,12 +639,12 @@ if ($_smarty_tpl->_count($_from) > 0){
 				<table width="100%" cellspacing="0" cellpadding="0" border="0">
 						<tbody>
 								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Transferecia Electr&oacute;nica</td>
-										<td width="140" align="left">&nbsp;</td>
+										<td width="*" align="left" colspan=2>&nbsp;&nbsp;&middot; Transferecia Electr&oacute;nica</td>
+										
 								</tr>
 								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Transbank - Tarjetas de Cr&eacute;dito</td>
-										<td width="140" align="left"><img border="0" src="<?php echo $_smarty_tpl->getVariable('img_dir')->value;?>
+										<td width="*" align="left" colspan=2>&nbsp;&nbsp;&middot; Transbank - Tarjetas de Cr&eacute;dito
+										<img border="0" src="<?php echo $_smarty_tpl->getVariable('img_dir')->value;?>
 icono_tarjetas.gif"></td>
 								</tr> 
                                                                 <tr height="22"><td colspan=2>
@@ -690,7 +668,7 @@ icono_tarjetas.gif"></td>
 													<!--	este div es para pago con cheques en la pestana "tiendas" y "usados" - copazo	-->
 			<div id="cuotas" style="display:none;" align="left">
 				<form name="frmCuotas">
-						<table width="100%" cellspacing="0" cellpadding="2" border="0">
+						<table width="300px" cellspacing="0" cellpadding="2" border="0">
 								<tbody>
 										<tr>
 												<td height="20" align="center" colspan="3">Calcula el valor de tus cheques</td>
@@ -721,15 +699,7 @@ icono_tarjetas.gif"></td>
 										</td>
 										
 								</tr>
-								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Efectivo</td>
-										<td width="140" align="left">&nbsp;</td>
-								</tr>
-								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Tarjetas de Cr&eacute;dito</td>
-										<td width="140" align="left"><img border="0" src="<?php echo $_smarty_tpl->getVariable('img_dir')->value;?>
-icono_tarjetas.gif"></td>
-								</tr>
+								
 						</tbody>
 				</table>
 				</div>
