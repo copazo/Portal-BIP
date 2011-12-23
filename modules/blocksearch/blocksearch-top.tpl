@@ -61,6 +61,7 @@
 		}
 		
 		$("#search_query_top").keyup(function(){
+alert($("#search_query_top").val());
 			if($(this).val().length > 0){
 				stopInstantSearchQueries();
 				instantSearchQuery = $.ajax({
@@ -68,6 +69,7 @@
 				data: 'instantSearch=1&id_lang={/literal}{$cookie->id_lang}{literal}&q='+$(this).val(),
 				dataType: 'html',
 				success: function(data){
+alert($("#search_query_top").val());
 					if($("#search_query_top").val().length > 0)
 					{
 						tryToCloseInstantSearch();
