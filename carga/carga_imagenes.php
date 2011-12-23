@@ -29,23 +29,15 @@ while($row=mysql_fetch_array($res_productos))
 		$image->save("/home/exeweb/test.exe.cl/tiendaBIPdev/img/p/".$row["id_product"]."-".$insert_id_value."-".$tipo["name"].".jpg");	
 		unset($image);
 	}*/
-        
+        /*
         //carga img
 	while($tipo=mysql_fetch_array($res_tipos))
 	{
 		copy("".$row["id_product"]."-".$tipo["name"].".jpg","".$row["id_product"]."-".$insert_id_value."-".$tipo["name"].".jpg");
 	}
-	//copy("".$row["id_product"].".jpg","".$row["id_product"]."-".$insert_id_value.".jpg");
+	copy("".$row["id_product"].".jpg","".$row["id_product"]."-".$insert_id_value.".jpg");
         
-if(!copy("".$row["id_product"].".jpg","".$row["id_product"]."-".$insert_id_value.".jpg"))
-{
-    $errors= error_get_lasssst();
-    echo "COPY ERROR: ".$errors['type'];
-    echo "<br />\n".$errors['message']."<BR>";
-} else {
-    echo "File copied from remote!<BR>";
-}
-        
+        */
         
         if(!in_array($row['id_category_default'], $arracat)){
             copy("".$row["id_product"].".jpg","../c/".$row["id_category_default"]."-category.jpg");
