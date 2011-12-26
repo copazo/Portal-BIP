@@ -4,3 +4,4 @@ tools/
 config/
 carga/
 cgi-bin/
+.htaccess
