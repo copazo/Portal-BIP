@@ -22,13 +22,13 @@
 *  @version  Release: $Revision: 6989 $
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
-*{$link->getURLSiteBase()}4012-busqueda/
+*{$link->getPageLink('search.php')}
 *}
-
+{$link->getPageLink('search.php')}
 <!-- Block search module TOP -->
 <div id="search_block_top">
 
-	<form method="get" action="{$link->getPageLink('search.php')}" id="searchbox">
+	<form method="get" action="{$link->getURLSiteBase()}4012-busqueda/" id="searchbox">
 		<p>
 			<label for="search_query_top"><!-- image on background --></label>
 			<input type="hidden" name="orderby" value="position" />
