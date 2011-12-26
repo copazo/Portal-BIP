@@ -2343,17 +2343,18 @@ class AdminProducts extends AdminTab
 				</table>
 				<div class="clear"></div>
 				<table cellpadding="5" style="width: 100%;">
-					<tr><td colspan="2"><hr style="width:100%;" /></td></tr>';
+					<tr style="display:none;"><td colspan="2"><hr style="width:100%;" /></td></tr>';
 					$this->displayPack($obj);
 		echo '		<tr><td colspan="2"><hr style="width:100%;" /></td></tr>';
 
 /*
  * Form for add a virtual product like software, mp3, etc...
  */
+                /*
 	$productDownload = new ProductDownload();
 	if ($id_product_download = $productDownload->getIdFromIdProduct($this->getFieldValue($obj, 'id')))
 		$productDownload = new ProductDownload($id_product_download);
-
+*/
 ?>
 	<script type="text/javascript">
 	// <![CDATA[
