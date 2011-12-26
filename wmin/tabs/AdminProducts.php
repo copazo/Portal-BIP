@@ -2218,7 +2218,7 @@ class AdminProducts extends AdminTab
 		echo '		</td>
 					</tr>
 
-					<tr style="display:\'none\'">
+					<tr style="display: none">
 						<td class="col-left">'.$this->l('Supplier Reference:').'</td>
 						<td style="padding-bottom:5px;">
 							<input size="55" type="text" name="supplier_reference" value="'.htmlentities($this->getFieldValue($obj, 'supplier_reference'), ENT_COMPAT, 'UTF-8').'" style="width: 130px; margin-right: 44px;" />
