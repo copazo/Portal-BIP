@@ -2686,7 +2686,7 @@ class AdminProducts extends AdminTab
 									<td style="padding-bottom:5px;">
 										<input size="3" maxlength="10" name="quantity" type="text" value="0" />
 									</td>';
-						echo  '<tr>
+						echo  '<tr style="display:none;">
 								<td class="col-left">'.$this->l('Minimum quantity:').'</td>
 									<td style="padding-bottom:5px;">
 										<input size="3" maxlength="10" name="minimal_quantity" id="minimal_quantity" type="text" value="'.($this->getFieldValue($obj, 'minimal_quantity') ? $this->getFieldValue($obj, 'minimal_quantity') : 1).'" />
@@ -2697,12 +2697,12 @@ class AdminProducts extends AdminTab
 
 					if ($obj->id)
 						echo '
-							<tr><td class="col-left">'.$this->l('Quantity in stock:').'</td>
+							<tr style="display:none;"><td class="col-left">'.$this->l('Quantity in stock:').'</td>
 								<td style="padding-bottom:5px;"><b>'.$qty.'</b><input type="hidden" name="quantity" value="'.$qty.'" /></td>
 							</tr>
 						';
 					if ($has_attribute)
-						echo '<tr>
+						echo '<tr style="display:none;">
 								<td class="col-left">&nbsp;</td>
 								<td>
 									<div class="hint clear" style="display: block;width: 70%;">'.$this->l('You used combinations, for this reason you can\'t edit your stock quantity here, but in the Combinations tab').'</div>
@@ -2711,12 +2711,12 @@ class AdminProducts extends AdminTab
 				}
 				else
 				{
-					echo '<tr>
+					echo '<tr style="display:none;">
 							<td colspan="2">'.$this->l('The stock management is disabled').'</td>
 						</tr>';
 
 					echo  '
-						<tr>
+						<tr style="display:none;">
 							<td class="col-left">'.$this->l('Minimum quantity:').'</td>
 							<td style="padding-bottom:5px;">
 								<input size="3" maxlength="10" name="minimal_quantity" id="minimal_quantity" type="text" value="'.($this->getFieldValue($obj, 'minimal_quantity') ? $this->getFieldValue($obj, 'minimal_quantity') : 1).'" />
@@ -2727,8 +2727,8 @@ class AdminProducts extends AdminTab
 				}
 
 				echo '
-					<tr><td colspan="2" style="padding-bottom:5px;"><hr style="width:100%;" /></td></tr>
-					<tr>
+					<tr style="display:none;"><td colspan="2" style="padding-bottom:5px;"><hr style="width:100%;" /></td></tr>
+					<tr style="display:none;">
 						<td class="col-left">'.$this->l('Additional shipping cost:').'</td>
 						<td style="padding-bottom:5px;">
 							<input type="text" name="additional_shipping_cost" value="'.($this->getFieldValue($obj, 'additional_shipping_cost')).'" />'.($currency->format % 2 == 0 ? ' '.$currency->sign : '');
@@ -2738,7 +2738,7 @@ class AdminProducts extends AdminTab
 					echo '<p>'.$this->l('Carrier tax will be applied.').'</p>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left">'.$this->l('Displayed text when in-stock:').'</td>
 						<td style="padding-bottom:5px;" class="translatable">';
 		foreach ($this->_languages as $language)
@@ -2749,7 +2749,7 @@ class AdminProducts extends AdminTab
 							</div>';
 		echo '			</td>
 					</tr>
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left">'.$this->l('Displayed text when allowed to be back-ordered:').'</td>
 						<td style="padding-bottom:5px;" class="translatable">';
 		foreach ($this->_languages as $language)
@@ -2765,7 +2765,7 @@ class AdminProducts extends AdminTab
 						calcPriceTI();
 					</script>
 
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left">'.$this->l('When out of stock:').'</td>
 						<td style="padding-bottom:5px;">
 							<input type="radio" name="out_of_stock" id="out_of_stock_1" value="0" '.((int)($this->getFieldValue($obj, 'out_of_stock')) == 0 ? 'checked="checked"' : '').'/> <label for="out_of_stock_1" class="t" id="label_out_of_stock_1">'.$this->l('Deny orders').'</label>
@@ -2773,7 +2773,7 @@ class AdminProducts extends AdminTab
 							<br /><input type="radio" name="out_of_stock" id="out_of_stock_3" value="2" '.($this->getFieldValue($obj, 'out_of_stock') == 2 ? 'checked="checked"' : '').'/> <label for="out_of_stock_3" class="t" id="label_out_of_stock_3">'.$this->l('Default:').' <i>'.$this->l(((int)(Configuration::get('PS_ORDER_OUT_OF_STOCK')) ? 'Allow orders' : 'Deny orders')).'</i> ('.$this->l('as set in').' <a href="index.php?tab=AdminPPreferences&token='.Tools::getAdminToken('AdminPPreferences'.(int)(Tab::getIdFromClassName('AdminPPreferences')).(int)($cookie->id_employee)).'"  onclick="return confirm(\''.$this->l('Are you sure you want to delete entered product information?', __CLASS__, true, false).'\');">'.$this->l('Preferences').'</a>)</label>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display:none;">
 						<td colspan="2" style="padding-bottom:5px;">
 							<hr style="width:100%;" />
 						</td>
