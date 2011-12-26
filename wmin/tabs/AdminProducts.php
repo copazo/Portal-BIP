@@ -2345,7 +2345,7 @@ class AdminProducts extends AdminTab
 				<table cellpadding="5" style="width: 100%;">
 					<tr style="display:none;"><td colspan="2"><hr style="width:100%;" /></td></tr>';
 					$this->displayPack($obj);
-		echo '		<tr><td colspan="2"><hr style="width:100%;" /></td></tr>';
+		echo '		<tr style="display:none;"><td colspan="2"><hr style="width:100%;" /></td></tr>';
 
 /*
  * Form for add a virtual product like software, mp3, etc...
@@ -2525,7 +2525,7 @@ class AdminProducts extends AdminTab
 			</div>
 		</td>
 	</tr>
-	<tr><td colspan="2" style="padding-bottom:5px;"><hr style="width:100%;" /></td></tr>
+	<tr style="display:none;"><td colspan="2" style="padding-bottom:5px;"><hr style="width:100%;" /></td></tr>
 	<script type="text/javascript">
 		if ($('#is_virtual_good').attr('checked'))
 		{
@@ -2537,7 +2537,7 @@ class AdminProducts extends AdminTab
 <?php
 
 					echo '
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left">'.$this->l('Pre-tax wholesale price:').'</td>
 						<td style="padding-bottom:5px;">
 							'.($currency->format % 2 != 0 ? $currency->sign.' ' : '').'<input size="11" maxlength="14" name="wholesale_price" type="text" value="'.htmlentities($this->getFieldValue($obj, 'wholesale_price'), ENT_COMPAT, 'UTF-8').'" onchange="this.value = this.value.replace(/,/g, \'.\');" />'.($currency->format % 2 == 0 ? ' '.$currency->sign : '').'
@@ -2545,7 +2545,7 @@ class AdminProducts extends AdminTab
 						</td>
 					</tr>';
 					echo '
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left">'.$this->l('Pre-tax retail price:').'</td>
 						<td style="padding-bottom:5px;">
 							'.($currency->format % 2 != 0 ? $currency->sign.' ' : '').'<input size="11" maxlength="14" id="priceTE" name="price" type="text" value="'.$this->getFieldValue($obj, 'price').'" onchange="this.value = this.value.replace(/,/g, \'.\');" onkeyup="if (isArrowKey(event)) return; calcPriceTI();" />'.($currency->format % 2 == 0 ? ' '.$currency->sign : '').'<sup> *</sup>
@@ -2569,7 +2569,7 @@ class AdminProducts extends AdminTab
 						ecotaxTaxRate = '.($ecotaxTaxRate / 100).';
 					</script>';
 					echo '
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left">'.$this->l('Tax rule:').'</td>
 						<td style="padding-bottom:5px;">
 					<span '.(Tax::excludeTaxeOption() ? 'style="display:none;"' : '' ).'>
@@ -2595,7 +2595,7 @@ class AdminProducts extends AdminTab
 				';
 				if (Configuration::get('PS_USE_ECOTAX'))
 					echo '
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left">'.$this->l('Eco-tax (tax incl.):').'</td>
 						<td style="padding-bottom:5px;">
 							'.($currency->format % 2 != 0 ? $currency->sign.' ' : '').'<input size="11" maxlength="14" id="ecotax" name="ecotax" type="text" value="'.$this->getFieldValue($obj, 'ecotax').'" onkeyup="if (isArrowKey(event))return; calcPriceTE(); this.value = this.value.replace(/,/g, \'.\'); if (parseInt(this.value) > getE(\'priceTE\').value) this.value = getE(\'priceTE\').value; if (isNaN(this.value)) this.value = 0;" />'.($currency->format % 2 == 0 ? ' '.$currency->sign : '').'
@@ -2606,7 +2606,7 @@ class AdminProducts extends AdminTab
 				if ($default_country->display_tax_label)
 				{
 					echo '
-						<tr '.(Tax::excludeTaxeOption() ? 'style="display:none"' : '' ).'>
+						<tr style="display:none;" '.(Tax::excludeTaxeOption() ? 'style="display:none"' : '' ).'>
 							<td class="col-left">'.$this->l('Retail price with tax:').'</td>
 							<td style="padding-bottom:5px;">
 								'.($currency->format % 2 != 0 ? ' '.$currency->sign : '').' <input size="11" maxlength="14" id="priceTI" type="text" value="" onchange="noComma(\'priceTI\');" onkeyup="if (isArrowKey(event)) return;  calcPriceTE();" />'.($currency->format % 2 == 0 ? ' '.$currency->sign : '').'
@@ -2616,7 +2616,7 @@ class AdminProducts extends AdminTab
 					echo '<input size="11" maxlength="14" id="priceTI" type="hidden" value="" onchange="noComma(\'priceTI\');" onkeyup="if (isArrowKey(event)) return;  calcPriceTE();" />';
 				}
 				echo '
-					<tr id="tr_unit_price">
+					<tr style="display:none;" id="tr_unit_price">
 						<td class="col-left">'.$this->l('Unit price without tax:').'</td>
 						<td style="padding-bottom:5px;">
 							'.($currency->format % 2 != 0 ? ' '.$currency->sign : '').' <input size="11" maxlength="14" id="unit_price" name="unit_price" type="text" value="'.($this->getFieldValue($obj, 'unit_price_ratio') != 0 ? Tools::ps_round($this->getFieldValue($obj, 'price') / $this->getFieldValue($obj, 'unit_price_ratio'), 2) : 0).'" onkeyup="if (isArrowKey(event)) return ;this.value = this.value.replace(/,/g, \'.\'); unitPriceWithTax(\'unit\');"/>'.($currency->format % 2 == 0 ? ' '.$currency->sign : '').' '.$this->l('per').' <input size="6" maxlength="10" id="unity" name="unity" type="text" value="'.htmlentities($this->getFieldValue($obj, 'unity'), ENT_QUOTES, 'UTF-8').'" onkeyup="if (isArrowKey(event)) return ;unitySecond();" onchange="unitySecond();"/>'.
