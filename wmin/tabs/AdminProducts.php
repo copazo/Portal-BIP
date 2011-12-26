@@ -2624,13 +2624,13 @@ class AdminProducts extends AdminTab
 							<p>'.$this->l('Eg. $15 per Lb').'</p>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left">&nbsp;</td>
 						<td style="padding-bottom:5px;">
 							<input type="checkbox" name="on_sale" id="on_sale" style="padding-top: 5px;" '.($this->getFieldValue($obj, 'on_sale') ? 'checked="checked"' : '').'value="1" />&nbsp;<label for="on_sale" class="t">'.$this->l('Display "on sale" icon on product page and text on product listing').'</label>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display:none;">
 						<td class="col-left"><b>'.$this->l('Final retail price:').'</b></td>
 						<td style="padding-bottom:5px;">
 							<span style="'.($default_country->display_tax_label ? '' : 'display:none').'">
