@@ -2350,11 +2350,10 @@ class AdminProducts extends AdminTab
 /*
  * Form for add a virtual product like software, mp3, etc...
  */
-                /*
 	$productDownload = new ProductDownload();
 	if ($id_product_download = $productDownload->getIdFromIdProduct($this->getFieldValue($obj, 'id')))
 		$productDownload = new ProductDownload($id_product_download);
-*/
+
 ?>
 	<script type="text/javascript">
 	// <![CDATA[
@@ -2453,7 +2452,7 @@ class AdminProducts extends AdminTab
 			var textFieldLabel = 0;
 		</script>';
 	?>
-	<tr>
+	<tr style="display:none;">
 		<td colspan="2">
 			<p><input type="checkbox" id="is_virtual_good" name="is_virtual_good" value="true" onclick="toggleVirtualProduct(this);" <?php if (($productDownload->id OR Tools::getValue('is_virtual_good')=='true') AND $productDownload->active) echo 'checked="checked"' ?> />
 			<label for="is_virtual_good" class="t bold" style="color: black;"><?php echo $this->l('Is this a downloadable product?') ?></label></p>
