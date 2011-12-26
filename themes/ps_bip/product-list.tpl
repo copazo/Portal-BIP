@@ -40,7 +40,7 @@ P/N # {$product.reference} <BR>
 				<ul class="lista_atributo">
 				{foreach from=$prod_features[$product["id_product"]] item=feature name=i}
 					{if  $smarty.foreach.i.iteration < 5}
-					<li class="lista_atributo"><span>{$feature.name|escape:'htmlall':'UTF-8'}:</span> {$feature.value|escape:'htmlall':'UTF-8'}</li>
+					<li class="lista_atributo">{$feature.value|escape:'htmlall':'UTF-8'}</li>
 					{/if}
 				{/foreach}
                 <p class="encontraste"><a class="encontraste_link" href="#">Encontraste este producto m&aacute;s barato, &iquest;D&oacute;nde?</a></p>

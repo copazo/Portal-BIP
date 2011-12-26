@@ -24,7 +24,6 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *{$link->getPageLink('search.php')}
 *}
-{$link->getPageLink('search.php')}
 <!-- Block search module TOP -->
 <div id="search_block_top">
 
