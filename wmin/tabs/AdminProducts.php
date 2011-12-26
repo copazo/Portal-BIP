@@ -2239,43 +2239,43 @@ class AdminProducts extends AdminTab
 						</td>
 					</tr>
 
-					<tr>
-						<td class="col-left">'.$this->l('EAN13 or JAN:').'</td>
+					<tr style="display: none">
+						<td class="col-left" >'.$this->l('EAN13 or JAN:').'</td>
 						<td style="padding-bottom:5px;">
 							<input size="55" maxlength="13" type="text" name="ean13" value="'.htmlentities($this->getFieldValue($obj, 'ean13'), ENT_COMPAT, 'UTF-8').'" style="width: 130px; margin-right: 5px;" /> <span class="small">'.$this->l('(Europe, Japan)').'</span>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display: none">
 						<td class="col-left">'.$this->l('UPC:').'</td>
 						<td style="padding-bottom:5px;">
 							<input size="55" maxlength="12" type="text" name="upc" value="'.htmlentities($this->getFieldValue($obj, 'upc'), ENT_COMPAT, 'UTF-8').'" style="width: 130px; margin-right: 5px;" /> <span class="small">'.$this->l('(US, Canada)').'</span>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display: none">
 						<td class="col-left">'.$this->l('Location (warehouse):').'</td>
 						<td style="padding-bottom:5px;">
 							<input size="55" type="text" name="location" value="'.htmlentities($this->getFieldValue($obj, 'location'), ENT_COMPAT, 'UTF-8').'" style="width: 130px; margin-right: 44px;" />
 						</td>
 					</tr>
-					<tr>
+					<tr style="display: none">
 						<td class="col-left">'.$this->l('Width ( package ) :').'</td>
 						<td style="padding-bottom:5px;">
 							<input size="6" maxlength="6" name="width" type="text" value="'.htmlentities($this->getFieldValue($obj, 'width'), ENT_COMPAT, 'UTF-8').'" onKeyUp="if (isArrowKey(event)) return ;this.value = this.value.replace(/,/g, \'.\');" /> '.Configuration::get('PS_DIMENSION_UNIT').'
 						</td>
 					</tr>
-					<tr>
+					<tr style="display: none">
 						<td class="col-left">'.$this->l('Height ( package ) :').'</td>
 						<td style="padding-bottom:5px;">
 							<input size="6" maxlength="6" name="height" type="text" value="'.htmlentities($this->getFieldValue($obj, 'height'), ENT_COMPAT, 'UTF-8').'" onKeyUp="if (isArrowKey(event)) return ;this.value = this.value.replace(/,/g, \'.\');" /> '.Configuration::get('PS_DIMENSION_UNIT').'
 						</td>
 					</tr>
-					<tr>
+					<tr style="display: none">
 						<td class="col-left">'.$this->l('Deep ( package ) :').'</td>
 						<td style="padding-bottom:5px;">
 							<input size="6" maxlength="6" name="depth" type="text" value="'.htmlentities($this->getFieldValue($obj, 'depth'), ENT_COMPAT, 'UTF-8').'" onKeyUp="if (isArrowKey(event)) return ;this.value = this.value.replace(/,/g, \'.\');" /> '.Configuration::get('PS_DIMENSION_UNIT').'
 						</td>
 					</tr>
-					<tr>
+					<tr style="display: none">
 						<td class="col-left">'.$this->l('Weight ( package ) :').'</td>
 						<td style="padding-bottom:5px;">
 							<input size="6" maxlength="6" name="weight" type="text" value="'.htmlentities($this->getFieldValue($obj, 'weight'), ENT_COMPAT, 'UTF-8').'" onKeyUp="if (isArrowKey(event)) return ;this.value = this.value.replace(/,/g, \'.\');" /> '.Configuration::get('PS_WEIGHT_UNIT').'
@@ -3655,7 +3655,7 @@ class AdminProducts extends AdminTab
 		$packItems = $boolPack ? Pack::getItems($obj->id, $cookie->id_lang) : array();
 
 		echo '
-		<tr>
+		<tr style="display:none;">
 			<td>
 				<input type="checkbox" name="ppack" id="ppack" value="1"'.($boolPack ? ' checked="checked"' : '').' onclick="$(\'#ppackdiv\').slideToggle();" />
 				<label class="t" for="ppack">'.$this->l('Pack').'</label>
