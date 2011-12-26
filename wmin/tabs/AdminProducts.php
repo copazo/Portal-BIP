@@ -2217,6 +2217,20 @@ class AdminProducts extends AdminTab
 							</div>';
 		echo '		</td>
 					</tr>
+
+					<tr style="display:\'none\'">
+						<td class="col-left">'.$this->l('Supplier Reference:').'</td>
+						<td style="padding-bottom:5px;">
+							<input size="55" type="text" name="supplier_reference" value="'.htmlentities($this->getFieldValue($obj, 'supplier_reference'), ENT_COMPAT, 'UTF-8').'" style="width: 130px; margin-right: 44px;" />
+							<span class="hint" name="help_box">'.$this->l('Special characters allowed:').' .-_#\<span class="hint-pointer">&nbsp;</span></span>
+						</td>
+					</tr>
+					<tr >
+						<td class="col-left">Codigo BIP</td>
+						<td style="padding-bottom:5px;">
+							<input size="55" type="text" readonly="readonly"   value="'.$obj->id.'" style="width: 130px; margin-right: 44px;" />
+							</td>
+					</tr>
 					<tr>
 						<td class="col-left">'.$this->l('Reference:').'</td>
 						<td style="padding-bottom:5px;">
@@ -2224,13 +2238,7 @@ class AdminProducts extends AdminTab
 							<span class="hint" name="help_box">'.$this->l('Special characters allowed:').' .-_#\<span class="hint-pointer">&nbsp;</span></span>
 						</td>
 					</tr>
-					<tr>
-						<td class="col-left">'.$this->l('Supplier Reference:').'</td>
-						<td style="padding-bottom:5px;">
-							<input size="55" type="text" name="supplier_reference" value="'.htmlentities($this->getFieldValue($obj, 'supplier_reference'), ENT_COMPAT, 'UTF-8').'" style="width: 130px; margin-right: 44px;" />
-							<span class="hint" name="help_box">'.$this->l('Special characters allowed:').' .-_#\<span class="hint-pointer">&nbsp;</span></span>
-						</td>
-					</tr>
+
 					<tr>
 						<td class="col-left">'.$this->l('EAN13 or JAN:').'</td>
 						<td style="padding-bottom:5px;">
