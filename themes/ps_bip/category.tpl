@@ -97,7 +97,7 @@
 
 
 			{foreach from=$subcategories item=subcategory}
-
+                        {assign var='iter_c' value=0}
 					{foreach from=$secondLevelCats[$subcategory.id_category] item=secondLevelCat}{if  $iter_c++ < 3}
                                             {if  $iter_c>1}
                                             {assign var='maxcount' value=1}
