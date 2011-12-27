@@ -236,7 +236,7 @@ function updateDisplay()
 
 
 		//show the 'add to cart' button ONLY IF it's possible to buy when out of stock AND if it was previously invisible
-		if (allowBuyWhenOutOfStock && !selectedCombination['unavailable'] && productAvailableForOrder == 1)
+		if (productAvailableForOrder == 1)
 		{
 			$('#add_to_cart:hidden').fadeIn(600);
 
