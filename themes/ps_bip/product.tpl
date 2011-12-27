@@ -325,9 +325,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 					</span>-->
 					<span class="our_price_display">
 					{if $priceDisplay >= 0 && $priceDisplay <= 2}
-						<span id="our_price_display_internet">
-<p class="price" style="display: inline;" id="precio-lista">Precio Tienda: {convertPrice price=$precio_tienda}</br></p>
-Precio Minimo Internet:<br> 
+						<span id="our_price_display_internet">Precio Minimo Internet:<br> 
 						{convertPrice price=$productPrice}
 
 						</span>
