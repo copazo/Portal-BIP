@@ -114,7 +114,7 @@
 			<h3>{l s='Subcategories'}</h3>
 			<ul class="inline_list">
 			{foreach from=$subcategories item=subcategory}
-                            {if $subcategory.level_depth<10 and $maxcount<1}
+                            {if $subcategory.level_depth<10 and $maxcount==1}
 				<li>
 					<a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'htmlall':'UTF-8'}" title="{$subcategory.name|escape:'htmlall':'UTF-8'}">
 						{if $subcategory.id_image}
