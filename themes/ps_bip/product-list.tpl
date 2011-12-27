@@ -92,6 +92,7 @@ P/N # {$product.reference} <BR>
 							<!-- 
 							<a class="button ajax_add_to_cart_button exclusive" rel="ajax_id_product_{$product.id_product|intval}" href="{$link->getPageLink('cart.php')}?add&amp;id_product={$product.id_product|intval}{if isset($static_token)}&amp;token={$static_token}{/if}&amp;qty=<script>document.write($("#quantity_wanted").val());</script>" title="{l s='Add to cart'}">{l s='Add to cart'}</a>
 							 -->
+<span class="exclusive">{l s='Add to cart'}</span>
 						 </form>
 					{else}
 							<span class="exclusive">{l s='Add to cart'}</span>
