@@ -3262,8 +3262,8 @@ class AdminProducts extends AdminTab
 				  <select id="product_att_list" name="attribute_combinaison_list[]" multiple="multiple" size="4" style="width: 320px;"></select>
 				</td>
 		  </tr>
-		  <tr><td colspan="2"><hr style="width:100%;" /></td></tr>
-		  <tr>
+		  <tr style="display:none;"><td colspan="2"><hr style="width:100%;" /></td></tr>
+		  <tr style="display:none;">
 			  <td style="width:150px;vertical-align:top;text-align:right;padding-right:10px;font-weight:bold;">'.$this->l('Reference:').'</td>
 			  <td style="padding-bottom:5px;">
 				<input size="55" type="text" id="attribute_reference" name="attribute_reference" value="" style="width: 130px; margin-right: 44px;" />
@@ -3272,7 +3272,7 @@ class AdminProducts extends AdminTab
 				<span class="hint" name="help_box">'.$this->l('Special characters allowed:').' .-_#<span class="hint-pointer">&nbsp;</span></span>
 			  </td>
 		  </tr>
-		  <tr>
+		  <tr style="display:none;">
 			  <td style="width:150px;vertical-align:top;text-align:right;padding-right:10px;font-weight:bold;">'.$this->l('Supplier Reference:').'</td>
 			  <td style="padding-bottom:5px;">
 				<input size="55" type="text" id="attribute_supplier_reference" name="attribute_supplier_reference" value="" style="width: 130px; margin-right: 44px;" />
