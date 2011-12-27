@@ -2027,7 +2027,9 @@ class BlockLayered extends Module
                     '.$priceFilterQueryOut.'
                     '.$queryFiltersFrom.'
                     LEFT JOIN ps_product_lang pl ON  p.id_product = pl.id_product
-                    WHERE 1 '.$queryFiltersWhere.' AND pl.name like "%'.$whereLikeFilter.'%" GROUP BY id_product', false);
+                    WHERE 1 '.$queryFiltersWhere.' 
+                    AND (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'") 
+                    GROUP BY id_product', false);
 
                     $allProductsIn = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                     SELECT p.`id_product` id_product
@@ -2035,7 +2037,7 @@ class BlockLayered extends Module
                     '.$priceFilterQueryIn.'
                     '.$queryFiltersFrom.'
                     LEFT JOIN ps_product_lang pl ON  p.id_product = pl.id_product
-                    WHERE 1 '.$queryFiltersWhere.'  AND pl.name like "%'.$whereLikeFilter.'%"  GROUP BY id_product', false);
+                    WHERE 1 '.$queryFiltersWhere.'  AND (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'")   GROUP BY id_product', false);
     
                 }else{
                     $allProductsOut = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
@@ -2086,7 +2088,7 @@ class BlockLayered extends Module
 			LEFT JOIN '._DB_PREFIX_.'image i ON (i.id_product = p.id_product AND i.cover = 1)
 			LEFT JOIN '._DB_PREFIX_.'image_lang il ON (i.id_image = il.id_image AND il.id_lang = '.(int)($cookie->id_lang).')
 			LEFT JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
-			WHERE p.`active` = 1 AND  pl.id_lang = '.(int)$cookie->id_lang.'  AND pl.name like "%'.$whereLikeFilter.'%"
+			WHERE p.`active` = 1 AND  pl.id_lang = '.(int)$cookie->id_lang.'  AND (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'") 
 			AND p.id_product IN ('.implode(',', $productIdList).')'
 			.' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true));
                 
@@ -2280,7 +2282,7 @@ class BlockLayered extends Module
                                         LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product)    
                                         ';
                                         
-					$sqlQuery['where'] = 'WHERE p.`active` = 1 and pl.name like "%'.$whereLikeFilter.'%" ';
+					$sqlQuery['where'] = 'WHERE p.`active` = 1 and (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'")  ';
 					$sqlQuery['group'] = ' GROUP BY p.id_product ';
                                     }else{
 
@@ -2314,7 +2316,7 @@ class BlockLayered extends Module
 					INNER JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
                                         LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product)   ';
 					$sqlQuery['where'] = '
-					WHERE pl.name like "%'.$whereLikeFilter.'%"';
+					WHERE (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'") ';
 					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer ';
                                     }else{
 					$sqlQuery['select'] = 'SELECT m.name, COUNT(DISTINCT p.id_product) nbr, m.id_manufacturer ';
@@ -2356,7 +2358,7 @@ class BlockLayered extends Module
 					LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_lang_value lial
 					ON (lial.id_attribute = lpa.id_attribute AND lial.id_lang = '.(int)$cookie->id_lang.') ';
 					$sqlQuery['where'] = 'WHERE a.id_attribute_group = '.(int)$filter['id_value'].'
-					AND pl.name like "%'.$whereLikeFilter.'%" AND p.id_product IN (
+					AND (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'")  AND p.id_product IN (
 					SELECT id_product
 					FROM '._DB_PREFIX_.'category_product cp
 					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)) ';
@@ -2416,7 +2418,7 @@ class BlockLayered extends Module
 					LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_value_lang_value lifvl
 					ON (lifvl.id_feature_value = fp.id_feature_value AND lifvl.id_lang = '.(int)$cookie->id_lang.') ';
 					$sqlQuery['where'] = 'WHERE p.`active` = 1 AND fp.id_feature = '.(int)$filter['id_value'].'
-					AND pl.name like "%'.$whereLikeFilter.'%" AND p.id_product IN (
+					AND (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'")  AND p.id_product IN (
 					SELECT id_product
 					FROM '._DB_PREFIX_.'category_product cp
 					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)) ';
@@ -2456,7 +2458,7 @@ class BlockLayered extends Module
 					LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) 
                                         LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product) ';
                                         
-                                        $sqlQuery['where'] = ' WHERE cp.id_category = c.id_category and pl.name like "%'.$whereLikeFilter.'%"  ';
+                                        $sqlQuery['where'] = ' WHERE cp.id_category = c.id_category and (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'")   ';
                                         
                                         $sqlQuery['group'] = ') count_products
 					FROM '._DB_PREFIX_.'category c
@@ -2464,7 +2466,7 @@ class BlockLayered extends Module
 					WHERE (SELECT count(DISTINCT p.id_product) cont FROM ps_category_product cp 
                                             LEFT JOIN ps_product p ON (p.id_product = cp.id_product AND p.active = 1) 
                                             LEFT JOIN ps_product_lang pl ON (pl.id_product = p.id_product) 
-                                            WHERE cp.id_category = c.id_category and pl.name like "%'.$whereLikeFilter.'%"  )>=1
+                                            WHERE cp.id_category = c.id_category and (pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ='.$whereLikeFilter.' OR p.reference = "'.$whereLikeFilter.'")   )>=1
 					GROUP BY cl.name ORDER BY level_depth, c.position';
                                         }else{
 					$sqlQuery['select'] = '
