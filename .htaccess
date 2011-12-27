@@ -8,6 +8,7 @@
 RewriteEngine on
 
 # URL rewriting rules
+
 RewriteRule ^api/?(.*)$ /exeBIPdev/webservice/dispatcher.php?url=$1 [QSA,L]
 RewriteRule ^([a-z0-9]+)\-([a-z0-9]+)(\-[_a-zA-Z0-9-]*)/[_a-zA-Z0-9-]*\.jpg$ /exeBIPdev/img/p/$1-$2$3.jpg [L]
 RewriteRule ^([0-9]+)\-([0-9]+)/[_a-zA-Z0-9-]*\.jpg$ /exeBIPdev/img/p/$1-$2.jpg [L]
@@ -56,8 +57,7 @@ RewriteRule ^tiendas$ /exeBIPdev/stores.php [QSA,L]
 RewriteRule ^proveedores$ /exeBIPdev/supplier.php [QSA,L]
 </IfModule>
 
-# Catch 404 errors
-ErrorDocument 404 /exeBIPdev/404.php
+
 
 <IfModule mod_expires.c>
 	ExpiresActive On
