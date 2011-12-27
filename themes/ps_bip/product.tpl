@@ -540,12 +540,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 			</script>
 			{/if}
 
-			<!-- availability -->
-			<p id="availability_statut">
-				<span id="availability_value">
-					{if $product->available_for_order==0} No Disponible. {else} Disponible. {/if}
-				</span>
-			</p>
+
 
 			<!-- number of item in stock -->
 			{if ($display_qties == 1 && !$PS_CATALOG_MODE && $product->available_for_order)}
