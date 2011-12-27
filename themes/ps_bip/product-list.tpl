@@ -58,7 +58,7 @@ P/N # {$product.reference} <BR>
 					<span class="s_precio_internet" style="display: inline;">{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}<span class="price" style="display: inline;" id="precio-lista">Precio Lista: {if !$priceDisplay}{convertPrice price=round(($product.price*100)/90)}{else}{convertPrice price=$product.price_tax_exc}{/if}</span><br /><span class="price" style="display: inline;" id="precio-internet">Precio M&iacute;nimo Internet:<br /><span class="price-internet-valor"> {if !$priceDisplay}{convertPrice price=($product.price)}{else}{convertPrice price=$product.price_tax_exc}{/if}</span></span>{/if}</span>
 					
 
-                                        {if isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}<span class="availability">{if ($product.allow_oosp || $product.quantity > 0)}{l s='Available'}{elseif (isset($product.quantity_all_versions) && $product.quantity_all_versions > 0)}{l s='Product available with different options'}{else}{l s='Out of stock'}{/if}</span>{/if}
+                                        {if isset($product.available_for_order) && $product.available_for_order && !isset($restricted_country_mode)}<span class="availability">{if ($product.allow_oosp || $product.quantity > 0)}{l s='Available'}{else}{l s='Out of stock'}{/if} {else} {l s='Out of stock'} </span>{/if}
 				</div>
 				<script>changeTab($.cookie('bip_tab'));</script>	
 				{/if}
