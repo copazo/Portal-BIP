@@ -1,5 +1,6 @@
 <?php
 
+
 define('__PS_BASE_URI__', '/exeBIPdev/');
 define('_MEDIA_SERVER_1_', '');
 define('_MEDIA_SERVER_2_', '');
