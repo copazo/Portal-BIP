@@ -333,8 +333,6 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 						</span>
 						
 						<span id="our_price_display_tienda">
-
-
 Precio Tienda: {convertPrice price=$precio_tienda}</br>
 Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<br>
 
@@ -543,7 +541,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 			{/if}
 
 			<!-- availability -->
-			<p id="availability_statut"{if ($product->quantity <= 0 && !$product->available_later && $allow_oosp) OR ($product->quantity > 0 && !$product->available_now) OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
+			<p id="availability_statut"{if ($product->quantity <= 0 && !$product->available_later) OR ($product->quantity > 0 && !$product->available_now) OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
 				<span id="availability_label">{$allow_oosp}:{l s='Availability:'}</span>
 				<span id="availability_value"{if $product->quantity <= 0} class="warning_inline"{/if}>
 					{if $product->quantity <= 0}{if $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{else}{$product->available_now}{/if}
@@ -571,7 +569,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 				<p>{l s='Online only'}</p>
 			{/if}
 
-			<p{if (!$allow_oosp && $product->quantity <= 0) OR !$product->available_for_order OR (isset($restricted_country_mode) AND $restricted_country_mode) OR $PS_CATALOG_MODE} style="display: none;"{/if} id="add_to_cart" class="buttons_bottom_block"><input type="submit" name="Submit" value="{l s='Add to cart'}" class="exclusive" /></p>
+			<p{if ($product->quantity <= 0) OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if} id="add_to_cart" class="buttons_bottom_block"><input type="submit" name="Submit" value="{l s='Add to cart'}" class="exclusive" /></p>
 			{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
 			<div class="clear"></div>
 			<!--<p class="encontraste"><a class="encontraste_link" href="#">Encontraste este producto m&aacute;s barato, &iquest;D&oacute;nde?</a></p>-->
