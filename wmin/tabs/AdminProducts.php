@@ -3364,8 +3364,8 @@ class AdminProducts extends AdminTab
 			  <td style="width:150px">'.$this->l('Quantity in stock:').'</td>
 			  <td style="padding-bottom:5px;"><b><span style="display:none;" id="attribute_quantity"></span></b></td>
 		  </tr>
-		  <tr><td colspan="2"><hr style="width:100%;" /></td></tr>
-		  <tr>
+		  <tr style="display:none;"><td colspan="2"><hr style="width:100%;" /></td></tr>
+		  <tr style="display:none;">
 			  <td style="width:150px">'.$this->l('Image:').'</td>
 			  <td style="padding-bottom:5px;">
 				<ul id="id_image_attr">';
@@ -3383,7 +3383,7 @@ class AdminProducts extends AdminTab
 				<img id="pic" alt="" title="" style="display: none; width: 100px; height: 100px; float: left; border: 1px dashed #BBB; margin-left: 20px;" />
 			  </td>
 		  </tr>
-			<tr>
+			<tr style="display:none;">
 			  <td style="width:150px">'.$this->l('Default:').'<br /><br /></td>
 			  <td style="padding-bottom:5px;">
 				<input type="checkbox" name="attribute_default" id="attribute_default" value="1" />&nbsp;'.$this->l('Make this the default combination for this product').'<br /><br />
