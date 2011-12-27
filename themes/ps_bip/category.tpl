@@ -29,6 +29,7 @@
 {include file="$tpl_dir./breadcrumb.tpl"}
 {include file="$tpl_dir./errors.tpl"}
 {assign var='nolist' value=1}
+{assign var='maxcount' value=0}
 {if isset($category)}
 	{if $category->id AND $category->active}
 
@@ -87,6 +88,32 @@
         
 
 		{if isset($subcategories)}
+
+
+
+
+
+
+
+
+			{foreach from=$subcategories item=subcategory}
+
+					{foreach from=$secondLevelCats[$subcategory.id_category] item=secondLevelCat}{if  $iter_c++ < 3}
+                                            {if  $iter_c>1}
+                                            {assign var='maxcount' value=1}
+                                            {/if}
+                                        {/if}{/foreach}
+			{/foreach}
+
+
+
+
+
+
+
+max : {$maxcount}
+
+
 		<!-- Subcategories -->
 		<div id="subcategories">
 
