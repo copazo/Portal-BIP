@@ -111,7 +111,7 @@
 
 
 
-max : {$maxcount}
+max : {$maxcount} , {$iter_c}
 
 
 		<!-- Subcategories -->
