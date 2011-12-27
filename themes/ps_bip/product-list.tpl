@@ -92,12 +92,12 @@ P/N # {$product.reference} <BR>
 							<!-- 
 							<a class="button ajax_add_to_cart_button exclusive" rel="ajax_id_product_{$product.id_product|intval}" href="{$link->getPageLink('cart.php')}?add&amp;id_product={$product.id_product|intval}{if isset($static_token)}&amp;token={$static_token}{/if}&amp;qty=<script>document.write($("#quantity_wanted").val());</script>" title="{l s='Add to cart'}">{l s='Add to cart'}</a>
 							 -->
-<span class="exclusive">{l s='Add to cart'}</span>
 						 </form>
 					{else}
-							<span class="exclusive">{l s='Add to cart'}</span>
+							
 					{/if}
 				{/if}
+{if $product.available_for_order==0}<span class="exclusive">{l s='Add to cart'}</span>{/if}
 				<!-- <a class="button" href="{$product.link|escape:'htmlall':'UTF-8'}" title="{l s='View'}">{l s='View'}</a> -->
 				{if isset($comparator_max_item) && $comparator_max_item}
 					<p class="compare"><input type="checkbox" class="comparator" id="comparator_item_{$product.id_product}" value="comparator_item_{$product.id_product}" {if isset($compareProducts) && in_array($product.id_product, $compareProducts)}checked{/if}/> <label for="comparator_item_{$product.id_product}">{l s='Select to compare'}</label></p>
