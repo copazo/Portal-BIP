@@ -2323,7 +2323,7 @@ class BlockLayered extends Module
 ';
 					$sqlQuery['where'] = '
 					WHERE (cl.name LIKE  "%'.$whereLikeFilter.'%" OR pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ="'.$whereLikeFilter.'" OR p.reference = "'.$whereLikeFilter.'") ';
-					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer ';
+					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer order by m.name asc ';
                                     }else{
 					$sqlQuery['select'] = 'SELECT m.name, COUNT(DISTINCT p.id_product) nbr, m.id_manufacturer ';
 					$sqlQuery['from'] = '
@@ -2333,7 +2333,7 @@ class BlockLayered extends Module
 					INNER JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer) ';
 					$sqlQuery['where'] = '
 					WHERE c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.' ';
-					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer ';  
+					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer  order by m.name asc ';  
                                     }
 					break;
 
