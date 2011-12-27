@@ -542,9 +542,8 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 
 			<!-- availability -->
 			<p id="availability_statut"{if ($product->quantity <= 0 && !$product->available_later) OR ($product->quantity > 0 && !$product->available_now) OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
-				<span id="availability_label">{$allow_oosp}:{l s='Availability:'}</span>
-				<span id="availability_value"{if $product->quantity <= 0} class="warning_inline"{/if}>
-					{if $product->quantity <= 0}{if $allow_oosp}{$product->available_later}{else}{l s='This product is no longer in stock'}{/if}{else}{$product->available_now}{/if}
+				<span id="availability_value"{if  $product->available_for_order==0} class="warning_inline"{/if}>
+					{if $product->available_for_order==0} No Disponible {else} Disponible {/if}
 				</span>
 			</p>
 
