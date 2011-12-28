@@ -2264,9 +2264,25 @@ class BlockLayered extends Module
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT level_depth
 		FROM `'._DB_PREFIX_.'category` agl
-		WHERE id_category = '.$id_parent) as $catlevl)
+		WHERE id_category = '.$id_parent) as $catlevl){
 			$level_depth = $catlevl['level_depth'];
 
+                /////////////////////////////
+		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT id_category
+		FROM `'._DB_PREFIX_.'category` agl
+		WHERE id_parent = '.$id_parent) as $cat2)
+			$catg2do[] = $cat2['id_category'];
+                
+		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT id_category
+		FROM `'._DB_PREFIX_.'category` agl
+		WHERE id_parent in ('.implode(",",$catg2do).')') as $cat3)
+			$catg3do[] = $cat3['id_category'];
+                
+                echo var_dump($catg3do);
+                
+                        
 		foreach ($filters as $filter)
 		{
 			$sqlQuery = array('select' => '', 'from' => '', 'join' => '', 'where' => '', 'group' => '');
@@ -2493,7 +2509,7 @@ class BlockLayered extends Module
 					$sqlQuery['group'] = ') count_products
 					FROM '._DB_PREFIX_.'category c
 					LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
-					WHERE c.id_parent = '.(int)$id_parent.' or c.id_category=3000
+					WHERE c.id_parent = '.(int)$id_parent.' 
 					GROUP BY c.id_category ORDER BY level_depth, c.position';
                                     }
                                         
