@@ -2280,7 +2280,6 @@ class BlockLayered extends Module
 		WHERE id_parent in ('.implode(",",$catg2do).')') as $cat3)
 			$catg3do[] = $cat3['id_category'];
                 */         
-echo var_dump($level_depth);
                         
 		foreach ($filters as $filter)
 		{
