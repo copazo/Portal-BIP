@@ -2261,7 +2261,11 @@ class BlockLayered extends Module
                         
 		$filterBlocks = array();
 
-
+		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT level_depth
+		FROM `'._DB_PREFIX_.'category` agl
+		WHERE id_category = '.$id_parent) as $catlevl)
+			$level_depth = $catlevl['level_depth'];
 
 		foreach ($filters as $filter)
 		{
@@ -2457,7 +2461,7 @@ class BlockLayered extends Module
 					break;
 
 				case 'category':
-                                    
+                                    //$level_depth
                                     if($whereLikeFilter!=''){
                                         
                                         $sqlQuery['select'] = ' SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
@@ -2489,7 +2493,7 @@ class BlockLayered extends Module
 					$sqlQuery['group'] = ') count_products
 					FROM '._DB_PREFIX_.'category c
 					LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
-					WHERE c.id_parent = '.(int)$id_parent.'
+					WHERE c.id_parent = '.(int)$id_parent.' or c.id_category=3000
 					GROUP BY c.id_category ORDER BY level_depth, c.position';
                                     }
                                         
@@ -2732,11 +2736,7 @@ class BlockLayered extends Module
 			$nonIndexable[] = Tools::link_rewrite($attribute['name']);
 
                 
-		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-		SELECT level_depth
-		FROM `'._DB_PREFIX_.'category` agl
-		WHERE id_category = '.$id_parent) as $catlevl)
-			$level_depth = $catlevl['level_depth'];
+
                 
 		//generate SEO link
 		$paramSelected = '';
