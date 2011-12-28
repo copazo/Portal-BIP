@@ -10,7 +10,7 @@ if($idConsulta == 1){
 
 if($idConsulta == 2){
 	$query ="SELECT cp.*, pl.name name, vpp.internet  
-			FROM comparadorprecios cp, "._DB_PREFIX_."product_lang pl, view_prod_price vpp
+			FROM comparadorprecios cp, "._DB_PREFIX_."product_lang pl, view_prod_price_C vpp
 			WHERE pl.id_product = dacoBip
 			AND id_lang =3
 			AND pl.id_product = vpp.id_product
@@ -19,46 +19,70 @@ if($idConsulta == 2){
 		
 		foreach($resultLineas as $linea){
 			$url = $linea["dacoURL"];
-			if (!(strpos($url, 'www.paris.cl') === false)){
-				$pos = strpos($url, 'www');		
-				$url = substr($url, $pos);
-				$pos = strpos($url, '/');
-				$dominio = substr($url, 0, $pos);
-				$restoUrl = substr($url, $pos);
-				$arregloValores = http_request('GET', $dominio,80,$restoUrl); 
-			 }else{
-				$arregloValores = readURL($url);
-			 }
-			 $priceAndTienda = readWhat($url,$arregloValores);
-			 
-			 $price = str_replace(" ","",str_replace(",","",str_replace(".","",$priceAndTienda[0])));
-			 if(strlen($price)>0 && strlen($price)<9){
-				Db::getInstance()->AutoExecute("comparadorprecios", array('dacoPrecioComparacion' => (int)$price,'dacoFuncionando' => (int)"1", "dacoTienda"=>$priceAndTienda[1]), 'UPDATE','`dacoId` = '.(int)($linea["dacoId"]));
-				Db::getInstance()->AutoExecute("comparadorprecioshist", array('dacoId' => $linea["dacoId"], 'cophBIP' =>  $linea["dacoBip"], 'cophNombre' =>  $linea["name"], 'cophPrecioBip' => (int) $linea["internet"], 'cophPrecioComparacion' =>  (int)$price), 'INSERT');
-			 }else{
-				Db::getInstance()->AutoExecute("comparadorprecios", array('dacoFuncionando' => (int)"0"), 'UPDATE','`dacoId` = '.(int)($linea["dacoId"]));
+			if((!(strpos($url, "www.wei.cl") === false)) || (!(strpos($url, "www.pcfactory.cl") === false)) || (!(strpos($url, "www.ripley.cl") === false)) || (!(strpos($url, "www.falabella.com") === false)) || (!(strpos($url, "www.corona.cl") === false))|| (!(strpos($url, "www.paris.cl") === false))){
+				if (!(strpos($url, "www.paris.cl") === false)){
+					$pos = strpos($url, 'www');		
+					$url = substr($url, $pos);
+					$pos = strpos($url, '/');
+					$dominio = substr($url, 0, $pos);
+					$restoUrl = substr($url, $pos);
+					$arregloValores = http_request('GET', $dominio,80,$restoUrl); 
+				 }else{
+					$arregloValores = readURL($url);
+				 }
+				 
+				 $priceAndTienda = readWhat($url,$arregloValores);
+				 
+				 $price = str_replace(" ","",str_replace(",","",str_replace(".","",$priceAndTienda[0])));
+				 if(strlen($price)>0 && strlen($price)<9){
+					Db::getInstance()->AutoExecute("comparadorprecios", array('dacoPrecioComparacion' => (int)$price,'dacoFuncionando' => (int)"1", "dacoTienda"=>$priceAndTienda[1]), 'UPDATE','`dacoId` = '.(int)($linea["dacoId"]));
+					Db::getInstance()->AutoExecute("comparadorprecioshist", array('dacoId' => $linea["dacoId"], 'cophBIP' =>  $linea["dacoBip"], 'cophNombre' =>  $linea["name"], 'cophPrecioBip' => (int) $linea["internet"], 'cophPrecioComparacion' =>  (int)$price), 'INSERT');
+				 }else{
+				 	
+					Db::getInstance()->AutoExecute("comparadorprecios", array('dacoFuncionando' => (int)"0", 'dacoTienda' => "Hubo un problema al obtener el precio"), 'UPDATE','`dacoId` = '.(int)($linea["dacoId"]));
+				 }
+			}else{
+				Db::getInstance()->AutoExecute("comparadorprecios", array('dacoFuncionando' => (int)"0", 'dacoTienda' => "Esta página no es soportada por el sistema"), 'UPDATE','`dacoId` = '.(int)($linea["dacoId"]));
 			 }
 		}
 		Header("Location: adminComparador.php");
 }
 
 function readWhat($url, $arrayValores){
-	if (!(strpos($url, 'www.pcfactory.cl') === false)) {
+	
+	if (!(strpos($url, "www.pcfactory.cl") === false)) {
 		return array(0 =>readPCFactory($arrayValores), 1 => "PC Factory");
-	}else if (!(strpos($url, 'www.paris.cl') === false)) {
+	}else if (!(strpos($url, "www.paris.cl") === false)) {
 		return array(0 =>readParis($arrayValores), 1 => "Paris");
-	}else if (!(strpos($url, 'www.ripley.cl') === false)) {
+	}else if (!(strpos($url, "www.ripley.cl") === false)) {
 		return array(0 =>readRipley($arrayValores), 1 => "Ripley");
-	}else if (!(strpos($url, 'www.falabella.com') === false)) {
+	}else if (!(strpos($url, "www.falabella.com") === false)) {
 		return array(0 =>readFalabella($arrayValores), 1 => "Falabella");
-	}else if (!(strpos($url, 'www.corona.cl') === false)) {
+	}else if (!(strpos($url, "www.corona.cl") === false)) {
 		return array(0 =>readCorona($arrayValores), 1 => "Corona");
+	}else if (!(strpos($url, "www.wei.cl") === false)) {
+		return array(0 =>readWEI($arrayValores), 1 => "WEI");
 	}
 	else{
 		return "Esta página no es soportada por el sistema";
 	}
 }
 	
+function readWEI($arrayValores){
+	$retorno = "";
+	for($i=0;$i<sizeof($arrayValores);$i++){
+		$pos = strpos($arrayValores[$i], 'Precio Oferta Internet');
+		if (!($pos === false)) {
+			
+			$indexPeso = (strpos($arrayValores[$i+3],'&nbsp;')+6);
+			$indexCierreDiv = strpos($arrayValores[$i+3],'</h1>');
+			$retorno= substr($arrayValores[$i+3],$indexPeso,$indexCierreDiv-$indexPeso);
+			break;
+		}
+	}
+	return $retorno==""?"Hubo un problema al obtener el precio":$retorno;
+}
+
 function readParis($arrayValores){
 	$retorno = "";
 	for($i=0;$i<sizeof($arrayValores);$i++){
@@ -224,6 +248,21 @@ function http_request(
 if($idConsulta == 3){
 	Db::getInstance()->Execute('DELETE FROM comparadorprecioshist WHERE dacoId = '.(int)($_GET["dacoId"]));
 	Db::getInstance()->Execute('DELETE FROM comparadorprecios WHERE dacoId = '.(int)($_GET["dacoId"]));
+	Header("Location: adminComparador.php");
+}
+
+if($idConsulta == 4){
+	$parametros = $_GET["dacoId"];
+	$parametros = split("aaa",$parametros);
+	$sqlCDP = "DELETE FROM comparadorprecios WHERE dacoId = -1 ";
+	$sqlCDPH = "DELETE FROM comparadorprecioshist WHERE dacoId = -1 ";
+	for($i =0; $i<sizeof($parametros); $i++){
+		$sqlCDP.=" || dacoId = ".$parametros[$i];
+		$sqlCDPH.=" || dacoId = ".$parametros[$i];
+	}
+
+	Db::getInstance()->Execute($sqlCDP);
+	Db::getInstance()->Execute($sqlCDPH);
 	Header("Location: adminComparador.php");
 }
 ?>

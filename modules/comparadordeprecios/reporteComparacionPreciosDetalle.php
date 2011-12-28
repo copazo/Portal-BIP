@@ -14,7 +14,7 @@ $resultLineas = Db::getInstance()->ExecuteS($query);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Configurador de PC - BIP COMPUTERS</title>
+<title>Comparador</title>
 <script language="javascript" type="text/javascript">
 function calculaLargo() { 
 	var elLargo=document.body.scrollHeight;
