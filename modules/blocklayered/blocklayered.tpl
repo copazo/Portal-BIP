@@ -25,9 +25,6 @@
 *}
 levl : {$level_depth}
 
-{foreach from=$catg3do item=catg3}
-cat : {$catg3} </br>
-{/foreach}
 
 <!-- Block layered navigation module -->
 {if $nbr_filterBlocks != 0}
