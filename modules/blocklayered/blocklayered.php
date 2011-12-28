@@ -2273,14 +2273,14 @@ class BlockLayered extends Module
 		FROM `'._DB_PREFIX_.'category` agl
 		WHERE id_parent = '.$id_parent) as $cat2)
 			$catg2do[] = $cat2['id_category'];
-                
+                /*
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT id_category
 		FROM `'._DB_PREFIX_.'category` agl
 		WHERE id_parent in ('.implode(",",$catg2do).')') as $cat3)
 			$catg3do[] = $cat3['id_category'];
-                
-
+                */         
+echo var_dump($catg2do);
                         
 		foreach ($filters as $filter)
 		{
