@@ -2264,10 +2264,10 @@ class BlockLayered extends Module
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT level_depth
 		FROM `'._DB_PREFIX_.'category` agl
-		WHERE id_category = '.$id_parent) as $catlevl){
+		WHERE id_category = '.$id_parent) as $catlevl)
 			$level_depth = $catlevl['level_depth'];
                         
-/*
+
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT id_category
 		FROM `'._DB_PREFIX_.'category` agl
@@ -2279,8 +2279,10 @@ class BlockLayered extends Module
 		FROM `'._DB_PREFIX_.'category` agl
 		WHERE id_parent in ('.implode(",",$catg2do).')') as $cat3)
 			$catg3do[] = $cat3['id_category'];
-                */         
-                        
+                      
+        echo var_dump($catg3do);                
+        
+        
 		foreach ($filters as $filter)
 		{
 			$sqlQuery = array('select' => '', 'from' => '', 'join' => '', 'where' => '', 'group' => '');
