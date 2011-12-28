@@ -15,6 +15,16 @@ $query = "	SELECT cph.*, dacoTienda
 			if($_POST["relacion"]){
 				$query.=" AND dacoRelacion like '%".$_POST["relacion"]."%'";	
 			}
+			if(isset($_POST["precio"]) && $_POST["precio"]!=""){
+				if($_POST["precio"]=="Menor"){
+					$query.=" AND cophPrecioBip < cophPrecioComparacion ";
+				}else if($_POST["precio"]=="Igual"){
+					$query.=" AND cophPrecioBip = cophPrecioComparacion ";
+				}else if($_POST["precio"]=="Mayor"){
+					$query.=" AND cophPrecioBip > cophPrecioComparacion ";
+				}
+			}
+			
 			
 			$query.=" ORDER BY cophId DESC";
 $resultLineas = Db::getInstance()->ExecuteS($query);
@@ -24,7 +34,7 @@ $resultLineas = Db::getInstance()->ExecuteS($query);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Configurador de PC - BIP COMPUTERS</title>
+<title>Comparador</title>
 <script language="javascript" type="text/javascript">
 function calculaLargo() { 
 	var elLargo=document.body.scrollHeight;
@@ -67,6 +77,7 @@ function calculaLargo() {
             	<option value=".paris" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.paris')?'selected':''; ?>> Paris </option>
                 <option value=".pcfactory" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.pcfactory')?'selected':''; ?>> PC Factory </option>
                 <option value=".ripley" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.ripley')?'selected':''; ?>> Ripley </option>
+                <option value=".wei" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.wei')?'selected':''; ?>> WEI</option>
             </select>
 			</td>
       <td width="10"></td>
@@ -75,6 +86,14 @@ function calculaLargo() {
             	<option value="" <?php echo (!isset($_POST["relacion"]))?'selected':''; ?>> Todos </option>
                 <option value="Idéntico" <?php echo (isset($_POST["relacion"]) && $_POST["relacion"]=='Idéntico')?'selected':''; ?>> Similar </option>
                 <option value="Similar" <?php echo (isset($_POST["relacion"]) && $_POST["relacion"]=='Similar')?'selected':''; ?>> Id&eacute;ntico </option>
+            </select></td>
+		<td width="12"></td>
+      	<td width="52">Precio</td>
+		<td width="105"><select name="precio" id="precio">
+            	<option value="" <?php echo (!isset($_POST["precio"]))?'selected':''; ?>> Todos </option>
+                <option value="Menor" <?php echo (isset($_POST["precio"]) && $_POST["precio"]=='Menor')?'selected':''; ?>> Menor </option>
+                <option value="Igual" <?php echo (isset($_POST["precio"]) && $_POST["precio"]=='Igual')?'selected':''; ?>> Igual </option>
+                <option value="Mayor" <?php echo (isset($_POST["precio"]) && $_POST["precio"]=='Mayor')?'selected':''; ?>> Mayor </option>
             </select></td>
       <td width="63"><input type="submit" value="Buscar" name="Buscar" id="Buscar" style="background-color: #FFF6D3;
     border-color: #FFF6D3 #DFD5AF #DFD5AF #FFF6D3;
