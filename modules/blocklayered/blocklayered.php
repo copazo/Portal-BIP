@@ -2267,7 +2267,6 @@ class BlockLayered extends Module
 		WHERE id_category = '.$id_parent) as $catlevl){
 			$level_depth = $catlevl['level_depth'];
 
-                        echo 'asd';
                 /////////////////////////////
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT id_category
@@ -2281,9 +2280,7 @@ class BlockLayered extends Module
 		WHERE id_parent in ('.implode(",",$catg2do).')') as $cat3)
 			$catg3do[] = $cat3['id_category'];
                 
-                echo var_dump($catg3do);
-                
-                exit;
+
                         
 		foreach ($filters as $filter)
 		{
