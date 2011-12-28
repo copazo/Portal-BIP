@@ -2731,6 +2731,13 @@ class BlockLayered extends Module
 		AND id_lang = '.(int)$cookie->id_lang) as $attribute)
 			$nonIndexable[] = Tools::link_rewrite($attribute['name']);
 
+                
+		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT level_depth
+		FROM `'._DB_PREFIX_.'category` agl
+		WHERE id_category = '.$id_parent) as $catlevl)
+			$level_depth = $catlevl['level_depth'];
+                
 		//generate SEO link
 		$paramSelected = '';
 		$optionCheckedArray = array();
@@ -2832,9 +2839,9 @@ class BlockLayered extends Module
 		foreach ($selectedFilters as $filters)
 			$nFilters += count($filters);
 		
-		$cache = array('layered_show_qties' => (int)Configuration::get('PS_LAYERED_SHOW_QTIES'), 'id_category_layered' => (int)$id_parent,
+		$cache = array('layered_show_qties' => (int)Configuration::get('PS_LAYERED_SHOW_QTIES'), 'id_category_layered' => (int)$id_parent,'level_depth'=>$level_depth,
 		'selected_filters' => $selectedFilters, 'n_filters' => (int)$nFilters, 'nbr_filterBlocks' => count($filterBlocks), 'filters' => $filterBlocks,
-		'title_values' => $titleValues, 'current_friendly_url' => htmlentities($paramSelected), 'nofollow' => !empty($paramSelected) || $nofollow, 'id_parent' => $id_parent);
+		'title_values' => $titleValues, 'current_friendly_url' => htmlentities($paramSelected), 'nofollow' => !empty($paramSelected) || $nofollow);
 		
 		return $cache;
 	}
