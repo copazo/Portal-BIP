@@ -2280,9 +2280,7 @@ class BlockLayered extends Module
 		WHERE id_parent in ('.implode(",",$catg2do).')') as $cat3)
 			$catg3do[] = $cat3['id_category'];
                       
-        echo var_dump($catg3do);                
-        
-        
+
 		foreach ($filters as $filter)
 		{
 			$sqlQuery = array('select' => '', 'from' => '', 'join' => '', 'where' => '', 'group' => '');
@@ -2855,7 +2853,7 @@ class BlockLayered extends Module
 		foreach ($selectedFilters as $filters)
 			$nFilters += count($filters);
 		
-		$cache = array('layered_show_qties' => (int)Configuration::get('PS_LAYERED_SHOW_QTIES'), 'id_category_layered' => (int)$id_parent,'level_depth'=>$level_depth,
+		$cache = array('layered_show_qties' => (int)Configuration::get('PS_LAYERED_SHOW_QTIES'), 'id_category_layered' => (int)$id_parent,'level_depth'=>$level_depth,'catg3do' => $catg3do,
 		'selected_filters' => $selectedFilters, 'n_filters' => (int)$nFilters, 'nbr_filterBlocks' => count($filterBlocks), 'filters' => $filterBlocks,
 		'title_values' => $titleValues, 'current_friendly_url' => htmlentities($paramSelected), 'nofollow' => !empty($paramSelected) || $nofollow);
 		
