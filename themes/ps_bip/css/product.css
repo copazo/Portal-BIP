@@ -5,7 +5,7 @@
 	float: left
 }
 #primary_block #image-block {
-	border: #d0d1d5 solid 1px;
+/*	border: #d0d1d5 solid 1px;*/
 	height: 300px;
 	width: 300px
 }
@@ -31,7 +31,7 @@
 }
 #primary_block #pb-left-column {
 	float: left;
-	margin-left: 1.1em;
+	margin-left: 5px;
 	width: 338px
 }
 #primary_block #short_description_block {
@@ -68,22 +68,49 @@
 	cursor: crosshair;
 	position: relative
 }
-#primary_block p.buttons_bottom_block { margin: 0 }
+#primary_block p.buttons_bottom_block { 
+	margin: 0;
+	clear:both;
+}
 #primary_block p.buttons_bottom_block a,
  #primary_block p.buttons_bottom_block input { margin: 0.9em auto 0 auto }
 #primary_block #short_description_content { margin-bottom: 0.5em }
+#primary_block ul#short_description_content { 
+    clear: both;
+    margin-bottom: 0.5em;
+    width: 317px;
+}
+#primary_block ul#short_description_content li { 
+/*    border-color: #CCCCCC;
+    border-style: none solid none none;
+    border-width: 0 1px 0 0;*/
+/*    float: left;*/
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+/*    list-style: none outside none;*/
+    margin: 0 20px;
+    outline: 0 none;
+    padding: 0 5px;
+    vertical-align: baseline;
+    color: #666666;
+    font-size: 11px;
+    height: 11px;
+}
 #primary_block #buy_block {
 	background: #f1f2f4 url('../img/product-buy-bg.gif') repeat-x top left;
 	font-size: 1.1em;
 	padding: 0.7em;
 	color: #374853;
 	border: 1px #d0d3d8 solid;
-	margin-bottom: 1.5em
+	margin-bottom: 0px;
+	border-radius: 7px 7px 7px 7px;
 }
 #primary_block #buy_block p {
 	padding: 0;
 	margin-top: 0;
-	clear: both
+/*	clear: both;*/
 }
 #primary_block #buy_block img.on_sale_img { float: left }
 #primary_block #buy_block span.on_sale {
@@ -157,4 +184,170 @@
 }
 #more_info_block {
 	margin-right: 10px
+}
+.price {
+    color: #5D717E;
+    float: right;
+    font-size: 1.05em;
+    font-weight: normal;
+    margin-bottom: 0.2em;
+    text-align: right;
+}
+#precios .precio1 {
+    color: #CC0000;
+    float: left;
+    font-size: 23px;
+    font-weight: bold;
+    height: 24px;
+    margin-bottom: 8px;
+    margin-right: 4px;
+    padding-top: 2px;
+    width: auto;
+}
+#primary_block #buy_block #contenedor1PP p.atributos1 {
+    color: #666666;
+    float: left;
+    font-size: 10px;
+    width: 120px;
+	margin: 0 0;
+}
+#primary_block #buy_block #contenedor1PP p.atributos2 {
+    color: #666666;
+    float: left;
+    font-size: 10px;
+    width: 190px;
+	margin: 0 0;
+}
+
+#preciosPP .puntos {
+    color: #666666;
+    font-size: 11px;
+    height: 11px;
+    margin-bottom: 32px;
+}
+.label_precio_pdirecta {
+    color: #666666;
+    font-size: 10px;
+}
+.label_precio_pelectronico {
+    color: #666666;
+    font-size: 10px;
+}
+.label_precio_pnormal{
+    color: #666666;
+    font-size: 10px;
+}
+.precio_pdirecta {
+    color: #CC0000;
+    font-size: 23px;
+    font-weight: bold;
+    height: 24px;
+    margin-bottom: 8px;
+    padding-top: 2px;
+    width: auto;
+}
+.precio_pelectronico {
+    color: #666666;
+    font-size: 12px;
+	font-weight:bold;
+}
+.precio_pnormal{
+    color: #666666;
+    font-size: 10px;
+	text-decoration:line-through;
+}
+#primary_block {
+/*    background-color: #FFFFFF;
+    border-radius: 1em 1em 1em 1em;*/
+    padding: 0px;
+}
+.rte ul, .mceContentBody ul {
+    list-style-type: square;
+    margin-left: 10px;
+}
+#short_description_content ul li {
+    background: url("../img/bullet.gif") no-repeat scroll 0 4px transparent;
+    clear: both;
+    color: #5D717E;
+    font-family: verdana;
+    font-size: 10px;
+    list-style: none outside none;
+    margin-bottom: 0.2em;
+    padding-left: 15px;
+    text-align: left;
+}
+#contenedor1PP {
+    color: #666666;
+    font-size: 10px;
+    border-top: 1px dashed #AAAAAA;
+    border-bottom: 1px dashed #AAAAAA;
+    padding: 0.3em 0;
+	float: left;
+	margin-bottom:5px;
+}
+#global_block {
+    background-color: #FFFFFF;
+    border-radius: 1em 1em 1em 1em;
+    padding: 1em;
+	margin-top:5px;
+}
+#label_valorCuota {
+    color: #999999;
+    float: left;
+    font-size: 10px;
+    margin-bottom: 2px;
+    padding-left: 2px;
+    width: 90px;
+}
+/* Estilo de texto forma de pago - by copazo*/
+#cuotas {
+    background-image: url("/iconos/imgBaseCL/back_cuotas.gif");
+    border-bottom: 0px dotted #CCCCCC;
+    border-top: 0px dotted #CCCCCC;
+    float: left;
+/*    height: 88px;*/
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 145px;
+}
+#cuotas select {
+    border: 1px solid #CCCCCC;
+    font-size: 11px;
+	background-color:#FFF;
+	color:#666;
+	width:40px;
+    padding: 1px 2px;
+	margin-left: 0px;
+	height:22px;
+}
+#cuotas table {
+    font-size: 11px;
+    margin-left: 10px;
+}
+#valcuotas {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    color: #666666;
+    font-size: 11px;
+    height: 18px;
+    margin-left: 0;
+    padding: 1px 2px;
+    width: 60px;
+}
+.labelCuotas {
+    color: #666666;
+    font-size: 10px;
+	margin: 0 0;
+}
+#cuadroCuotas {
+    background: url("../img/bg_cuotas_01.jpg") repeat-x scroll left top #F1F2F4;
+    border: 1px solid #D0D3D8;
+    border-radius: 7px 7px 7px 7px;
+    color: #374853;
+    font-size: 1.1em;
+    margin-bottom: 0;
+    padding: 5px 10px;
+	margin: 5px 0px;
+	width:145px;
+	float:left;
 }

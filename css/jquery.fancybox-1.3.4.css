@@ -373,14 +373,14 @@
 .fancybox-ie #fancybox-bg-w { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../js/jquery/fancybox/fancy_shadow_w.png', sizingMethod='scale'); }
 .fancybox-ie #fancybox-bg-nw { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../js/jquery/fancybox/fancy_shadow_nw.png', sizingMethod='scale'); }
 
-#page #columns #center_column {
+/*#page #columns #center_column {
     width: 756px !important;
     background-color:#FFFFFF !important;
     float:right;
-}
-#page #columns #right_column {
+}*/
+/*#page #columns #right_column {
     display: none !important;
-}
+}*/
 #contentConfPc {
     background-color:#FFFFFF !important;
 }

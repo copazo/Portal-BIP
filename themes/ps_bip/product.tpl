@@ -146,6 +146,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 	var precioProducto;
 	function calculaCuotas(nCuotas)
 	{
+                if(nCuotas.value==0)
+                    $('#valcuotas').text(formatCurrency);
                 if(nCuotas.value==1)
                     $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt('{/literal}{$precio_tienda}{literal}'))*0.1)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
                 if(nCuotas.value==2)
@@ -163,6 +165,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 </script>
 {/literal}
 {include file="$tpl_dir./breadcrumb.tpl"}
+<div id="global_block" class="clearfix">
 <div id="primary_block" class="clearfix">
 
 	{if isset($adminActionDisplay) && $adminActionDisplay}
@@ -258,6 +261,11 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
 			</p>
 			<h1>{$product->name|escape:'htmlall':'UTF-8'} (C&oacute;d. {$product->id|intval})</h1>
+            <div id="contenedor1PP">
+            <p class="atributos1">Código BIP: {$product->id|intval}</p>
+            <!--<p style="float:left;" id="product_reference" class="atributos2" {if isset($groups) OR !$product->reference}style="display: none;"{/if}><label for="product_reference">{l s='Reference :'} </label>&nbsp;<span class="atributos2">{$product->reference|escape:'htmlall':'UTF-8'}</span></p>-->
+            <p class="atributos2">PartNumber:{$product->reference}</p>
+            </div>
 			
                         {if $product->description_short}
                             <div id="short_description_content" class="rte align_justify">{$product->description_short}</div>
@@ -286,7 +294,12 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
                         {/if}    
 
 			<!-- prices -->
-			{if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
+            
+			<!-- Aqui iba el div (con el if) de precio - copazo 1 -->
+            
+		</form>
+        
+{if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
 				<p class="price">
 					{if !$priceDisplay || $priceDisplay == 2}
 						{assign var='productPrice' value=$product->getPrice(true, $smarty.const.NULL, 2)}
@@ -315,7 +328,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 					{elseif $product->specificPrice AND $product->specificPrice.reduction AND $productPriceWithoutRedution > $productPrice}
 						<span class="discount">{l s='Reduced price!'}</span>
 					{/if}
-					<br />
+<!--					<br />-->
 					<!--
 					<span class="precio_de_lista">
 						<span id="precio_de_lista"></span>
@@ -325,22 +338,18 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 					</span>-->
 					<span class="our_price_display">
 					{if $priceDisplay >= 0 && $priceDisplay <= 2}
-						<span id="our_price_display_internet">
-                                                 Precio Tienda: {convertPrice price=$precio_tienda}</br>
-                                                 Precio Minimo Internet:<br> 
-						{convertPrice price=$productPrice}
-
+						<span id="our_price_display_internet" class="label_precio_pdirecta">Precio Transferencia Directa</br><span class="precio_pdirecta">{convertPrice price=$productPrice}</span></br>
+                        <span id="our_price_display_credito" class="label_precio_pelectronico">Precio Pago Electrónico</br><span class="precio_pelectronico">{convertPrice price=($precio_tienda-round($precio_tienda*0.07))}</span></span></br>
+                        <span id="precio-lista" style="display: inline;" class="label_precio_pnormal">Precio Normal</br><span class="precio_pnormal">{convertPrice price=$precio_tienda}</span></span></br>
 						</span>
+					<span id="our_price_display_tienda">
+                    	<span id="our_price_display_contado" class="label_precio_pdirecta">Precio Contado</br><span class="precio_pdirecta">{convertPrice price=round($precio_tienda-($precio_tienda)/10)}</span></span></br>
+                        <span id="our_price_display_credito" class="label_precio_pelectronico">Precio Pago Electrónico</br><span class="precio_pelectronico">{convertPrice price=($precio_tienda-round($precio_tienda*0.07))}</span></span></br>
+					</span>
 						
-						<span id="our_price_display_tienda">
-Precio Tienda: {convertPrice price=$precio_tienda}</br>
-Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<br>
-
-						</span>
-						
-							{if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) OR !isset($display_tax_label))}
+<!--							{if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) OR !isset($display_tax_label))}
 								{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}
-							{/if}
+							{/if}-->
 					{/if}
 					</span>
 					{if $priceDisplay == 2}
@@ -408,81 +417,40 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 			<!--	inicio - forma de pago - cheques	-->
 			
 			
-			<fieldset style="border:0px solid #CCCCCC;float:left; width:100%; background-color:#FFFFFF;"><legend style="padding:5px;background-color:#F1F2F4;border:1px solid #D0D3D8;">Forma de Pago</legend>
-				<div id="cl_internet" class="forma_pago">
-				<table width="100%" cellspacing="0" cellpadding="0" border="0">
-						<tbody>
-								<tr height="22">
-										<td width="*" align="left" colspan=2>&nbsp;&nbsp;&middot; Transferecia Electr&oacute;nica</td>
-										
-								</tr>
-								<tr height="22">
-										<td width="*" align="left" colspan=2>&nbsp;&nbsp;&middot; Transbank - Tarjetas de Cr&eacute;dito
-										<img border="0" src="{$img_dir}icono_tarjetas.gif"></td>
-								</tr> 
-                                                                <tr height="22"><td colspan=2>
-                                                                <a style="cursor: pointer; cursor: hand;" onclick="changeTab('t_tiendas2');">Ver Cuotas</a>
-                                                                </td></tr>
-						</tbody>
-				</table>
-				</div>
+			<div id="cuadroCuotas"><a style="cursor: pointer; cursor: hand; text-decoration:none;" onclick="changeTab('t_tiendas2');">Calcula tu cuota</a>
+				<div id="cl_internet" class="forma_pago"></div>
 				<div id="cl_tienda" class="forma_pago">
-				<table width="100%" cellspacing="0" cellpadding="0" border="0">
-						<tbody>
-								<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Pago con Cheque (Solo en Tienda)</td>
-										</tr>
-										<tr>
-										<td width="140" align="left"><a style="cursor: pointer; cursor: hand;" onclick="cambiarCuotas()">Ver Cuotas</a></td>
-										</tr>
-										<tr>
-										<td>
-										
-													<!--	este div es para pago con cheques en la pestana "tiendas" y "usados" - copazo	-->
-			<div id="cuotas" style="display:none;" align="left">
-				<form name="frmCuotas">
-						<table width="300px" cellspacing="0" cellpadding="2" border="0">
-								<tbody>
-										<tr>
-												<td height="20" align="center" colspan="3">Calcula el valor de tus cheques</td>
-										</tr>
-										<tr>
-												<td width="120" align="center" rowspan="2"><img border="0" src="/iconos/imgBaseCL/icono_tarjetaCMR.gif"></td>
-												<td width="56" class="verde">N&ordm; cheques</td>
-												<td width="*" class="verde">Valor $</td>
-										</tr>
-										<tr>
-												<td><select onchange="calculaCuotas(this)" id="cuota" style="width:40px; border:1px solid #999;">
-<option value="">Seleccione Cuota</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-																<option value="5">5</option>
-																<option value="6">6</option>
-														</select>
-												</td>
-												<td><div id="valcuotas"></div></td>
-										</tr>
-								</tbody>
-						</table>
-				</form>
-			</div>
-										
-										</td>
-										
-								</tr>
-								
-						</tbody>
-				</table>
+                    <div id="cuotas" style="display:none;" align="left">
+                        <form name="frmCuotas">
+                                <table width="140px" cellspacing="0" cellpadding="2" border="0">
+                                    <tr>
+                                        <td width="60px" class="labelCuotas">Cantidad</td>
+                                        <td class="labelCuotas">Valor ($)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <select onchange="calculaCuotas(this)" id="cuota">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                         </select>
+                                        </td>
+                                        <td><div id="valcuotas">$ 0</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><img border="0" src="{$img_dir}tarjetas_cuotas_01.png" style="margin-top:7px;"></td>
+                                    </tr>
+                                </table>
+                        </form>
+                    </div>
 				</div>
 				<div id="cl_usados" class="forma_pago">
 				<table width="100%" cellspacing="0" cellpadding="0" border="0">
 						<tbody>
-								<!--<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Pago con Cheque (Solo en Tienda)</td>
-										<td width="140" align="left"><a style="cursor: pointer; cursor: hand;" onclick="cambiarCuotas()">Ver Cuotas</a></td>
-								</tr>-->
 								<tr height="22">
 										<td width="*" align="left">&nbsp;&nbsp;&middot; Efectivo</td>
 										<td width="140" align="left">&nbsp;</td>
@@ -497,10 +465,6 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 				<div id="cl_mall" class="forma_pago">
 				<table width="100%" cellspacing="0" cellpadding="0" border="0">
 						<tbody>
-								<!--<tr height="22">
-										<td width="*" align="left">&nbsp;&nbsp;&middot; Pago con Cheque (Solo en Tienda)</td>
-										<td width="140" align="left"><a style="cursor: pointer; cursor: hand;" onclick="cambiarCuotas()">Ver Cuotas</a></td>
-								</tr>-->
 								<tr height="22">
 										<td width="*" align="left">&nbsp;&nbsp;&middot; Efectivo</td>
 										<td width="140" align="left">&nbsp;</td>
@@ -512,8 +476,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 						</tbody>
 				</table>
 				</div>
-	
-			</fieldset>
+			 </div>
 			{literal}
 				<script>
 				changeTab($.cookie('bip_tab'));
@@ -524,34 +487,35 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 			
 			<!--	fin - forma de pago - cheques	-->
 			
-			<p style="float:left;" id="product_reference" {if isset($groups) OR !$product->reference}style="display: none;"{/if}><label for="product_reference">{l s='Reference :'} </label><span class="editable">{$product->reference|escape:'htmlall':'UTF-8'}</span></p>
-
 			<!-- quantity wanted -->
-			<p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) OR $virtual OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
+			
+            <p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) OR $virtual OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
 				<label>{l s='Cantidad :'}</label>
 				<input type="text" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" size="2" maxlength="3" {if $product->minimal_quantity > 1}onkeyup="checkMinimalQuantity({$product->minimal_quantity});"{/if} />
 			</p>
 
 			<!-- minimal quantity wanted -->
-			<p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>{l s='You must add '} <b id="minimal_quantity_label">{$product->minimal_quantity}</b> {l s=' as a minimum quantity to buy this product.'}</p>
+			
+            <p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>{l s='You must add '} <b id="minimal_quantity_label">{$product->minimal_quantity}</b> {l s=' as a minimum quantity to buy this product.'}</p>
 			{if $product->minimal_quantity > 1}
 			<script type="text/javascript">
 				checkMinimalQuantity();
 			</script>
 			{/if}
 
-
-
 			<!-- number of item in stock -->
-			{if ($display_qties == 1 && !$PS_CATALOG_MODE && $product->available_for_order)}
+			
+            {if ($display_qties == 1 && !$PS_CATALOG_MODE && $product->available_for_order)}
 			<p id="pQuantityAvailable"{if $product->quantity <= 0} style="display: none;"{/if}>
 				<span id="quantityAvailable">{$product->quantity|intval}</span>
 				<span {if $product->quantity > 1} style="display: none;"{/if} id="quantityAvailableTxt">{l s='item in stock'}</span>
 				<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='items in stock'}</span>
 			</p>
 			{/if}
-			<!-- Out of stock hook -->
-			{if !$allow_oosp}
+			
+            <!-- Out of stock hook -->
+			
+            {if !$allow_oosp}
 			<p id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
 				{$HOOK_PRODUCT_OOS}
 			</p>
@@ -566,7 +530,6 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 			{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
 			<div class="clear"></div>
 			<!--<p class="encontraste"><a class="encontraste_link" href="#">Encontraste este producto m&aacute;s barato, &iquest;D&oacute;nde?</a></p>-->
-		</form>
 		{/if}
 		{if $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 	</div>
@@ -671,6 +634,7 @@ Precio Contado: {convertPrice price=round($precio_tienda-($precio_tienda)/10)}<b
 	{/if}
 	{$HOOK_PRODUCT_TAB_CONTENT}
 	</div>
+</div>
 </div>
 {/if}
 
