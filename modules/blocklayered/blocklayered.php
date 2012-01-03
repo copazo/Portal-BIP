@@ -2276,15 +2276,15 @@ class BlockLayered extends Module
                 
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT cc.id_category,cl.name
-		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'_category_lang cl on cc.id_category=cl.id_category 
+		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
 		WHERE cc.id_parent in ('.implode(",",$catg2do).')') as $cat3){
 			$catg3do['name'][] = $cat3['id_category'];
                         $catg3do['id_category'][] = $cat3['id_category'];
                 }
                 echo '
 		SELECT cc.id_category,cl.name
-		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'_category_lang cl on cc.id_category=cl.id_category 
-		WHERE cc.id_parent in ('.implode(",",$catg2do).')';
+		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
+		WHERE cc.id_parent in ('.implode(",",$catg2do).') <br>';
                 echo var_dump($catg3do);
 		foreach ($filters as $filter)
 		{
