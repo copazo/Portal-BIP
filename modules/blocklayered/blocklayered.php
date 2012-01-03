@@ -2270,17 +2270,18 @@ class BlockLayered extends Module
 
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT id_category
-		FROM `'._DB_PREFIX_.'category` agl
+		FROM `'._DB_PREFIX_.'category` 
 		WHERE id_parent = '.$id_parent) as $cat2)
 			$catg2do[] = $cat2['id_category'];
                 
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-		SELECT id_category
-		FROM `'._DB_PREFIX_.'category` agl
-		WHERE id_parent in ('.implode(",",$catg2do).')') as $cat3)
-			$catg3do[] = $cat3['id_category'];
-                      
-
+		SELECT cc.id_category,cl.name
+		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'_category_lang cl on cc.id_category=cl.id_category 
+		WHERE cc.id_parent in ('.implode(",",$catg2do).')') as $cat3){
+			$catg3do['name'][] = $cat3['id_category'];
+                        $catg3do['id_category'][] = $cat3['id_category'];
+                }
+                echo var_dump($catg3do);
 		foreach ($filters as $filter)
 		{
 			$sqlQuery = array('select' => '', 'from' => '', 'join' => '', 'where' => '', 'group' => '');
