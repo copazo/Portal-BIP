@@ -2283,7 +2283,7 @@ class BlockLayered extends Module
                     foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                     SELECT distinct cc.id_category,cl.name
                     FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
-                    WHERE cc.id_category="'.$cat3['id_category'].'"') as $cat33){
+                    WHERE cc.id_category="'.$cat3['id_parent'].'"') as $cat33){
                             $catg3do_dat['name'][$cat3['id_category']] = $cat33['name'];
                             $catg3do_dat['id_category'][$cat3['id_category']] = $cat33['id_category'];
                     }
