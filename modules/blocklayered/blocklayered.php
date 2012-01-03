@@ -2281,7 +2281,7 @@ class BlockLayered extends Module
                     FROM `'._DB_PREFIX_.'category` 
                     WHERE id_parent = '.$ctg22) as $cat2){
                             $catg2do[] = $cat22['id_category'];
-                            unset($catg2do[$ctg2]);
+                           // unset($catg2do[$ctg2]);
                     }
                 }
                 
