@@ -2290,12 +2290,6 @@ class BlockLayered extends Module
                 
                 }
                 
-
-                
-                
-                
-                
-                echo var_dump($catg3do_dat);
                
 		foreach ($filters as $filter)
 		{

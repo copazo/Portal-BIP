@@ -87,7 +87,8 @@ current_friendly_url = '#{$current_friendly_url}';
 
 
                                                                {assign var='nameCate' value=$catg3do['name'][$id_value]}
-                                                                    <span class="layered_subtitle">{$nameCate}</span><br>
+                                                               
+                                                                {$nameCate}<br>
                                                                 
 
                                                                 
