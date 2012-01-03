@@ -83,16 +83,12 @@ current_friendly_url = '#{$current_friendly_url}';
                                                 {assign var='nameCate' value=0}
 						{if !isset($filter.slider)}
 							{foreach from=$filter.values key=id_value item=value}
-                                                            
-                                                            
-                                                                
-                                                                {if $nameCate==0}    
-                                                                    <span class="layered_subtitle">{$nameCate}</span><br>
-                                                                {/if}
 
-                                                                {if $catg3do['name'][$id_value]!=$nameCate}    
+
+
+                                                                  
                                                                     <span class="layered_subtitle">{$nameCate}</span><br>
-                                                                {/if}
+                                                                
 
                                                                 {assign var='nameCate' value=$catg3do['name'][$id_value]}
 
