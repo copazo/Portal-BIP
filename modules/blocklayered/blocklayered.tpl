@@ -81,14 +81,17 @@ current_friendly_url = '#{$current_friendly_url}';
 						<div class="clear"></div>
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}">
 						{if !isset($filter.slider)}
+                                                        {assign var='nameCate' value=0}
 							{foreach from=$filter.values key=id_value item=value}
                                                             
                                                             
-                                                                {assign var='nameCate' value=$catg3do['name'][$id_value]}
-                                                                <span class="layered_subtitle">{$nameCate}</span><br>
-                                                            
-
                                                                 
+
+                                                                {if !=$nameCate}    
+                                                                    <span class="layered_subtitle">{$nameCate}</span><br>
+                                                                {/if}
+
+                                                                {assign var='nameCate' value=$catg3do['name'][$id_value]}
 
 								<li class="nomargin">
 								{if isset($filter.is_color_group) && $filter.is_color_group}
