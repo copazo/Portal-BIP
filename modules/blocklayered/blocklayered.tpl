@@ -76,12 +76,13 @@ current_friendly_url = '#{$current_friendly_url}';
 						<div>
 						{/if}
 						<span class="layered_subtitle">c:{$filter.name|escape:html:'UTF-8'}</span>
-                                                <span class="layered_subtitle">ssc:{$filter.id_key} cat:{$catg3do[3000]['name']}</span>
+                                                
 						<span class="layered_close"><a href="#" rel="ul_layered_{$filter.type}_{$filter.id_key}">v</a></span>
 						<div class="clear"></div>
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}">
 						{if !isset($filter.slider)}
 							{foreach from=$filter.values key=id_value item=value}
+                                                            <span class="layered_subtitle">ssc:{$filter.id_key} cat:{$catg3do[3002]['name']}</span>
 								<li class="nomargin">
 								{if isset($filter.is_color_group) && $filter.is_color_group}
 									<input type="button" name="layered_{$filter.type_lite}_{$id_value}" rel="{$id_value}_{$filter.id_key}" id="layered_id_attribute_group_{$id_value}" {if !$value.nbr} value="X" disabled="disabled"{/if} style="background: {if isset($value.color)}{$value.color}{else}#CCC{/if}; margin-left: 0; width: 16px; height: 16px; padding:0; border: 1px solid {if isset($value.checked) && $value.checked}red{else}#666{/if};" />
