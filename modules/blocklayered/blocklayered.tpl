@@ -91,7 +91,7 @@ current_friendly_url = '#{$current_friendly_url}';
 
                                                                
 
-                                                               {if $nameCate!=$catg3do['name'][$id_value]}
+                                                               {if $nameCate ne $catg3do['name'][$id_value]}
                                                                 {$nameCate}<br>
                                                                {/if}
 
