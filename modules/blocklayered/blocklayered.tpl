@@ -92,7 +92,7 @@ current_friendly_url = '#{$current_friendly_url}';
                                                                
 
                                                                {if $nameCate ne $catg3do['name'][$id_value]}
-                                                                {$nameCate}<br>
+                                                                {$nameCate} | {$catg3do['name'][$id_value]}<br>
                                                                {/if}
 
                                                                {assign var='nameCate' value=$catg3do['name'][$id_value]}
