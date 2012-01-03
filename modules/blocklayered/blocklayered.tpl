@@ -68,6 +68,7 @@ current_friendly_url = '#{$current_friendly_url}';
 					</ul>
 				</div>
 				{/if}
+{assign var='nameCate' value=0}
 				{foreach from=$filters item=filter}
 					{if isset($filter.values)}
 						{if isset($filter.slider)}
@@ -80,13 +81,13 @@ current_friendly_url = '#{$current_friendly_url}';
 						<span class="layered_close"><a href="#" rel="ul_layered_{$filter.type}_{$filter.id_key}">v</a></span>
 						<div class="clear"></div>
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}">
-                                                {assign var='nameCate' value=0}
+                                                
 						{if !isset($filter.slider)}
 							{foreach from=$filter.values key=id_value item=value}
 
 
                                                                {if $nameCate==0}
-                                                                {$catg3do['name'][$id_value]}<br>
+                                                                c:{$catg3do['name'][$id_value]}<br>
                                                                {/if}
 
                                                                
