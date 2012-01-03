@@ -82,7 +82,9 @@ current_friendly_url = '#{$current_friendly_url}';
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}">
 						{if !isset($filter.slider)}
 							{foreach from=$filter.values key=id_value item=value}
-                                                            <span class="layered_subtitle">ssc:{$id_value} cat:{$catg3do['name'][$id_value]}</span><br>
+                                                            {assign var='nameCate' value='$catg3do['name'][$id_value]'}
+
+                                                            <span class="layered_subtitle">{$nameCate}</span><br>
 								<li class="nomargin">
 								{if isset($filter.is_color_group) && $filter.is_color_group}
 									<input type="button" name="layered_{$filter.type_lite}_{$id_value}" rel="{$id_value}_{$filter.id_key}" id="layered_id_attribute_group_{$id_value}" {if !$value.nbr} value="X" disabled="disabled"{/if} style="background: {if isset($value.color)}{$value.color}{else}#CCC{/if}; margin-left: 0; width: 16px; height: 16px; padding:0; border: 1px solid {if isset($value.checked) && $value.checked}red{else}#666{/if};" />
