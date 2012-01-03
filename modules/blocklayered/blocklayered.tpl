@@ -25,7 +25,7 @@
 *}
 levl : {$level_depth}
 
-
+{assign var='nameCate' value='in'}
 <!-- Block layered navigation module -->
 {if $nbr_filterBlocks != 0}
 <script type="text/javascript">
@@ -68,7 +68,7 @@ current_friendly_url = '#{$current_friendly_url}';
 					</ul>
 				</div>
 				{/if}
-{assign var='nameCate' value=0}
+
 				{foreach from=$filters item=filter}
 					{if isset($filter.values)}
 						{if isset($filter.slider)}
@@ -86,7 +86,7 @@ current_friendly_url = '#{$current_friendly_url}';
 							{foreach from=$filter.values key=id_value item=value}
 
 
-                                                               {if $nameCate==0}
+                                                               {if $nameCate eq 'in'}
                                                                 c:{$catg3do['name'][$id_value]}<br>
                                                                {/if}
 
