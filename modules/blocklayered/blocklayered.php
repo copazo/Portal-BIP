@@ -2279,8 +2279,8 @@ class BlockLayered extends Module
 		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
 		WHERE cc.id_parent in ('.implode(",",$catg2do).')') as $cat3){
                         $catg3do[] = $cat3['id_category'];
-			$catg3do_dat['name'][] = $cat3['id_category'];
-                        $catg3do_dat['id_category'][] = $cat3['id_category'];
+			$catg3do_dat['name'][$cat3['id_category']] = $cat3['name'];
+                        $catg3do_dat['id_category'][$cat3['id_category']] = $cat3['id_category'];
                 }
                
 		foreach ($filters as $filter)
