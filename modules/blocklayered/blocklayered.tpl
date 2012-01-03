@@ -87,7 +87,7 @@ current_friendly_url = '#{$current_friendly_url}';
                                                             
                                                                 
 
-                                                                {if !=$nameCate}    
+                                                                {if $catg3do['name'][$id_value]!=$nameCate}    
                                                                     <span class="layered_subtitle">{$nameCate}</span><br>
                                                                 {/if}
 
