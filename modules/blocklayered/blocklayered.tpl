@@ -82,7 +82,7 @@ current_friendly_url = '#{$current_friendly_url}';
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}">
 						{if !isset($filter.slider)}
 							{foreach from=$filter.values key=id_value item=value}
-                                                            {assign var='nameCate' value="$catg3do['name'][$id_value]"}
+                                                            {assign var='nameCate' value=$catg3do['name'][$id_value]}
 
                                                             <span class="layered_subtitle">{$nameCate}</span><br>
 								<li class="nomargin">
