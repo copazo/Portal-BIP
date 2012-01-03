@@ -2279,9 +2279,9 @@ class BlockLayered extends Module
                     foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                     SELECT id_category
                     FROM `'._DB_PREFIX_.'category` 
-                    WHERE id_parent = '.$ctg22) as $cat2){
+                    WHERE id_parent = '.$ctg2) as $cat22){
                             $catg2do[] = $cat22['id_category'];
-                           // unset($catg2do[$ctg2]);
+                             unset($catg2do[$ctg2]);
                     }
                 }
                 
