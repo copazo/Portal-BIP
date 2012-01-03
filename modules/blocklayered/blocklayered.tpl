@@ -86,7 +86,7 @@ current_friendly_url = '#{$current_friendly_url}';
 
 
                                                                {if $nameCate==0}
-                                                                {$nameCate}<br>
+                                                                $catg3do['name'][$id_value]<br>
                                                                {/if}
 
                                                                
