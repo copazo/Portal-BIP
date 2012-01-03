@@ -2275,19 +2275,25 @@ class BlockLayered extends Module
 			$catg2do[] = $cat2['id_category'];
                 
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-		SELECT distinct cc.id_category,cl.name
+		SELECT distinct cc.id_category,cl.name,id_parent
 		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
 		WHERE cc.id_parent in ('.implode(",",$catg2do).')') as $cat3){
                         $catg3do[] = $cat3['id_category'];
+                        
+                    foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT distinct cc.id_category,cl.name
+                    FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
+                    WHERE cc.id_category="'.$cat3['id_category'].'"') as $cat33){
+                            $catg3do_dat['name'][$cat3['id_category']] = $cat33['name'];
+                            $catg3do_dat['id_category'][$cat3['id_category']] = $cat33['id_category'];
+                    }
+                
                 }
                 
-		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-		SELECT distinct cc.id_category,cl.name
-		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
-		WHERE cc.id_category in ('.implode(",",$catg2do).')') as $cat3){
-			$catg3do_dat['name'][$cat3['id_category']] = $cat3['name'];
-                        $catg3do_dat['id_category'][$cat3['id_category']] = $cat3['id_category'];
-                }
+
+                
+                
+                
                 
                 echo var_dump($catg3do_dat);
                
