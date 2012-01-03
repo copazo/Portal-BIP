@@ -84,11 +84,11 @@ current_friendly_url = '#{$current_friendly_url}';
 							{foreach from=$filter.values key=id_value item=value}
                                                             
                                                             
-                                                            
+                                                                {assign var='nameCate' value=$catg3do['name'][$id_value]}
                                                                 <span class="layered_subtitle">{$nameCate}</span><br>
                                                             
 
-                                                                {assign var='nameCate' value=$catg3do['name'][$id_value]}
+                                                                
 
 								<li class="nomargin">
 								{if isset($filter.is_color_group) && $filter.is_color_group}
