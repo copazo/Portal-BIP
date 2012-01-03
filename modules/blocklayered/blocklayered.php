@@ -2510,7 +2510,7 @@ class BlockLayered extends Module
 					GROUP BY cl.name ORDER BY level_depth, c.position';
                                         }else{
                                             
-                                        if($level_depth<3){
+                                        if($level_depth<3 and count($catg3do)>0){
                                             $sqlQuery['select'] = '
                                             SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
                                             $sqlQuery['from'] = '
