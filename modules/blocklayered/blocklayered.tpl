@@ -75,7 +75,8 @@ current_friendly_url = '#{$current_friendly_url}';
 						{else}
 						<div>
 						{/if}
-						<span class="layered_subtitle">{$filter.name|escape:html:'UTF-8'}</span>
+						<span class="layered_subtitle">c:{$filter.name|escape:html:'UTF-8'}</span>
+                                                <span class="layered_subtitle">ssc:{$filter.id_key} cat:{$catg3do[3000]['name']}</span>
 						<span class="layered_close"><a href="#" rel="ul_layered_{$filter.type}_{$filter.id_key}">v</a></span>
 						<div class="clear"></div>
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}">
