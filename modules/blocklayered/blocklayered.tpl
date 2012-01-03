@@ -86,7 +86,7 @@ current_friendly_url = '#{$current_friendly_url}';
 							{foreach from=$filter.values key=id_value item=value}
 
 
-                                                               {if $nameCate eq 'in'}
+                                                               {if $nameCate eq 'in' and isset($nameCate)}
                                                                 <b>{$catg3do['name'][$id_value]}</b><br>  
                                                                {else}
                                                                    {if $nameCate ne $catg3do['name'][$id_value] and isset($catg3do['name'][$id_value])}

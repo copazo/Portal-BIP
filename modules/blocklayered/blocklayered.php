@@ -2274,7 +2274,15 @@ class BlockLayered extends Module
 		WHERE id_parent = '.$id_parent) as $cat2)
 			$catg2do[] = $cat2['id_category'];
                 
-                
+                foreach($catg2do as $ctg2){
+                    
+                    foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT id_category
+                    FROM `'._DB_PREFIX_.'category` 
+                    WHERE id_parent = '.$ctg2) as $cat2)
+                            $catg2do[] = $cat2['id_category'];
+       
+                }
                 
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT distinct cc.id_category,cl.name,id_parent
