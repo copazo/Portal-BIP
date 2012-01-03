@@ -87,10 +87,10 @@ current_friendly_url = '#{$current_friendly_url}';
 
 
                                                                {if $nameCate eq 'in'}
-                                                                {$catg3do['name'][$id_value]}<br>  
+                                                                <b>{$catg3do['name'][$id_value]}</b><br>  
                                                                {else}
                                                                    {if $nameCate ne $catg3do['name'][$id_value] and isset($catg3do['name'][$id_value])}
-                                                                    {$catg3do['name'][$id_value]}<br>
+                                                                   <b>{$catg3do['name'][$id_value]}</b><br>
                                                                    {/if}
                                                                {/if}
                                                                {assign var='nameCate' value=$catg3do['name'][$id_value]}
