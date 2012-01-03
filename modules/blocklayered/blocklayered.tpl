@@ -23,7 +23,6 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registred Trademark & Property of PrestaShop SA
 *}
-levl : {$level_depth}
 
 {assign var='nameCate' value='in'}
 <!-- Block layered navigation module -->
