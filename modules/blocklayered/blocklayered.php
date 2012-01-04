@@ -2270,17 +2270,46 @@ class BlockLayered extends Module
 
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT id_category
-		FROM `'._DB_PREFIX_.'category` agl
+		FROM `'._DB_PREFIX_.'category` 
 		WHERE id_parent = '.$id_parent) as $cat2)
 			$catg2do[] = $cat2['id_category'];
                 
-		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-		SELECT id_category
-		FROM `'._DB_PREFIX_.'category` agl
-		WHERE id_parent in ('.implode(",",$catg2do).')') as $cat3)
-			$catg3do[] = $cat3['id_category'];
-                      
+                
+           
+                $catg2do_filter = array();
+                $catg2do_filter_none = array();
+                foreach($catg2do as $ctg2){
 
+                    foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT id_category
+                    FROM `'._DB_PREFIX_.'category` 
+                    WHERE id_parent = '.$ctg2) as $cat22){
+                            $catg2do_filter[] = $cat22['id_category'];
+
+                            $catg2do_filter_none[] = 0;
+                    }
+                    
+                        $catg2do_filter[] = $ctg2; 
+                }
+                
+                $catg2do = $catg2do_filter;
+                
+		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT distinct cc.id_category,cl.name,id_parent
+		FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
+		WHERE cc.id_parent in ('.implode(",",$catg2do).')') as $cat3){
+                        $catg3do[] = $cat3['id_category'];
+                        
+                    foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT distinct cc.id_category,cl.name
+                    FROM `'._DB_PREFIX_.'category` cc inner join '._DB_PREFIX_.'category_lang cl on cc.id_category=cl.id_category 
+                    WHERE cc.id_category="'.$cat3['id_parent'].'"') as $cat33){
+                            $catg3do_dat['name'][$cat3['id_category']] = $cat33['name'];
+                            $catg3do_dat['id_category'][$cat3['id_category']] = $cat33['id_category'];
+                    }
+                
+                }
+               
 		foreach ($filters as $filter)
 		{
 			$sqlQuery = array('select' => '', 'from' => '', 'join' => '', 'where' => '', 'group' => '');
@@ -2498,7 +2527,7 @@ class BlockLayered extends Module
 					GROUP BY cl.name ORDER BY level_depth, c.position';
                                         }else{
                                             
-                                        if($level_depth<3){
+                                        if($level_depth<3 and count($catg3do)>0){
                                             $sqlQuery['select'] = '
                                             SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
                                             $sqlQuery['from'] = '
@@ -2509,8 +2538,8 @@ class BlockLayered extends Module
                                             $sqlQuery['group'] = ') count_products
                                             FROM '._DB_PREFIX_.'category c
                                             LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
-                                            WHERE c.id_category in ('.implode(",",$catg3do).')
-                                            GROUP BY c.id_category ORDER BY c.id_category,level_depth, c.position';
+                                            WHERE   (c.id_category in ('.implode(",",$catg3do).') or c.id_parent='.$id_parent.' )
+                                            GROUP BY c.id_category HAVING count_products>0 ORDER BY c.id_parent,cl.name,c.id_category,level_depth, c.position';
                                         }else{
                                             $sqlQuery['select'] = '
                                             SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
@@ -2530,7 +2559,7 @@ class BlockLayered extends Module
                                         
 			}
 
-			foreach ($filters as $filterTmp)
+                        foreach ($filters as $filterTmp)
 			{
 				$methodName = 'get'.ucfirst($filterTmp['type']).'FilterSubQuery';
 				if (method_exists('BlockLayered', $methodName) &&
@@ -2870,7 +2899,7 @@ class BlockLayered extends Module
 		foreach ($selectedFilters as $filters)
 			$nFilters += count($filters);
 		
-		$cache = array('layered_show_qties' => (int)Configuration::get('PS_LAYERED_SHOW_QTIES'), 'id_category_layered' => (int)$id_parent,'level_depth'=>$level_depth,'catg3do' => $catg3do,
+		$cache = array('layered_show_qties' => (int)Configuration::get('PS_LAYERED_SHOW_QTIES'), 'id_category_layered' => (int)$id_parent,'level_depth'=>$level_depth,'catg3do' => $catg3do_dat,
 		'selected_filters' => $selectedFilters, 'n_filters' => (int)$nFilters, 'nbr_filterBlocks' => count($filterBlocks), 'filters' => $filterBlocks,
 		'title_values' => $titleValues, 'current_friendly_url' => htmlentities($paramSelected), 'nofollow' => !empty($paramSelected) || $nofollow);
 		

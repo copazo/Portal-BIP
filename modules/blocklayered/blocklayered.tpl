@@ -23,9 +23,8 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registred Trademark & Property of PrestaShop SA
 *}
-levl : {$level_depth}
 
-
+{assign var='nameCate' value='in'}
 <!-- Block layered navigation module -->
 {if $nbr_filterBlocks != 0}
 <script type="text/javascript">
@@ -68,6 +67,7 @@ current_friendly_url = '#{$current_friendly_url}';
 					</ul>
 				</div>
 				{/if}
+
 				{foreach from=$filters item=filter}
 					{if isset($filter.values)}
 						{if isset($filter.slider)}
@@ -76,11 +76,25 @@ current_friendly_url = '#{$current_friendly_url}';
 						<div>
 						{/if}
 						<span class="layered_subtitle">{$filter.name|escape:html:'UTF-8'}</span>
+                                                
 						<span class="layered_close"><a href="#" rel="ul_layered_{$filter.type}_{$filter.id_key}">v</a></span>
 						<div class="clear"></div>
 						<ul id="ul_layered_{$filter.type}_{$filter.id_key}">
+                                                
 						{if !isset($filter.slider)}
 							{foreach from=$filter.values key=id_value item=value}
+
+
+                                                               {if $nameCate eq 'in' and isset($nameCate)}
+                                                                <b>{$catg3do['name'][$id_value]}</b><br>  
+                                                               {else}
+                                                                   {if $nameCate ne $catg3do['name'][$id_value] and isset($catg3do['name'][$id_value])}
+                                                                   <b>{$catg3do['name'][$id_value]}</b><br>
+                                                                   {/if}
+                                                               {/if}
+                                                               {assign var='nameCate' value=$catg3do['name'][$id_value]}
+                                                                
+
 								<li class="nomargin">
 								{if isset($filter.is_color_group) && $filter.is_color_group}
 									<input type="button" name="layered_{$filter.type_lite}_{$id_value}" rel="{$id_value}_{$filter.id_key}" id="layered_id_attribute_group_{$id_value}" {if !$value.nbr} value="X" disabled="disabled"{/if} style="background: {if isset($value.color)}{$value.color}{else}#CCC{/if}; margin-left: 0; width: 16px; height: 16px; padding:0; border: 1px solid {if isset($value.checked) && $value.checked}red{else}#666{/if};" />
