@@ -2275,9 +2275,9 @@ class BlockLayered extends Module
 			$catg2do[] = $cat2['id_category'];
                 
                 
-                echo 'id : '.$id_parent."<br>";
+           
                 $catg2do_filter = array();
-                
+                $catg2do_filter_none = array();
                 foreach($catg2do as $ctg2){
                     $ccount = 0;
                     foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
@@ -2286,11 +2286,10 @@ class BlockLayered extends Module
                     WHERE id_parent = '.$ctg2) as $cat22){
                             $catg2do_filter[] = $cat22['id_category'];
                             $ccount=1;
+                            $catg2do_filter_none[] = $ctg2;
                     }
                     
-                   // if($ccount==0){
                         $catg2do_filter[] = $ctg2; 
-                    //}
                 }
                 
                 $catg2do = $catg2do_filter;
@@ -2539,7 +2538,7 @@ class BlockLayered extends Module
                                             $sqlQuery['group'] = ') count_products
                                             FROM '._DB_PREFIX_.'category c
                                             LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
-                                            WHERE c.id_category in ('.implode(",",$catg3do).')  or c.id_parent='.$id_parent.'
+                                            WHERE (c.id_category not in ('.implode(",",$catg2do_filter_none).') and c.id_category in ('.implode(",",$catg3do).') ) or c.id_parent='.$id_parent.'
                                             GROUP BY c.id_category ORDER BY c.id_parent,cl.name,c.id_category,level_depth, c.position';
                                         }else{
                                             $sqlQuery['select'] = '
