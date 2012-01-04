@@ -417,8 +417,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			<!--	inicio - forma de pago - cheques	-->
 			
 			
-			<div id="cuadroCuotas"><a style="cursor: pointer; cursor: hand; text-decoration:none;" onclick="changeTab('t_tiendas2');">Calcula tu cuota</a>
-				<div id="cl_internet" class="forma_pago"></div>
+			<div id="cuadroCuotas"><a style="cursor: pointer; cursor: hand; text-decoration:none;" onclick="changeTab('t_tiendas2');">Calcula tu cuota<img src="{$img_dir}calculator_edit.png" border="0" align="absmiddle" style="margin-left:7px;"></a>
+			  <div id="cl_internet" class="forma_pago"></div>
 				<div id="cl_tienda" class="forma_pago">
                     <div id="cuotas" style="display:none;" align="left">
                         <form name="frmCuotas">

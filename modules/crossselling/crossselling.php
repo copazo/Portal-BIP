@@ -98,6 +98,10 @@ class CrossSelling extends Module
 	{
 		Tools::addCSS(($this->_path).'crossselling.css', 'all');
 	}
+	public function hookRightColumn()
+	{
+		Tools::addCSS(($this->_path).'crossselling.css', 'all');
+	}
 
 	/**
 	* Returns module content for left column
