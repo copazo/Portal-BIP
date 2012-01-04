@@ -2274,6 +2274,8 @@ class BlockLayered extends Module
 		WHERE id_parent = '.$id_parent) as $cat2)
 			$catg2do[] = $cat2['id_category'];
                 
+                
+                echo 'id : '.$id_parent."<br>";
                 $catg2do_filter = array();
                 /*
                 foreach($catg2do as $ctg2){
