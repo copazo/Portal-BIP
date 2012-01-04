@@ -2277,7 +2277,7 @@ class BlockLayered extends Module
                 
                 echo 'id : '.$id_parent."<br>";
                 $catg2do_filter = array();
-                /*
+                
                 foreach($catg2do as $ctg2){
                     $ccount = 0;
                     foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
@@ -2288,12 +2288,12 @@ class BlockLayered extends Module
                             $ccount=1;
                     }
                     
-                    if($ccount==1){
+                    if($ccount==0){
                         $catg2do_filter[] = $ctg2; 
                     }
-                }*/
+                }
                 
-                //$catg2do = $catg2do_filter;
+                $catg2do = $catg2do_filter;
                 
 		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT distinct cc.id_category,cl.name,id_parent
