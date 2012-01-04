@@ -32,18 +32,21 @@ function calculaLargo() {
 .precioBipMenor {
 	background-color: #9FC;
 }
+.btnVolver {
+	background-color: #FFF6D3;
+	border-color: #FFF6D3 #DFD5AF #DFD5AF #FFF6D3; 
+	border-right: 1px solid #DFD5AF; 
+	border-style: solid; 
+	border-width: 1px; 
+	color: #268CCD; 
+	padding: 3px;
+}
 -->
 </style>
 </head>
 
 <body>
-<input type="button" value="Volver" onclick="location.href = 'reporteComparacionPrecios.php';" style="background-color: #FFF6D3;
-    border-color: #FFF6D3 #DFD5AF #DFD5AF #FFF6D3;
-    border-right: 1px solid #DFD5AF;
-    border-style: solid;
-    border-width: 1px;
-    color: #268CCD;
-    padding: 3px;">
+<input type="button" value="Volver" onclick="location.href = 'reporteComparacionPrecios.php';" class="btnVolver" />
 <div style="font-family: Arial, Helvetica, sans-serif; font-size:11px; color:#060; background-color:#FFFFFF;">Detalle de art&iacute;culo de tienda <?php echo $_GET['nombreTienda']; ?></div>
   <table border="0" cellpadding="2" cellspacing="1" style="border:1px solid #DFD5C3; width:100%;">
     <tr style="font-family: Arial, Helvetica, sans-serif; font-size:10px; color:green; background-color:#F4E6C9;">

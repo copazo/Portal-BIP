@@ -186,119 +186,127 @@ function cambiarOrderBy($orderBy){
 	
 }
 </script>
+<style type="text/css">
+<!--
+.precioBipIgual {
+	background-color: #FFC;
+}
+.precioBipMayor {
+	background-color: #FCC;
+}
+.precioBipMenor {
+	background-color: #9FC;
+}
+.btnVolver {
+	background-color: #FFF6D3;
+	border-color: #FFF6D3 #DFD5AF #DFD5AF #FFF6D3;
+	border-right: 1px solid #DFD5AF;
+	border-style: solid;
+	border-width: 1px;
+	color: #268CCD;
+	padding: 3px;
+}
+a.lknombreColumna {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:green;
+	background-color:#F4E6C9;
+	text-decoration:none;
+}
+select.filtros {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#000;
+	background-color:#FFFFFF;
+	text-decoration:none;
+	width:100px;
+}
+-->
+</style>
 </head>
 
 <body>
-	<input type="button" value="Volver" onclick="location.href = 'comparacionPreciosIndex.php';" 
-    style="background-color: #FFF6D3;
-    border-color: #FFF6D3 #DFD5AF #DFD5AF #FFF6D3;
-    border-right: 1px solid #DFD5AF;
-    border-style: solid;
-    border-width: 1px;
-    color: #268CCD;
-    padding: 3px;">
-    <form action="adminComparador.php" enctype="multipart/form-data" autocomplete="off" id="buscarForm" name="buscarForm" method="post">
-    <input type="hidden" id="orderByHidden" name="orderByHidden" value="<?php echo $orderBy; ?>"/>
-    <table style="font-family: Arial, Helvetica, sans-serif; font-size:11px; color:#060; background-color:#FFFFFF;">
-<tr>
-        	<td width="200">Se han encontrado <?php echo sizeof($resultLineas); ?> registros.</td>
+<input type="button" value="Volver" onclick="location.href = 'comparacionPreciosIndex.php';" class="btnVolver"/>
+<form action="adminComparador.php" enctype="multipart/form-data" autocomplete="off" id="buscarForm" name="buscarForm" method="post">
+  <input type="hidden" id="orderByHidden" name="orderByHidden" value="<?php echo $orderBy; ?>"/>
+  <table cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size:11px; color:#060; background-color:#FFFFFF; width:100%; height:35px;">
+    <tr>
+      <td width="200">Se han encontrado <?php echo sizeof($resultLineas); ?> registros.</td>
+      <td ></td>
+      <td width="30">Tienda: </td>
+      <td width="100"><select name="tienda" id="tienda" class="filtros">
+          <option value="" <?php echo (!isset($_POST["tienda"]))?'selected':''; ?>> Todas </option>
+          <option value=".corona" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.corona')?'selected':''; ?>> Corona </option>
+          <option value=".falabella" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.falabella')?'selected':''; ?>> Falabella </option>
+          <option value=".paris" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.paris')?'selected':''; ?>> Paris </option>
+          <option value=".pcfactory" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.pcfactory')?'selected':''; ?>> PC Factory </option>
+          <option value=".ripley" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.ripley')?'selected':''; ?>> Ripley </option>
+          <option value=".wei" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.wei')?'selected':''; ?>> WEI</option>
+        </select></td>
       <td width="10"></td>
-      <td width="30">Tienda</td>
-<td width="100"> <select name="tienda" id="tienda">
-            	<option value="" <?php echo (!isset($_POST["tienda"]))?'selected':''; ?>> Todas </option>
-                <option value=".corona" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.corona')?'selected':''; ?>> Corona </option>
-                <option value=".falabella" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.falabella')?'selected':''; ?>> Falabella </option>
-            	<option value=".paris" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.paris')?'selected':''; ?>> Paris </option>
-                <option value=".pcfactory" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.pcfactory')?'selected':''; ?>> PC Factory </option>
-                <option value=".ripley" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.ripley')?'selected':''; ?>> Ripley </option>
-                <option value=".wei" <?php echo (isset($_POST["tienda"]) && $_POST["tienda"]=='.wei')?'selected':''; ?>> WEI</option>
-            </select>
-			</td>
+      <td width="35">Relaci&oacute;n: </td>
+      <td width="100"><select name="relacion" id="relacion" class="filtros">
+          <option value="" <?php echo (!isset($_POST["relacion"]))?'selected':''; ?>> Todos </option>
+          <option value="Idéntico" <?php echo (isset($_POST["relacion"]) && $_POST["relacion"]=='Idéntico')?'selected':''; ?>> Similar </option>
+          <option value="Similar" <?php echo (isset($_POST["relacion"]) && $_POST["relacion"]=='Similar')?'selected':''; ?>> Id&eacute;ntico </option>
+        </select></td>
       <td width="10"></td>
-      <td width="35">Relaci&oacute;n</td>
-<td width="100"><select name="relacion" id="relacion">
-            	<option value="" <?php echo (!isset($_POST["relacion"]))?'selected':''; ?>> Todos </option>
-                <option value="Idéntico" <?php echo (isset($_POST["relacion"]) && $_POST["relacion"]=='Idéntico')?'selected':''; ?>> Similar </option>
-                <option value="Similar" <?php echo (isset($_POST["relacion"]) && $_POST["relacion"]=='Similar')?'selected':''; ?>> Id&eacute;ntico </option>
-            </select>
-      </td>
-      <td>V&aacute;lidos</td>
-      <td>
-      	<select name="porvalidar" id="porvalidar">
-            	<option value="" <?php echo (!isset($_POST["porvalidar"]))?'selected':''; ?>> Todos </option>
-                <option value="0" <?php echo (isset($_POST["porvalidar"]) && $_POST["porvalidar"]=='0')?'selected':''; ?>> Inactivos </option>
-                <option value="1" <?php echo (isset($_POST["porvalidar"]) && $_POST["porvalidar"]=='1')?'selected':''; ?>> Activos </option>
-            </select>
-      </td>
-  
-      <td width="63"><input type="submit" value="Buscar" name="Buscar" id="Buscar" style="background-color: #FFF6D3;
-    border-color: #FFF6D3 #DFD5AF #DFD5AF #FFF6D3;
-    border-right: 1px solid #DFD5AF;
-    border-style: solid;
-    border-width: 1px;
-    color: #268CCD;
-    padding: 3px;"/></td>
-      </tr>
-    </table>
-    </form>
-  <table border="0" cellpadding="2" cellspacing="1" style="border:1px solid #DFD5C3; width:100%;">
-    <tr style="font-family: Arial, Helvetica, sans-serif; font-size:10px; color:green; background-color:#F4E6C9;">
-      <td><a onclick="seguroEliminarMasivo()" href="#">Eliminar</a> <br />Todo <input type="checkbox" name="selTodo" id="selTodo" onclick="seleccionarTodo()" /></td>
-      <td><a href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_CODIGO,(!isset($_POST["orderByHidden"])?$C_CODIGO:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();"> C&oacute;digo</a></td>
-      <td><a href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_TIENDA,(!isset($_POST["orderByHidden"])?$C_TIENDA:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Tienda</a></td>
-      <td>Nombre</td>
-      <td><a href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_PRECIO,(!isset($_POST["orderByHidden"])?$C_PRECIO:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Precio BIP</a></td>
-      <td><a href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_EMAIL,(!isset($_POST["orderByHidden"])?$C_EMAIL:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">E mail</a></td>
-      <td><a href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_USUARIO,(!isset($_POST["orderByHidden"])?$C_USUARIO:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Usuario</a></td>
-      <td><a href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_FECHA,(!isset($_POST["orderByHidden"])?$C_FECHA:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Fecha</a></td>
-      <td>URL</td>
-      <td><a href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_RELACION,(!isset($_POST["orderByHidden"])?$C_RELACION:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Relaci&oacute;n</a></td>
-      <td>¿V&aacute;lida?</td>
-      <td><a href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_COMPARACION,(!isset($_POST["orderByHidden"])?$C_COMPARACION:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Precio Comparaci&oacute;n</a></td>
-      <td>Comparar</td>
-      <td>Situacion Busqueda</td>
+      <td width="35">V&aacute;lidos: </td>
+      <td width="100"><select name="porvalidar" id="porvalidar" class="filtros">
+          <option value="" <?php echo (!isset($_POST["porvalidar"]))?'selected':''; ?>> Todos </option>
+          <option value="0" <?php echo (isset($_POST["porvalidar"]) && $_POST["porvalidar"]=='0')?'selected':''; ?>> Inactivos </option>
+          <option value="1" <?php echo (isset($_POST["porvalidar"]) && $_POST["porvalidar"]=='1')?'selected':''; ?>> Activos </option>
+        </select></td>
+      <td width="63" align="right"><input type="submit" value="Buscar" name="Buscar" id="Buscar" class="btnVolver"/></td>
     </tr>
-    <?php foreach($resultLineas as $linea){ ?>
-    <tr style="font-family: Arial, Helvetica, sans-serif; font-size:9px; color:#000000; background-color:#FFFFFF;">
-      <td class="txtcampos"><input type="checkbox" name="checkEliminar[]" id="checkEliminar[]" value="<?php echo $linea['dacoId']; ?>" /></td>
-      <td class="txtcampos"><?php echo $linea['dacoBip']; ?></td>
-      <td ><?php echo (($linea['dacoTienda']==null || $linea['dacoTienda']=="")?'No Comprobado':$linea['dacoTienda']); ?></td>
-      <td class="txtcampos"><?php echo $linea['name']; ?></td>
-      <td class="txtcampos"><?php echo number_format($linea['internet'],0,',','.'); ?></td>
-      <td class="txtcampos"><?php echo $linea['dacoEmail']; ?></td>
-      <td class="txtcampos"><?php echo $linea['dacoUsuario']; ?></td>
-      <td class="txtcampos"><?php echo $linea['dacoFecha']; ?></td>
-      <td class="txtcampos"><a href="<?php echo $linea['dacoURL']; ?>" target="_blank"><?php echo $linea['dacoURL']; ?></a></td>
-      <td class="txtcampos">
-      	<input type="checkbox" onclick="actionCheck('<?php echo $linea['dacoId']; ?>')" name="checkValido<?php echo $linea['dacoId']; ?>" id="checkValido<?php echo $linea['dacoId']; ?>" <?php echo ($linea['dacoComparacionActiva']==0?'':'checked="checked"'); ?> <?php echo $linea['dacoRelacion']==''?'disabled="disabled"':''; ?>/> 
-      	<br>
-		<a href="#" onclick="seguroEliminar('<?php echo $linea['name']; ?>',<?php echo $linea['dacoId']; ?>)" > Eliminar </a>
-      </td>
-      <td class="txtcampos">
-      		<select style="display:<?php echo $linea['dacoRelacion']==''?'inline':'none'; ?>" name="relacion<?php echo $linea['dacoId']; ?>" id="relacion<?php echo $linea['dacoId']; ?>" onchange="cambioRelacion(<?php echo $linea['dacoId']; ?>);">
-            	<option value="" <?php echo $linea['dacoRelacion']==''?'selected':''; ?>> No seleccionado </option>
-                <option value="Idéntico" <?php echo $linea['dacoRelacion']=='Idéntico'?'selected':''; ?>> Id&eacute;ntico </option>
-                <option value="Similar" <?php  echo $linea['dacoRelacion']=='Similar'?'selected':''; ?>> Similar </option>
-            </select>
-            <div id="relacionTexto<?php echo $linea['dacoId']; ?>"><?php echo $linea['dacoRelacion'];?></div>
-	  </td>
-      <td class="txtcampos">
-      	<input type="checkbox" onclick="actionCheck('<?php echo $linea['dacoId']; ?>')" name="checkValido<?php echo $linea['dacoId']; ?>" id="checkValido<?php echo $linea['dacoId']; ?>" <?php echo ($linea['dacoComparacionActiva']==0?'':'checked="checked"'); ?> <?php echo $linea['dacoRelacion']==''?'disabled="disabled"':''; ?>/> 
-      	<br>
-		<a href="#" onclick="seguroEliminar('<?php echo $linea['name']; ?>',<?php echo $linea['dacoId']; ?>)" > Eliminar </a>
-      </td>
-      <td class="txtcampos"><?php echo number_format($linea['dacoPrecioComparacion'],0,',','.'); ?></td>
-      <td class="txtcampos"><input id="boton<?php echo $linea['dacoId']; ?>" type="button" value="OK" onclick="botonOk('<?php echo $linea['dacoId']; ?>');" <?php echo ($linea['dacoComparacionActiva']!=0?'':'disabled="disabled"'); ?>style="background-color: #FFF6D3;
-    border-color: #FFF6D3 #DFD5AF #DFD5AF #FFF6D3;
-    border-right: 1px solid #DFD5AF;
-    border-style: solid;
-    border-width: 1px;
-    color: #268CCD;
-    padding: 3px;"></td>
-      <td class="txtcampos"><img src="<?php echo "".($linea['dacoFuncionando']==0?"alerta.png":"semaforo_verde.gif"); ?>"></td>
-    </tr>
-    <?php  } ?>
   </table>
+</form>
+<table border="0" cellpadding="2" cellspacing="1" style="border:1px solid #DFD5C3; width:100%;">
+  <tr style="font-family: Arial, Helvetica, sans-serif; font-size:10px; color:green; background-color:#F4E6C9;">
+    <td><input type="checkbox" name="selTodo" id="selTodo" onclick="seleccionarTodo()" /></td>
+    <td><a class="lknombreColumna" href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_CODIGO,(!isset($_POST["orderByHidden"])?$C_CODIGO:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();"> C&oacute;digo <img src="down.gif" width="9" height="9" alt="Ordenar" border="0" /></a></td>
+    <td><a class="lknombreColumna" href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_TIENDA,(!isset($_POST["orderByHidden"])?$C_TIENDA:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Tienda <img src="down.gif" width="9" height="9" alt="Ordenar" border="0" /></a></td>
+    <td>Nombre</td>
+    <td><a class="lknombreColumna" href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_PRECIO,(!isset($_POST["orderByHidden"])?$C_PRECIO:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Precio BIP <img src="down.gif" width="9" height="9" alt="Ordenar" border="0" /></a></td>
+    <td><a class="lknombreColumna" href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_EMAIL,(!isset($_POST["orderByHidden"])?$C_EMAIL:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">E mail <img src="down.gif" width="9" height="9" alt="Ordenar" border="0" /></a></td>
+    <td><a class="lknombreColumna" href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_USUARIO,(!isset($_POST["orderByHidden"])?$C_USUARIO:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Usuario <img src="down.gif" width="9" height="9" alt="Ordenar" border="0" /></a></td>
+    <td><a class="lknombreColumna" href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_FECHA,(!isset($_POST["orderByHidden"])?$C_FECHA:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Fecha <img src="down.gif" width="9" height="9" alt="Ordenar" border="0" /></a></td>
+    <td>URL</td>
+    <td><a class="lknombreColumna" href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_RELACION,(!isset($_POST["orderByHidden"])?$C_RELACION:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Relaci&oacute;n <img src="down.gif" width="9" height="9" alt="Ordenar" border="0" /></a></td>
+    <td>¿V&aacute;lida?</td>
+    <td><a class="lknombreColumna" href="#" onclick="cambiarOrderBy('<?php echo orderBy($C_COMPARACION,(!isset($_POST["orderByHidden"])?$C_COMPARACION:$_POST["orderByHidden"])); ?>'), document.getElementById('Buscar').click();">Precio <img src="down.gif" width="9" height="9" alt="Ordenar" border="0" /></a></td>
+    <td>Comparar</td>
+    <td width="25px" align="center">Estado</td>
+  </tr>
+  <?php foreach($resultLineas as $linea){ ?>
+  <tr style="font-family: Arial, Helvetica, sans-serif; font-size:9px; color:#000000; background-color:#FFFFFF;">
+    <td class="txtcampos"><input type="checkbox" name="checkEliminar[]" id="checkEliminar[]" value="<?php echo $linea['dacoId']; ?>" /></td>
+    <td class="txtcampos"><?php echo $linea['dacoBip']; ?></td>
+    <td ><?php echo (($linea['dacoTienda']==null || $linea['dacoTienda']=="")?'No Comprobado':$linea['dacoTienda']); ?></td>
+    <td class="txtcampos"><?php echo $linea['name']; ?></td>
+    <td class="txtcampos"><?php echo number_format($linea['internet'],0,',','.'); ?></td>
+    <td class="txtcampos"><?php echo $linea['dacoEmail']; ?></td>
+    <td class="txtcampos"><?php echo $linea['dacoUsuario']; ?></td>
+    <td class="txtcampos"><?php echo $linea['dacoFecha']; ?></td>
+    <td class="txtcampos"><a href="<?php echo $linea['dacoURL']; ?>" target="_blank"><?php echo $linea['dacoURL']; ?></a></td>
+    <td class="txtcampos"><select style="display:<?php echo $linea['dacoRelacion']==''?'inline':'none'; ?>" name="relacion<?php echo $linea['dacoId']; ?>" id="relacion<?php echo $linea['dacoId']; ?>" onchange="cambioRelacion(<?php echo $linea['dacoId']; ?>);" class="filtros">
+        <option value="" <?php echo $linea['dacoRelacion']==''?'selected':''; ?>> No seleccionado </option>
+        <option value="Idéntico" <?php echo $linea['dacoRelacion']=='Idéntico'?'selected':''; ?>> Id&eacute;ntico </option>
+        <option value="Similar" <?php  echo $linea['dacoRelacion']=='Similar'?'selected':''; ?>> Similar </option>
+      </select>
+      <div id="relacionTexto<?php echo $linea['dacoId']; ?>"><?php echo $linea['dacoRelacion'];?></div></td>
+    <td class="txtcampos"><input type="checkbox" onclick="actionCheck('<?php echo $linea['dacoId']; ?>')" name="checkValido<?php echo $linea['dacoId']; ?>" id="checkValido<?php echo $linea['dacoId']; ?>" <?php echo ($linea['dacoComparacionActiva']==0?'':'checked="checked"'); ?> <?php echo $linea['dacoRelacion']==''?'disabled="disabled"':''; ?>/>
+      <br />
+      <a href="#" onclick="seguroEliminar('<?php echo $linea['name']; ?>',<?php echo $linea['dacoId']; ?>)" > Eliminar </a></td>
+    <td class="txtcampos"><?php echo number_format($linea['dacoPrecioComparacion'],0,',','.'); ?></td>
+    <td class="txtcampos"><input id="boton<?php echo $linea['dacoId']; ?>" type="button" value="OK" onclick="botonOk('<?php echo $linea['dacoId']; ?>');" <?php echo ($linea['dacoComparacionActiva']!=0?'':'disabled="disabled"'); ?> class="btnVolver" /></td>
+    <td class="txtcampos"><img src="<?php echo "".($linea['dacoFuncionando']==0?"alerta.png":"semaforo_verde.png"); ?>"></td>
+  </tr>
+  <?php  } ?>
+</table>
+<p style="margin: 0.5em 0 0; padding: 0 0 0.5em;">
+  <input type="button" value="Borrar la selección" onclick="seguroEliminarMasivo()" class="btnVolver"/>
+</p>
 </body>
 <script language="javascript" type="text/javascript">
 calculaLargo();

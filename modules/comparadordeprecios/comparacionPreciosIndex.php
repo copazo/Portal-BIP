@@ -22,14 +22,14 @@ function calculaLargo() {
 <body>
   <table width="600" border="0" align="center">
     <tr>
-      <td width="300" align="center"><a href="adminComparador.php"><img src="http://www.test.exe.cl/exeBIPdev/wmin/themes/oldschool/coins.png" alt="Comparador de Precios" width="125" height="125" border="0" /></a></td>
-      <td width="300" align="center"><a href="reporteComparacionPrecios.php"><img src="http://www.test.exe.cl/exeBIPdev/wmin/themes/oldschool/bar_graph.png" alt="Reportes Comparador de Precios" width="125" height="125" border="0" /></a></td>
-      <td>&nbsp;</td>
+      <td width="300" align="center"><a href="adminComparador.php"><img src="coins.png" alt="Comparador de Precios" width="125" height="125" border="0" /></a></td>
+      <td width="300" align="center"><a href="reporteComparacionPrecios.php"><img src="bar_graph.png" alt="Reportes Comparador de Precios" width="125" height="125" border="0" /></a></td>
+      <td width="300" align="center"><a href="reporteEnvioUsuariosRegistrados.php"><img src="report_user.png" alt="Reporte Envio Usuarios Registrados" width="125" height="125" border="0" /></a></td>
     </tr>
     <tr>
       <td width="300" align="center"><a href="adminComparador.php" style="font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#060; background-color:#FFFFFF;">Comparacion de Precios</a></td>
       <td width="300" align="center"><a href="reporteComparacionPrecios.php" style="font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#060; background-color:#FFFFFF;">Reporte de Comparaciones</a></td>
-      <td width="300" align="center"><a href="reporteEnvioUsuariosRegistrados.php">Ranking de registros por usuario</a></td>
+      <td width="300" align="center"><a href="reporteEnvioUsuariosRegistrados.php" style="font-family: Arial, Helvetica, sans-serif; font-size:12px; color:#060; background-color:#FFFFFF;">Ranking de Registros por Usuario</a></td>
     </tr>
   </table>
 <script language="javascript" type="text/javascript">

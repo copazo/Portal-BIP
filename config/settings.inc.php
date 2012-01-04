@@ -1,7 +1,11 @@
 <?php
 
+<<<<<<< HEAD
 
 define('__PS_BASE_URI__', '/exeBIPdev/');
+=======
+define('__PS_BASE_URI__', '/Portal-BIP/');
+>>>>>>> bf93f0383a70a9edcc3dbc1d37ffc90b6e3cc774
 define('_MEDIA_SERVER_1_', '');
 define('_MEDIA_SERVER_2_', '');
 define('_MEDIA_SERVER_3_', '');
@@ -13,7 +17,7 @@ define('_MYSQL_ENGINE_', 'InnoDB');
 define('_DB_SERVER_', 'localhost');
 define('_DB_USER_', 'root');
 define('_DB_PREFIX_', 'ps_');
-define('_DB_PASSWD_', 'gyarados');
+define('_DB_PASSWD_', '');
 define('_DB_TYPE_', 'MySQL');
 define('_COOKIE_KEY_', '4hIgzsHR1bdjgDGdeWOtfu26EOfp0mU2Es6pDLq3ZIQLeb5PV6kxSUDN');
 define('_COOKIE_IV_', 'De5A0diB');

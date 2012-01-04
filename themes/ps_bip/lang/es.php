@@ -323,7 +323,7 @@ $_LANG['order-detail_8efd9e9597e94fe3397c831f2ed1b7bd'] = 'Ha pedido un papel de
 $_LANG['order-detail_940663fd4428d2c86f9a4780b6574028'] = 'Mensaje:';
 $_LANG['order-detail_466eadd40b3c10580e3ab4e8061161ce'] = 'Factura';
 $_LANG['order-detail_065ab3a28ca4f16f55f103adc7d0226f'] = 'Entrega';
-$_LANG['order-detail_63d5049791d9d79d86e9a108b0a999ca'] = 'Referencia';
+$_LANG['order-detail_63d5049791d9d79d86e9a108b0a999ca'] = 'PartNumber';
 $_LANG['order-detail_deb10517653c255364175796ace3553f'] = 'Producto';
 $_LANG['order-detail_694e8d1f2ee056f98ee488bdc4982d73'] = 'Cantidad';
 $_LANG['order-detail_6c957f72dc8cdacc75762f2cbdcdfaf2'] = 'Precio unitario';
@@ -464,7 +464,7 @@ $_LANG['order-return_dd0b8feb4eb6c389c284518f5683017c'] = 'Le recordamos que la 
 $_LANG['order-return_ea62a2e28a800c367509773730120a67'] = 'días tras recibir su pedido.';
 $_LANG['order-return_c412711583768a1e9c2deafe9243eee9'] = 'Estado actual de su devolución:';
 $_LANG['order-return_17806a71d233a243594b1210af57c245'] = 'Lista de artículos marcados como devueltos:';
-$_LANG['order-return_63d5049791d9d79d86e9a108b0a999ca'] = 'Referencia';
+$_LANG['order-return_63d5049791d9d79d86e9a108b0a999ca'] = 'PartNumber';
 $_LANG['order-return_deb10517653c255364175796ace3553f'] = 'Producto';
 $_LANG['order-return_694e8d1f2ee056f98ee488bdc4982d73'] = 'Cantidad';
 $_LANG['order-return_853ae90f0351324bd73ea615e6487517'] = ':';
@@ -520,7 +520,6 @@ $_LANG['product-list_800e90e940e7f1fb938b0fda5137f38c'] = '¡En rebajas!';
 $_LANG['product-list_ca2bf12169883f4982d8fe34b7e3c618'] = '¡Precio rebajado!';
 $_LANG['product-list_d0fcb89c94b29d6ab2db749ff688dc7c'] = '¡Solo por Internet!';
 $_LANG['product-list_78945de8de090e90045d299651a68a9b'] = 'Disponible';
-$_LANG['product-list_cb3c718c905f00adbb6735f55bfb38ef'] = 'Producto disponible con otras opciones';
 $_LANG['product-list_b55197a49e8c4cd8c314bc2aa39d6feb'] = 'Agotado';
 $_LANG['product-list_2d0f6b8300be19cf35e89e66f0677f95'] = 'Agregar al carro';
 $_LANG['product-list_4351cfebe4b61d8aa5efa1d020710005'] = 'Ver';
@@ -548,6 +547,10 @@ $_LANG['product_02ea084dc2ef3e9965dbba4ec87d2f9b'] = 'Mostrar todas las imágene
 $_LANG['product_13dba24862cf9128167a59100e154c8d'] = 'Imprimir';
 $_LANG['product_c6beb9157a0e29e604ad5ec484488608'] = 'Ampliar';
 $_LANG['product_98b0a68a7e4c7b265a5ca9a0b733d96e'] = 'Elija un color:';
+<<<<<<< HEAD
+=======
+$_LANG['product_ea23e12cae068315b351f8d36d432d76'] = 'PartNumber:';
+>>>>>>> bf93f0383a70a9edcc3dbc1d37ffc90b6e3cc774
 $_LANG['product_887ee91702c962a70b87cbef07bbcaec'] = 'sin IVA';
 $_LANG['product_e2e79605fc9450ec17957cf0e910f5c6'] = 'IVA incluído';
 $_LANG['product_588907ab2d492aca0b07b5bf9c931eea'] = 'En rebajas';
@@ -560,10 +563,12 @@ $_LANG['product_d436eb0fd9de10b54a828ce6435f7e81'] = 'incluir';
 $_LANG['product_f85524c253c150e88136df3999ac3fd4'] = 'para el impuesto ecologico';
 $_LANG['product_a134618182b99ff9151d7e0b6b92410a'] = 'no está incluido en el descuento';
 $_LANG['product_fe3838c7c11aa406dd956566e17360d5'] = 'por';
+<<<<<<< HEAD
 $_LANG['product_ea23e12cae068315b351f8d36d432d76'] = 'Codigo BIP:';
+=======
+>>>>>>> bf93f0383a70a9edcc3dbc1d37ffc90b6e3cc774
 $_LANG['product_07d814a3df5cfd2d637e77b215519034'] = 'Debe agregar al menos';
 $_LANG['product_f3bbad73b35f19730399b3da21c3ef32'] = 'cantidad mínima para comprar este producto';
-$_LANG['product_8c751c4aab0db0b811cdfbddf0b4ea56'] = 'Disponibilidad:';
 $_LANG['product_4b98be16b76b0941840140f2043432a9'] = 'artículo disponible';
 $_LANG['product_e16d56df08bbd47e53e153fc6dfc8ad8'] = 'artículos disponibles';
 $_LANG['product_0d83f0026f6d2923b2aa3a208156918c'] = 'Advertencia: ¡Últimos artículos en stock!';
