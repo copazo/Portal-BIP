@@ -2559,7 +2559,7 @@ class BlockLayered extends Module
                                     }
                                         
 			}
-
+echo $sqlQuery['select']."\n".$sqlQuery['from']."\n".$sqlQuery['join']."\n".$sqlQuery['where']."\n".$sqlQuery['group']."<br>";
 			foreach ($filters as $filterTmp)
 			{
 				$methodName = 'get'.ucfirst($filterTmp['type']).'FilterSubQuery';
