@@ -2288,9 +2288,9 @@ class BlockLayered extends Module
                             $ccount=1;
                     }
                     
-                    if($ccount==0){
+                   // if($ccount==0){
                         $catg2do_filter[] = $ctg2; 
-                    }
+                    //}
                 }
                 
                 $catg2do = $catg2do_filter;
