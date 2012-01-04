@@ -2539,7 +2539,7 @@ class BlockLayered extends Module
                                             $sqlQuery['group'] = ') count_products
                                             FROM '._DB_PREFIX_.'category c
                                             LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
-                                            WHERE c.id_parent = '.$id_parent.'
+                                            WHERE c.id_category in ('.implode(",",$catg3do).') 
                                             GROUP BY c.id_category ORDER BY c.id_category,level_depth, c.position';
                                         }else{
                                             $sqlQuery['select'] = '
