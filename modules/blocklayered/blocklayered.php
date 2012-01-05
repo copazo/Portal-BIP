@@ -2742,8 +2742,7 @@ class BlockLayered extends Module
 					GROUP BY cl.name ORDER BY level_depth, c.position';
                                         
                              
-                                            echo $sqlQuery['select']."\n".$sqlQuery['from']."\n".$sqlQuery['join']."\n".$sqlQuery['where']."\n".$sqlQuery['group'];
-                                        }else{    
+                                            }else{    
                                             
                                             if($level_depth<3 and count($catg3do)>0){
                                                 $sqlQuery['select'] = '
