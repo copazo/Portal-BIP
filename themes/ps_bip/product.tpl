@@ -393,6 +393,15 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				{*close if for show price*}
 			{/if}
 
+supp:
+{if $product.supplier_reference != ''}
+<p class="compare">
+<a href="{$product.link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="./img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
+</p>
+{/if}
+
+
+
 			{if isset($groups)}
 			<!-- attributes -->
 			<!--<div id="attributes">
