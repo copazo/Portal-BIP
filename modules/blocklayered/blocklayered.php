@@ -2720,38 +2720,55 @@ class BlockLayered extends Module
                                             WHERE cp.id_category = c.id_category and (cl.name LIKE  "%'.$whereLikeFilter.'%" OR pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ="'.$whereLikeFilter.'" OR p.reference = "'.$whereLikeFilter.'")   )>=1
 					GROUP BY cl.name ORDER BY level_depth, c.position';
                                         }else{
-                                            
-                                        if($level_depth<3 and count($catg3do)>0){
-                                            $sqlQuery['select'] = '
-                                            SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
-                                            $sqlQuery['from'] = '
-                                            FROM '._DB_PREFIX_.'category_product cp
-                                            LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) ';
-                                            $sqlQuery['where'] = '
-                                            WHERE cp.id_category = c.id_category ';
-                                            $sqlQuery['group'] = ') count_products
-                                            FROM '._DB_PREFIX_.'category c
-                                            LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
-                                            WHERE   (c.id_category in ('.implode(",",$catg3do).') or c.id_parent='.$id_parent.' )
-                                            GROUP BY c.id_category HAVING count_products>0 ORDER BY c.id_parent,cl.name,c.id_category,level_depth, c.position';
-                                        }else{
-                                            
-                                            $sqlQuery['select'] = '
-                                            SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
-                                            $sqlQuery['from'] = '
-                                            FROM '._DB_PREFIX_.'category_product cp
-                                            LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) ';
-                                            $sqlQuery['where'] = '
-                                            WHERE cp.id_category = c.id_category ';
-                                            $sqlQuery['group'] = ') count_products
-                                            FROM '._DB_PREFIX_.'category c
-                                            LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
-                                            WHERE c.id_parent = '.(int)$id_parent.' 
-                                            GROUP BY c.id_category ORDER BY level_depth, c.position';  
-                                            
-                                            
-                                        }
                                         
+                                        if($usado==true){
+                                            
+                                                $sqlQuery['select'] = '
+                                                SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
+                                                $sqlQuery['from'] = '
+                                                FROM '._DB_PREFIX_.'category_product cp
+                                                LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) ';
+                                                $sqlQuery['where'] = '
+                                                WHERE cp.id_category = c.id_category and p.condition="used"  ';
+                                                $sqlQuery['group'] = ') count_products
+                                                FROM '._DB_PREFIX_.'category c
+                                                LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
+                                                WHERE p.condition="used" 
+                                                GROUP BY c.id_category ORDER BY level_depth, c.position';  
+                                            
+                                        }else{    
+                                            
+                                            if($level_depth<3 and count($catg3do)>0){
+                                                $sqlQuery['select'] = '
+                                                SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
+                                                $sqlQuery['from'] = '
+                                                FROM '._DB_PREFIX_.'category_product cp
+                                                LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) ';
+                                                $sqlQuery['where'] = '
+                                                WHERE cp.id_category = c.id_category ';
+                                                $sqlQuery['group'] = ') count_products
+                                                FROM '._DB_PREFIX_.'category c
+                                                LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
+                                                WHERE   (c.id_category in ('.implode(",",$catg3do).') or c.id_parent='.$id_parent.' )
+                                                GROUP BY c.id_category HAVING count_products>0 ORDER BY c.id_parent,cl.name,c.id_category,level_depth, c.position';
+                                            }else{
+
+                                                $sqlQuery['select'] = '
+                                                SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
+                                                $sqlQuery['from'] = '
+                                                FROM '._DB_PREFIX_.'category_product cp
+                                                LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) ';
+                                                $sqlQuery['where'] = '
+                                                WHERE cp.id_category = c.id_category ';
+                                                $sqlQuery['group'] = ') count_products
+                                                FROM '._DB_PREFIX_.'category c
+                                                LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
+                                                WHERE c.id_parent = '.(int)$id_parent.' 
+                                                GROUP BY c.id_category ORDER BY level_depth, c.position';  
+
+
+                                            }
+                                        }
                                     }
                                         
 			}
