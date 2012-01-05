@@ -200,6 +200,7 @@ class ProductControllerCore extends FrontController
 				self::$smarty->assign(array(
 					'quantity_discounts' => $this->formatQuantityDiscounts(SpecificPrice::getQuantityDiscounts((int)$this->product->id, (int)Shop::getCurrentShop(), (int)self::$cookie->id_currency, $id_country, $id_group), $this->product->getPrice(Product::$_taxCalculationMethod == PS_TAX_INC, false), (float)$tax),
 					'product' => $this->product,
+                                        'supp' => 'ddddddddddddddddddddddd',
 					'ecotax_tax_inc' => $ecotaxTaxAmount,
 					'ecotax_tax_exc' => Tools::ps_round($this->product->ecotax, 2),
 					'ecotaxTax_rate' => $ecotax_rate,

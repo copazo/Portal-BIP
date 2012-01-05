@@ -533,7 +533,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		{if $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 	</div>
 </div>
-supp:{$product->link_used|escape:'htmlall':'UTF-8'}
+supp:{$supp}
 {if $product->supplier_reference != ''}
 <p class="compare">
 <a href="link:{$product->link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
