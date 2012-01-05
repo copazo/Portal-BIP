@@ -1,11 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-
 define('__PS_BASE_URI__', '/exeBIPdev/');
-=======
-define('__PS_BASE_URI__', '/Portal-BIP/');
->>>>>>> bf93f0383a70a9edcc3dbc1d37ffc90b6e3cc774
 define('_MEDIA_SERVER_1_', '');
 define('_MEDIA_SERVER_2_', '');
 define('_MEDIA_SERVER_3_', '');
