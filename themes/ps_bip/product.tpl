@@ -512,11 +512,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				<span {if $product->quantity == 1} style="display: none;"{/if} id="quantityAvailableTxtMultiple">{l s='items in stock'}</span>
 			</p>
 			{/if}
-{if $product->supplier_reference != ''}
-<p class="compare">
-<a href="{$link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
-</p>
-{/if}
+
             <!-- Out of stock hook -->
 			
             {if !$allow_oosp}
@@ -536,6 +532,12 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			<!--<p class="encontraste"><a class="encontraste_link" href="#">Encontraste este producto m&aacute;s barato, &iquest;D&oacute;nde?</a></p>-->
 		{/if}
 		{if $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
+
+{if $product->supplier_reference != ''}
+<p class="compare">
+<a href="{$link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
+</p>
+{/if}
 	</div>
 </div>
 
