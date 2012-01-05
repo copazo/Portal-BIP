@@ -2048,6 +2048,7 @@ echo 'pare::::::'.$id_parent;
                 }else{
                     
                     if($usado===true){
+                        echo '---in---';
                         $allProductsOut = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                         SELECT p.`id_product` id_product
                         FROM `'._DB_PREFIX_.'product` p
