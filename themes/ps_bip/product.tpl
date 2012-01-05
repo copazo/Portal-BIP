@@ -502,6 +502,11 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			</script>
 			{/if}
 
+{if $product->supplier_reference != ''}
+<p class="compare">
+<a href="{$link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
+</p>
+{/if}
 			<!-- number of item in stock -->
 			
             {if ($display_qties == 1 && !$PS_CATALOG_MODE && $product->available_for_order)}
@@ -534,11 +539,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 	</div>
 </div>
 
-{if $product->supplier_reference != ''}
-<p class="compare">
-<a href="{$link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
-</p>
-{/if}
+
 {if $quantity_discounts}
 <!-- quantity discount -->
 <ul class="idTabs">
