@@ -200,7 +200,7 @@ class ProductControllerCore extends FrontController
                                 
                                 //usado link
                                 //init
-                                
+                                $link = new Link();
                                 foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                                 SELECT p.*
                                 FROM `'._DB_PREFIX_.'product` p 
