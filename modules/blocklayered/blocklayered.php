@@ -2053,7 +2053,7 @@ class BlockLayered extends Module
                         FROM `'._DB_PREFIX_.'product` p
                         '.$priceFilterQueryOut.'
                         '.$queryFiltersFrom.'
-                        WHERE  p.condition = "used" GROUP BY id_product', false);
+                        WHERE  1 '.$queryFiltersWhere.'  AND p.condition = "used" GROUP BY id_product', false);
 
 
                         $allProductsIn = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
@@ -2061,7 +2061,7 @@ class BlockLayered extends Module
                         FROM `'._DB_PREFIX_.'product` p
                         '.$priceFilterQueryIn.'
                         '.$queryFiltersFrom.'
-                        WHERE  p.condition = "used" GROUP BY id_product', false);     
+                        WHERE  1 '.$queryFiltersWhere.'  AND p.condition = "used" GROUP BY id_product', false);     
                     }else{
                     $allProductsOut = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                     SELECT p.`id_product` id_product
