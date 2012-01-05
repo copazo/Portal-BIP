@@ -1886,6 +1886,10 @@ class BlockLayered extends Module
                 if($id_parent != 4012){
                     $whereLikeFilter = '';
                 }
+                if($id_parent != 4017){
+                    $usado = true;
+                }
+                
 		if ($id_parent == 1)
 			return false;
 
@@ -2042,6 +2046,22 @@ class BlockLayered extends Module
                     WHERE 1 '.$queryFiltersWhere.'  AND (cl.name LIKE  "%'.$whereLikeFilter.'%" OR pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ="'.$whereLikeFilter.'" OR p.reference = "'.$whereLikeFilter.'")   GROUP BY id_product', false);
     
                 }else{
+                    
+                    if($usado===true){
+                        $allProductsOut = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                        SELECT p.`id_product` id_product
+                        FROM `'._DB_PREFIX_.'product` p
+                        '.$priceFilterQueryOut.'
+                        '.$queryFiltersFrom.'
+                        WHERE  p.condition = "used" GROUP BY id_product', false);
+
+                        $allProductsIn = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                        SELECT p.`id_product` id_product
+                        FROM `'._DB_PREFIX_.'product` p
+                        '.$priceFilterQueryIn.'
+                        '.$queryFiltersFrom.'
+                        WHERE  p.condition = "used" GROUP BY id_product', false);     
+                    }else{
                     $allProductsOut = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                     SELECT p.`id_product` id_product
                     FROM `'._DB_PREFIX_.'product` p
@@ -2055,6 +2075,8 @@ class BlockLayered extends Module
                     '.$priceFilterQueryIn.'
                     '.$queryFiltersFrom.'
                     WHERE 1 '.$queryFiltersWhere.' GROUP BY id_product', false);  
+                    
+                    }
                 }
                 
     
@@ -2096,6 +2118,24 @@ class BlockLayered extends Module
 			.' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true));
                 
            }else{
+               if($usado===true){
+                  $products_cnt = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+			SELECT p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
+			p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
+			DATEDIFF(p.`date_add`,
+			DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
+			FROM `'._DB_PREFIX_.'category_product` cp
+			LEFT JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category)
+			LEFT JOIN `'._DB_PREFIX_.'product` p ON p.`id_product` = cp.`id_product`
+			LEFT JOIN '._DB_PREFIX_.'product_lang pl ON (pl.id_product = p.id_product)
+			LEFT JOIN '._DB_PREFIX_.'image i ON (i.id_product = p.id_product AND i.cover = 1)
+			LEFT JOIN '._DB_PREFIX_.'image_lang il ON (i.id_image = il.id_image AND il.id_lang = '.(int)($cookie->id_lang).')
+			LEFT JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer)
+			WHERE p.`active` = 1 AND pl.id_lang = '.(int)$cookie->id_lang.'
+			AND p.id_product IN ('.implode(',', $productIdList).')'
+			.' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true));   
+                             
+               }else{
                 $products_cnt = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 			SELECT p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
 			p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
@@ -2111,7 +2151,10 @@ class BlockLayered extends Module
 			WHERE p.`active` = 1 AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.' AND pl.id_lang = '.(int)$cookie->id_lang.'
 			AND p.id_product IN ('.implode(',', $productIdList).')'
 			.' GROUP BY p.id_product ORDER BY '.Tools::getProductsOrder('by', Tools::getValue('orderby'), true));   
-           }   
+               }
+               
+               
+               }   
                 $this->nbr_products = count($products_cnt);
 		
 		if ($this->nbr_products == 0)
@@ -2233,7 +2276,7 @@ class BlockLayered extends Module
                 if($id_parent != 4012){
                     $whereLikeFilter = '';
                 }
-                
+
 		$parent = new Category((int)$id_parent);
 		
                 
