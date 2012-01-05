@@ -2688,7 +2688,7 @@ class ProductCore extends ObjectModel
 		// Datas
 		$link = new Link();
 		$row['category'] = Category::getLinkRewrite((int)$row['id_category_default'], (int)($id_lang));
-		$row['link'] = $link->getProductLink((int)$row['id_product'], $row['link_rewrite'], $row['category'], $row['ean13']);
+		$row['link2'] = $link->getProductLink((int)$row['id_product'], $row['link_rewrite'], $row['category'], $row['ean13']);
 		$row['attribute_price'] = (isset($row['id_product_attribute']) AND $row['id_product_attribute']) ? (float)(Product::getProductAttributePrice($row['id_product_attribute'])) : 0;
 		$row['price_tax_exc'] = Product::getPriceStatic((int)$row['id_product'], false, ((isset($row['id_product_attribute']) AND !empty($row['id_product_attribute'])) ? (int)($row['id_product_attribute']) : NULL), (self::$_taxCalculationMethod == PS_TAX_EXC ? 2 : 6));
 		if (self::$_taxCalculationMethod == PS_TAX_EXC)
