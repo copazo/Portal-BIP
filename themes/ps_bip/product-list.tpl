@@ -99,7 +99,11 @@ P/N # {$product.reference} <BR>
 				{/if}
 {if $product.available_for_order==0}<span class="exclusive">{l s='Add to cart'}</span>{/if}
 
-{if $product.supplier_reference != ''}<img src="./img/alert.png" /> {$product.supplier_reference} {/if}
+{if $product.supplier_reference != ''}
+{$product.link_used|escape:'htmlall':'UTF-8'}
+<a href="{$product.link|escape:'htmlall':'UTF-8'}" class="product_img_link" title="{$product.name|escape:'htmlall':'UTF-8'}"><img src="./img/alert.png" /> {$product.supplier_reference} </a>
+
+{/if}
 
 				<!-- <a class="button" href="{$product.link|escape:'htmlall':'UTF-8'}" title="{l s='View'}">{l s='View'}</a> -->
 				{if isset($comparator_max_item) && $comparator_max_item}

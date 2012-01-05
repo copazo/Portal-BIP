@@ -2688,8 +2688,27 @@ class ProductCore extends ObjectModel
 		// Datas mbj
 		$link = new Link();
 		$row['category'] = Category::getLinkRewrite((int)$row['id_category_default'], (int)($id_lang));
-		$row['link'] = $row['supplier_reference'] ;//$link->getProductLink((int)$row['id_product'], $row['link_rewrite'], $row['category'], $row['ean13']);
-		$row['attribute_price'] = (isset($row['id_product_attribute']) AND $row['id_product_attribute']) ? (float)(Product::getProductAttributePrice($row['id_product_attribute'])) : 0;
+		$row['link'] = $link->getProductLink((int)$row['id_product'], $row['link_rewrite'], $row['category'], $row['ean13']);
+		
+                //usado link
+                //init
+		foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT p.*
+		FROM `'._DB_PREFIX_.'product` p 
+                    INNER JOIN '._DB_PREFIX_.'product_lang pl ON p.id_product = pl.id_product
+		WHERE id_product = '.(int)$row['supplier_reference']) as $subrow){
+			$row_us['id_category_default'] = $subrow['id_category_default'];
+                        $row_us['link_rewrite'] = $subrow['link_rewrite'];
+                        $row_us['ean13'] = $subrow['ean13'];
+                        
+                }
+                $row['category_used'] = Category::getLinkRewrite((int)$row_us['id_category_default'], (int)($id_lang));
+                $row['link_used'] = $link->getProductLink((int)$row['supplier_reference'], $row_us['link_rewrite'], $row['category_used'], $row_us['ean13']);
+		
+                
+                
+                
+                $row['attribute_price'] = (isset($row['id_product_attribute']) AND $row['id_product_attribute']) ? (float)(Product::getProductAttributePrice($row['id_product_attribute'])) : 0;
 		$row['price_tax_exc'] = Product::getPriceStatic((int)$row['id_product'], false, ((isset($row['id_product_attribute']) AND !empty($row['id_product_attribute'])) ? (int)($row['id_product_attribute']) : NULL), (self::$_taxCalculationMethod == PS_TAX_EXC ? 2 : 6));
 		if (self::$_taxCalculationMethod == PS_TAX_EXC)
 		{
