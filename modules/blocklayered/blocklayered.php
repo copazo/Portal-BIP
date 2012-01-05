@@ -2735,7 +2735,7 @@ class BlockLayered extends Module
                                                 LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
                                                 WHERE p.condition="used" 
                                                 GROUP BY c.id_category ORDER BY level_depth, c.position';  
-                                            
+                                            echo $sqlQuery['select']."\n".$sqlQuery['from']."\n".$sqlQuery['join']."\n".$sqlQuery['where']."\n".$sqlQuery['group'];
                                         }else{    
                                             
                                             if($level_depth<3 and count($catg3do)>0){
