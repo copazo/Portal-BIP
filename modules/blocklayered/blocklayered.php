@@ -2327,7 +2327,9 @@ class BlockLayered extends Module
                 if($id_parent != 4012){
                     $whereLikeFilter = '';
                 }
-
+                if($id_parent == 4017){
+                    $usado = true;
+                }
 		$parent = new Category((int)$id_parent);
 		
                 
