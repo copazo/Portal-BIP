@@ -2433,21 +2433,37 @@ class BlockLayered extends Module
 					$sqlQuery['group'] = ' GROUP BY p.id_product ';
                                     }else{
 
-					
-                                        $sqlQuery['select'] = '
-					SELECT p.`id_product`, p.`condition`, p.`id_manufacturer`, p.`quantity`, p.`weight`
-					';
-					$sqlQuery['from'] = '
-					FROM '._DB_PREFIX_.'product p ';
-					$sqlQuery['join'] = '
-					INNER JOIN '._DB_PREFIX_.'category_product cp ON (cp.id_product = p.id_product)
-					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.') 
+					if($usado==true){
                                             
-                                        ';
-                                        
-					$sqlQuery['where'] = 'WHERE p.`active` = 1 ';
-					$sqlQuery['group'] = ' GROUP BY p.id_product ';
-                                        
+                                         $sqlQuery['select'] = '
+                                            SELECT p.`id_product`, p.`condition`, p.`id_manufacturer`, p.`quantity`, p.`weight`
+                                            ';
+                                            $sqlQuery['from'] = '
+                                            FROM '._DB_PREFIX_.'product p ';
+                                            $sqlQuery['join'] = '
+                                            INNER JOIN '._DB_PREFIX_.'category_product cp ON (cp.id_product = p.id_product)
+                                            INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category) 
+
+                                            ';
+
+                                            $sqlQuery['where'] = 'WHERE p.`active` = 1 and p.condition="used"';
+                                            $sqlQuery['group'] = ' GROUP BY p.id_product ';
+                                            
+                                        }else{
+                                            $sqlQuery['select'] = '
+                                            SELECT p.`id_product`, p.`condition`, p.`id_manufacturer`, p.`quantity`, p.`weight`
+                                            ';
+                                            $sqlQuery['from'] = '
+                                            FROM '._DB_PREFIX_.'product p ';
+                                            $sqlQuery['join'] = '
+                                            INNER JOIN '._DB_PREFIX_.'category_product cp ON (cp.id_product = p.id_product)
+                                            INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.') 
+
+                                            ';
+
+                                            $sqlQuery['where'] = 'WHERE p.`active` = 1 ';
+                                            $sqlQuery['group'] = ' GROUP BY p.id_product ';
+                                        }
                                         
                                     }
                                         
