@@ -2215,7 +2215,7 @@ class BlockLayered extends Module
               if(Tools::getValue('orderby')=='price'){
                             $n = (int)Tools::getValue('n', Configuration::get('PS_PRODUCTS_PER_PAGE'));
                             $this->products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-                            SELECT p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
+                            SELECT p.supplier_reference,p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
                             p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
                             DATEDIFF(p.`date_add`,
                             DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
@@ -2236,7 +2236,7 @@ class BlockLayered extends Module
                         }else{
                             $n = (int)Tools::getValue('n', Configuration::get('PS_PRODUCTS_PER_PAGE'));
                             $this->products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-                            SELECT p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
+                            SELECT p.supplier_reference,p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
                             p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
                             DATEDIFF(p.`date_add`,
                             DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
@@ -2258,7 +2258,7 @@ class BlockLayered extends Module
                         if(Tools::getValue('orderby')=='price'){
                             $n = (int)Tools::getValue('n', Configuration::get('PS_PRODUCTS_PER_PAGE'));
                             $this->products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-                            SELECT p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
+                            SELECT p.supplier_reference,p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
                             p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
                             DATEDIFF(p.`date_add`,
                             DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
@@ -2279,7 +2279,7 @@ class BlockLayered extends Module
                         }else{
                             $n = (int)Tools::getValue('n', Configuration::get('PS_PRODUCTS_PER_PAGE'));
                             $this->products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-                            SELECT p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
+                            SELECT p.supplier_reference,p.reference,p.id_product, p.on_sale, p.out_of_stock, p.available_for_order, p.quantity, p.minimal_quantity, p.id_category_default, p.customizable, p.show_price, p.`weight`,
                             p.ean13, pl.available_later, pl.description_short, pl.link_rewrite, pl.name, i.id_image, il.legend,  m.name manufacturer_name, p.condition, p.id_manufacturer,
                             DATEDIFF(p.`date_add`,
                             DATE_SUB(NOW(), INTERVAL '.(Validate::isUnsignedInt(Configuration::get('PS_NB_DAYS_NEW_PRODUCT')) ? Configuration::get('PS_NB_DAYS_NEW_PRODUCT') : 20).' DAY)) > 0 AS new
