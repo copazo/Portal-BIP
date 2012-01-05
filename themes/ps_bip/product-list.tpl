@@ -101,7 +101,7 @@ P/N # {$product.reference} <BR>
 
 {if $product.supplier_reference != ''}
 <br>
-<a href="{$product.link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="./img/alert.png" width="32px" height="32px" align="left"  /> Homologo Usado </a>
+<a href="{$product.link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="./img/alert.png" width="16px" height="16px" ALIGN=MIDDLE /> Homologo Usado </a>
 {/if}
 
 				<!-- <a class="button" href="{$product.link|escape:'htmlall':'UTF-8'}" title="{l s='View'}">{l s='View'}</a> -->
