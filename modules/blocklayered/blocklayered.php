@@ -2722,7 +2722,7 @@ class BlockLayered extends Module
                                         }else{
                                         
                                         if($usado==true){
-                                  $sqlQuery['select'] = ' SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
+                                            $sqlQuery['select'] = ' SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
                                         
                                         $sqlQuery['from'] = 'FROM '._DB_PREFIX_.'category_product cp
 					LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) 

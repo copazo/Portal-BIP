@@ -175,7 +175,7 @@ function changeTab(tab)
     <ul class="tienda">
       <li id="t_internet" class="tienda_current"><a href="javascript:changeTab('t_internet');">Internet</a></li>
       <li id="t_tiendas" class="tienda"><a href="javascript:changeTab('t_tiendas');">Tiendas</a></li>
-      <li id="t_usados" class="tienda"><a href="javascript:changeTab('t_usados');">Usados</a></li>
+      <li id="t_usados" class="tienda"><a href="{$link->getURLSiteBase()}4017-usados/">Usados</a></li>
       <li id="t_mall" class="tienda"><a href="javascript:changeTab('t_mall');">Mall</a></li>
     </ul>
   </div>
