@@ -493,6 +493,12 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				<input type="text" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" size="2" maxlength="3" {if $product->minimal_quantity > 1}onkeyup="checkMinimalQuantity({$product->minimal_quantity});"{/if} />
 			</p>
 
+{if $product->supplier_reference != ''}
+<p class="compare">
+<a href="{$link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
+</p>
+{/if}
+
 			<!-- minimal quantity wanted -->
 			
             <p id="minimal_quantity_wanted_p"{if $product->minimal_quantity <= 1 OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>{l s='You must add '} <b id="minimal_quantity_label">{$product->minimal_quantity}</b> {l s=' as a minimum quantity to buy this product.'}</p>
@@ -533,12 +539,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		{if $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 	</div>
 </div>
-supp:{$supp}
-{if $product->supplier_reference != ''}
-<p class="compare">
-<a href="link:{$product->link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
-</p>
-{/if}
+
+
 {if $quantity_discounts}
 <!-- quantity discount -->
 <ul class="idTabs">

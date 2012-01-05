@@ -200,12 +200,12 @@ class ProductControllerCore extends FrontController
                                 
                                 //usado link
                                 //init
-                                /*
+                                
                                 foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                                 SELECT p.*
                                 FROM `'._DB_PREFIX_.'product` p 
                                     INNER JOIN '._DB_PREFIX_.'product_lang pl ON p.id_product = pl.id_product
-                                WHERE id_product = '.(int)$row['supplier_reference']) as $subrow){
+                                WHERE id_product = '.(int)$this->product->supplier_reference) as $subrow){
                                         $row_us['id_category_default'] = $subrow['id_category_default'];
                                         $row_us['link_rewrite'] = $subrow['link_rewrite'];
                                         $row_us['ean13'] = $subrow['ean13'];
@@ -213,13 +213,13 @@ class ProductControllerCore extends FrontController
                                 }
                                 $row['category_used'] = Category::getLinkRewrite((int)$row_us['id_category_default'], (int)($id_lang));
                                 $row['link_used'] = $link->getProductLink((int)$row['supplier_reference'], $row_us['link_rewrite'], $row['category_used'], $row_us['ean13']);
-*/
+
                 
                                 
 				self::$smarty->assign(array(
 					'quantity_discounts' => $this->formatQuantityDiscounts(SpecificPrice::getQuantityDiscounts((int)$this->product->id, (int)Shop::getCurrentShop(), (int)self::$cookie->id_currency, $id_country, $id_group), $this->product->getPrice(Product::$_taxCalculationMethod == PS_TAX_INC, false), (float)$tax),
 					'product' => $this->product,
-                                        'supp' => $this->product->supplier_reference,
+                                        'link_used' => $row['link_used'],
 					'ecotax_tax_inc' => $ecotaxTaxAmount,
 					'ecotax_tax_exc' => Tools::ps_round($this->product->ecotax, 2),
 					'ecotaxTax_rate' => $ecotax_rate,
