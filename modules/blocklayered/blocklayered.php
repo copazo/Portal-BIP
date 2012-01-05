@@ -2484,15 +2484,29 @@ class BlockLayered extends Module
 					WHERE (cl.name LIKE  "%'.$whereLikeFilter.'%" OR pl.name like "%'.$whereLikeFilter.'%" OR p.id_product ="'.$whereLikeFilter.'" OR p.reference = "'.$whereLikeFilter.'") ';
 					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer order by m.name asc ';
                                     }else{
-					$sqlQuery['select'] = 'SELECT m.name, COUNT(DISTINCT p.id_product) nbr, m.id_manufacturer ';
-					$sqlQuery['from'] = '
-					FROM `'._DB_PREFIX_.'category_product` cp
-					INNER JOIN  `'._DB_PREFIX_.'category` c ON (c.id_category = cp.id_category)
-					INNER JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1)
-					INNER JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer) ';
-					$sqlQuery['where'] = '
-					WHERE c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.' ';
-					$sqlQuery['group'] = ' GROUP BY p.id_manufacturer  order by m.name asc ';  
+                                        
+                                        if($usado==true){
+                                            $sqlQuery['select'] = 'SELECT m.name, COUNT(DISTINCT p.id_product) nbr, m.id_manufacturer ';
+                                            $sqlQuery['from'] = '
+                                            FROM `'._DB_PREFIX_.'category_product` cp
+                                            INNER JOIN  `'._DB_PREFIX_.'category` c ON (c.id_category = cp.id_category)
+                                            INNER JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1)
+                                            INNER JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer) ';
+                                            $sqlQuery['where'] = '
+                                            WHERE  p.condition="used" ';
+                                            $sqlQuery['group'] = ' GROUP BY p.id_manufacturer  order by m.name asc ';    
+                                        }else{
+                                            $sqlQuery['select'] = 'SELECT m.name, COUNT(DISTINCT p.id_product) nbr, m.id_manufacturer ';
+                                            $sqlQuery['from'] = '
+                                            FROM `'._DB_PREFIX_.'category_product` cp
+                                            INNER JOIN  `'._DB_PREFIX_.'category` c ON (c.id_category = cp.id_category)
+                                            INNER JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1)
+                                            INNER JOIN '._DB_PREFIX_.'manufacturer m ON (m.id_manufacturer = p.id_manufacturer) ';
+                                            $sqlQuery['where'] = '
+                                            WHERE c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.' ';
+                                            $sqlQuery['group'] = ' GROUP BY p.id_manufacturer  order by m.name asc ';  
+                                        }
+                                        
                                     }
 					break;
 
@@ -2533,37 +2547,74 @@ class BlockLayered extends Module
 					ORDER BY id_attribute_group, id_attribute ';
                                         
                                     }else{
-                                        					$sqlQuery['select'] = '
-					SELECT COUNT(DISTINCT p.id_product) nbr, lpa.id_attribute_group,
-					a.color, al.name attribute_name, agl.public_name attribute_group_name , lpa.id_attribute, ag.is_color_group,
-					liagl.url_name name_url_name, liagl.meta_title name_meta_title, lial.url_name value_url_name, lial.meta_title value_meta_title';
-					$sqlQuery['from'] = '
-					FROM '._DB_PREFIX_.'layered_product_attribute lpa
-					INNER JOIN '._DB_PREFIX_.'attribute a
-					ON a.id_attribute = lpa.id_attribute
-					INNER JOIN '._DB_PREFIX_.'attribute_lang al
-					ON al.id_attribute = a.id_attribute
-					AND al.id_lang = '.(int)$cookie->id_lang.'
-					INNER JOIN '._DB_PREFIX_.'product as p
-					ON p.id_product = lpa.id_product
-					AND p.active = 1
-					INNER JOIN '._DB_PREFIX_.'attribute_group ag
-					ON ag.id_attribute_group = lpa.id_attribute_group
-					INNER JOIN '._DB_PREFIX_.'attribute_group_lang agl
-					ON agl.id_attribute_group = lpa.id_attribute_group
-					AND agl.id_lang = '.(int)$cookie->id_lang.'
-					LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_group_lang_value liagl
-					ON (liagl.id_attribute_group = lpa.id_attribute_group AND liagl.id_lang = '.(int)$cookie->id_lang.')
-					LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_lang_value lial
-					ON (lial.id_attribute = lpa.id_attribute AND lial.id_lang = '.(int)$cookie->id_lang.') ';
-					$sqlQuery['where'] = 'WHERE a.id_attribute_group = '.(int)$filter['id_value'].'
-					AND p.id_product IN (
-					SELECT id_product
-					FROM '._DB_PREFIX_.'category_product cp
-					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.')) ';
-					$sqlQuery['group'] = '
-					GROUP BY lpa.id_attribute
-					ORDER BY id_attribute_group, id_attribute ';                                        
+                                        
+                                        if($usado==true){
+                                            $sqlQuery['select'] = '
+                                            SELECT COUNT(DISTINCT p.id_product) nbr, lpa.id_attribute_group,
+                                            a.color, al.name attribute_name, agl.public_name attribute_group_name , lpa.id_attribute, ag.is_color_group,
+                                            liagl.url_name name_url_name, liagl.meta_title name_meta_title, lial.url_name value_url_name, lial.meta_title value_meta_title';
+                                            $sqlQuery['from'] = '
+                                            FROM '._DB_PREFIX_.'layered_product_attribute lpa
+                                            INNER JOIN '._DB_PREFIX_.'attribute a
+                                            ON a.id_attribute = lpa.id_attribute
+                                            INNER JOIN '._DB_PREFIX_.'attribute_lang al
+                                            ON al.id_attribute = a.id_attribute
+                                            AND al.id_lang = '.(int)$cookie->id_lang.'
+                                            INNER JOIN '._DB_PREFIX_.'product as p
+                                            ON p.id_product = lpa.id_product
+                                            AND p.active = 1
+                                            INNER JOIN '._DB_PREFIX_.'attribute_group ag
+                                            ON ag.id_attribute_group = lpa.id_attribute_group
+                                            INNER JOIN '._DB_PREFIX_.'attribute_group_lang agl
+                                            ON agl.id_attribute_group = lpa.id_attribute_group
+                                            AND agl.id_lang = '.(int)$cookie->id_lang.'
+                                            LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_group_lang_value liagl
+                                            ON (liagl.id_attribute_group = lpa.id_attribute_group AND liagl.id_lang = '.(int)$cookie->id_lang.')
+                                            LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_lang_value lial
+                                            ON (lial.id_attribute = lpa.id_attribute AND lial.id_lang = '.(int)$cookie->id_lang.') ';
+                                            $sqlQuery['where'] = 'WHERE a.id_attribute_group = '.(int)$filter['id_value'].' and p.condition="used" 
+                                            AND p.id_product IN (
+                                            SELECT id_product
+                                            FROM '._DB_PREFIX_.'category_product cp
+                                            INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category )) ';
+                                            $sqlQuery['group'] = '
+                                            GROUP BY lpa.id_attribute
+                                            ORDER BY id_attribute_group, id_attribute ';  
+                                        }else{
+                                            $sqlQuery['select'] = '
+                                            SELECT COUNT(DISTINCT p.id_product) nbr, lpa.id_attribute_group,
+                                            a.color, al.name attribute_name, agl.public_name attribute_group_name , lpa.id_attribute, ag.is_color_group,
+                                            liagl.url_name name_url_name, liagl.meta_title name_meta_title, lial.url_name value_url_name, lial.meta_title value_meta_title';
+                                            $sqlQuery['from'] = '
+                                            FROM '._DB_PREFIX_.'layered_product_attribute lpa
+                                            INNER JOIN '._DB_PREFIX_.'attribute a
+                                            ON a.id_attribute = lpa.id_attribute
+                                            INNER JOIN '._DB_PREFIX_.'attribute_lang al
+                                            ON al.id_attribute = a.id_attribute
+                                            AND al.id_lang = '.(int)$cookie->id_lang.'
+                                            INNER JOIN '._DB_PREFIX_.'product as p
+                                            ON p.id_product = lpa.id_product
+                                            AND p.active = 1
+                                            INNER JOIN '._DB_PREFIX_.'attribute_group ag
+                                            ON ag.id_attribute_group = lpa.id_attribute_group
+                                            INNER JOIN '._DB_PREFIX_.'attribute_group_lang agl
+                                            ON agl.id_attribute_group = lpa.id_attribute_group
+                                            AND agl.id_lang = '.(int)$cookie->id_lang.'
+                                            LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_group_lang_value liagl
+                                            ON (liagl.id_attribute_group = lpa.id_attribute_group AND liagl.id_lang = '.(int)$cookie->id_lang.')
+                                            LEFT JOIN '._DB_PREFIX_.'layered_indexable_attribute_lang_value lial
+                                            ON (lial.id_attribute = lpa.id_attribute AND lial.id_lang = '.(int)$cookie->id_lang.') ';
+                                            $sqlQuery['where'] = 'WHERE a.id_attribute_group = '.(int)$filter['id_value'].'
+                                            AND p.id_product IN (
+                                            SELECT id_product
+                                            FROM '._DB_PREFIX_.'category_product cp
+                                            INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.')) ';
+                                            $sqlQuery['group'] = '
+                                            GROUP BY lpa.id_attribute
+                                            ORDER BY id_attribute_group, id_attribute ';   
+                                        }
+                                        
+                                        
                                     }
 					break;
 
@@ -2592,25 +2643,56 @@ class BlockLayered extends Module
 					$sqlQuery['group'] = 'GROUP BY fv.id_feature_value order by CAST(fvl.value as UNSIGNED) asc,fvl.value asc';
                                         
                                     }else{
-					$sqlQuery['select'] = 'SELECT fl.name feature_name, fp.id_feature, fv.id_feature_value, fvl.value,
-					COUNT(DISTINCT p.id_product) nbr,
-					lifl.url_name name_url_name, lifl.meta_title name_meta_title, lifvl.url_name value_url_name, lifvl.meta_title value_meta_title ';
-					$sqlQuery['from'] = '
-					FROM '._DB_PREFIX_.'feature_product fp
-					INNER JOIN '._DB_PREFIX_.'product p ON (p.id_product = fp.id_product AND p.active = 1)
-					LEFT JOIN '._DB_PREFIX_.'feature_lang fl ON (fl.id_feature = fp.id_feature AND fl.id_lang = '.(int)$cookie->id_lang.')
-					INNER JOIN '._DB_PREFIX_.'feature_value fv ON (fv.id_feature_value = fp.id_feature_value AND (fv.custom IS NULL OR fv.custom = 0))
-					LEFT JOIN '._DB_PREFIX_.'feature_value_lang fvl ON (fvl.id_feature_value = fp.id_feature_value AND fvl.id_lang = '.(int)$cookie->id_lang.')
-					LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_lang_value lifl
-					ON (lifl.id_feature = fp.id_feature AND lifl.id_lang = '.(int)$cookie->id_lang.')
-					LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_value_lang_value lifvl
-					ON (lifvl.id_feature_value = fp.id_feature_value AND lifvl.id_lang = '.(int)$cookie->id_lang.') ';
-					$sqlQuery['where'] = 'WHERE p.`active` = 1 AND fp.id_feature = '.(int)$filter['id_value'].'
-					AND p.id_product IN (
-					SELECT id_product
-					FROM '._DB_PREFIX_.'category_product cp
-					INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.')) ';
-					$sqlQuery['group'] = 'GROUP BY fv.id_feature_value order by CAST(fvl.value as UNSIGNED) asc,fvl.value asc';  
+                                        
+                                        
+                                        if($usado==true){
+                                            
+                                            $sqlQuery['select'] = 'SELECT fl.name feature_name, fp.id_feature, fv.id_feature_value, fvl.value,
+                                            COUNT(DISTINCT p.id_product) nbr,
+                                            lifl.url_name name_url_name, lifl.meta_title name_meta_title, lifvl.url_name value_url_name, lifvl.meta_title value_meta_title ';
+                                            $sqlQuery['from'] = '
+                                            FROM '._DB_PREFIX_.'feature_product fp
+                                            INNER JOIN '._DB_PREFIX_.'product p ON (p.id_product = fp.id_product AND p.active = 1)
+                                            LEFT JOIN '._DB_PREFIX_.'feature_lang fl ON (fl.id_feature = fp.id_feature AND fl.id_lang = '.(int)$cookie->id_lang.')
+                                            INNER JOIN '._DB_PREFIX_.'feature_value fv ON (fv.id_feature_value = fp.id_feature_value AND (fv.custom IS NULL OR fv.custom = 0))
+                                            LEFT JOIN '._DB_PREFIX_.'feature_value_lang fvl ON (fvl.id_feature_value = fp.id_feature_value AND fvl.id_lang = '.(int)$cookie->id_lang.')
+                                            LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_lang_value lifl
+                                            ON (lifl.id_feature = fp.id_feature AND lifl.id_lang = '.(int)$cookie->id_lang.')
+                                            LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_value_lang_value lifvl
+                                            ON (lifvl.id_feature_value = fp.id_feature_value AND lifvl.id_lang = '.(int)$cookie->id_lang.') ';
+                                            $sqlQuery['where'] = 'WHERE p.`active` = 1 AND fp.id_feature = '.(int)$filter['id_value'].' and p.condition="used" 
+                                            AND p.id_product IN (
+                                            SELECT id_product
+                                            FROM '._DB_PREFIX_.'category_product cp
+                                            INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category )) ';
+                                            $sqlQuery['group'] = 'GROUP BY fv.id_feature_value order by CAST(fvl.value as UNSIGNED) asc,fvl.value asc';  
+
+                                            
+                                            
+                                        }else{
+                                        
+                                            $sqlQuery['select'] = 'SELECT fl.name feature_name, fp.id_feature, fv.id_feature_value, fvl.value,
+                                            COUNT(DISTINCT p.id_product) nbr,
+                                            lifl.url_name name_url_name, lifl.meta_title name_meta_title, lifvl.url_name value_url_name, lifvl.meta_title value_meta_title ';
+                                            $sqlQuery['from'] = '
+                                            FROM '._DB_PREFIX_.'feature_product fp
+                                            INNER JOIN '._DB_PREFIX_.'product p ON (p.id_product = fp.id_product AND p.active = 1)
+                                            LEFT JOIN '._DB_PREFIX_.'feature_lang fl ON (fl.id_feature = fp.id_feature AND fl.id_lang = '.(int)$cookie->id_lang.')
+                                            INNER JOIN '._DB_PREFIX_.'feature_value fv ON (fv.id_feature_value = fp.id_feature_value AND (fv.custom IS NULL OR fv.custom = 0))
+                                            LEFT JOIN '._DB_PREFIX_.'feature_value_lang fvl ON (fvl.id_feature_value = fp.id_feature_value AND fvl.id_lang = '.(int)$cookie->id_lang.')
+                                            LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_lang_value lifl
+                                            ON (lifl.id_feature = fp.id_feature AND lifl.id_lang = '.(int)$cookie->id_lang.')
+                                            LEFT JOIN '._DB_PREFIX_.'layered_indexable_feature_value_lang_value lifvl
+                                            ON (lifvl.id_feature_value = fp.id_feature_value AND lifvl.id_lang = '.(int)$cookie->id_lang.') ';
+                                            $sqlQuery['where'] = 'WHERE p.`active` = 1 AND fp.id_feature = '.(int)$filter['id_value'].'
+                                            AND p.id_product IN (
+                                            SELECT id_product
+                                            FROM '._DB_PREFIX_.'category_product cp
+                                            INNER JOIN '._DB_PREFIX_.'category c ON (c.id_category = cp.id_category AND c.nleft >= '.(int)$parent->nleft.' AND c.nright <= '.(int)$parent->nright.')) ';
+                                            $sqlQuery['group'] = 'GROUP BY fv.id_feature_value order by CAST(fvl.value as UNSIGNED) asc,fvl.value asc';  
+
+                                        }
+                                        
                                     }
                                         
 					break;
@@ -2653,18 +2735,44 @@ class BlockLayered extends Module
                                             WHERE   (c.id_category in ('.implode(",",$catg3do).') or c.id_parent='.$id_parent.' )
                                             GROUP BY c.id_category HAVING count_products>0 ORDER BY c.id_parent,cl.name,c.id_category,level_depth, c.position';
                                         }else{
-                                            $sqlQuery['select'] = '
-                                            SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
-                                            $sqlQuery['from'] = '
-                                            FROM '._DB_PREFIX_.'category_product cp
-                                            LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) ';
-                                            $sqlQuery['where'] = '
-                                            WHERE cp.id_category = c.id_category ';
-                                            $sqlQuery['group'] = ') count_products
-                                            FROM '._DB_PREFIX_.'category c
-                                            LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
-                                            WHERE c.id_parent = '.(int)$id_parent.' 
-                                            GROUP BY c.id_category ORDER BY level_depth, c.position';   
+                                            
+                                            if($usado==true){
+                                                
+                                                $sqlQuery['select'] = ' SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
+
+                                                $sqlQuery['from'] = 'FROM '._DB_PREFIX_.'category_product cp
+                                                LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) 
+                                                LEFT JOIN '._DB_PREFIX_.'product_lang pl ON (pl.id_product = p.id_product)
+                                                LEFT JOIN '._DB_PREFIX_.'category_lang cl ON p.`id_category_default` = cl.id_category
+        ';
+
+                                                $sqlQuery['where'] = ' WHERE cp.id_category = c.id_category and p.condition="used"   ';
+
+                                                $sqlQuery['group'] = ') count_products
+                                                FROM '._DB_PREFIX_.'category c
+                                                LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
+                                                WHERE (SELECT count(DISTINCT p.id_product) cont FROM '._DB_PREFIX_.'category_product cp 
+                                                    LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) 
+                                                    LEFT JOIN '._DB_PREFIX_.'product_lang pl ON (pl.id_product = p.id_product) 
+                                                    WHERE cp.id_category = c.id_category and p.condition="used"
+                                                GROUP BY cl.name ORDER BY level_depth, c.position';
+                                                
+                                            }else{
+                                                $sqlQuery['select'] = '
+                                                SELECT c.id_category, c.id_parent, cl.name, (SELECT count(DISTINCT p.id_product) # ';
+                                                $sqlQuery['from'] = '
+                                                FROM '._DB_PREFIX_.'category_product cp
+                                                LEFT JOIN '._DB_PREFIX_.'product p ON (p.id_product = cp.id_product AND p.active = 1) ';
+                                                $sqlQuery['where'] = '
+                                                WHERE cp.id_category = c.id_category ';
+                                                $sqlQuery['group'] = ') count_products
+                                                FROM '._DB_PREFIX_.'category c
+                                                LEFT JOIN '._DB_PREFIX_.'category_lang cl ON (cl.id_category = c.id_category AND cl.id_lang = '.(int)$cookie->id_lang.')
+                                                WHERE c.id_parent = '.(int)$id_parent.' 
+                                                GROUP BY c.id_category ORDER BY level_depth, c.position';  
+                                                }
+                                            
+                                            
                                         }
                                         
                                     }
