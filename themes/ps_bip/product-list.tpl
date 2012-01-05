@@ -100,7 +100,7 @@ P/N # {$product.reference} <BR>
 {if $product.available_for_order==0}<span class="exclusive">{l s='Add to cart'}</span>{/if}
 
 {if $product.supplier_reference != ''}
-<a href="{$product.link_used|escape:'htmlall':'UTF-8'}" class="product_img_link" target="_blank"><img src="./img/alert.png" width="32" height="32"  /> Homologo Usado </a>
+<a href="{$product.link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="./img/alert.png" width="32px" height="32px"  /> Homologo Usado </a>
 {/if}
 
 				<!-- <a class="button" href="{$product.link|escape:'htmlall':'UTF-8'}" title="{l s='View'}">{l s='View'}</a> -->
