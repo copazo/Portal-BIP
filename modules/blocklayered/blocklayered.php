@@ -1886,13 +1886,13 @@ class BlockLayered extends Module
                 if($id_parent != 4012){
                     $whereLikeFilter = '';
                 }
-                if($id_parent != 4017){
+                if($id_parent == 4017){
                     $usado = true;
                 }
                 
 		if ($id_parent == 1)
 			return false;
-echo 'pare::::::'.$id_parent;
+
 		$queryFiltersWhere = ' AND p.active = 1';
 		$queryFiltersFrom = '';
 		
