@@ -506,7 +506,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			<!--	fin - forma de pago - cheques	-->
 			
 			<!-- quantity wanted -->
-			
+{if $product->condition eq 'new'}
+
             <p id="quantity_wanted_p"{if (!$allow_oosp && $product->quantity <= 0) OR $virtual OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none;"{/if}>
 				<label>{l s='Cantidad :'}</label>
 				<input type="text" name="qty" id="quantity_wanted" class="text" value="{if isset($quantityBackup)}{$quantityBackup|intval}{else}{if $product->minimal_quantity > 1}{$product->minimal_quantity}{else}1{/if}{/if}" size="2" maxlength="3" {if $product->minimal_quantity > 1}onkeyup="checkMinimalQuantity({$product->minimal_quantity});"{/if} />
@@ -521,7 +522,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			</script>
 			{/if}
 
-
+{/if}
 			<!-- number of item in stock -->
 			
             {if ($display_qties == 1 && !$PS_CATALOG_MODE && $product->available_for_order)}
