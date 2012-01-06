@@ -104,8 +104,9 @@ P/N # {$product.reference} <BR>
 							
 					{/if}
 				{/if}
+{if $product.condition eq 'new'}
 {if $product.available_for_order==0}<span class="exclusive">{l s='Add to cart'}</span>{/if}
-
+{/if}
 {if $product.supplier_reference != ''}
 <p class="compare">
 <a href="{$product.link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
