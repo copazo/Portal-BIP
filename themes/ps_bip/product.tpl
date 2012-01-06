@@ -545,9 +545,11 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			{if $product->online_only}
 				<p>{l s='Online only'}</p>
 			{/if}
+{if $product->condition eq 'new'}
 			<p{if $product->available_for_order==0} style="display: none;"{/if} id="add_to_cart" class="buttons_bottom_block"><input type="submit" name="Submit" value="{l s='Add to cart'}" class="exclusive" /></p>
 			{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
-			<div class="clear"></div>
+{/if}	
+                        <div class="clear"></div>
 			<!--<p class="encontraste"><a class="encontraste_link" href="#">Encontraste este producto m&aacute;s barato, &iquest;D&oacute;nde?</a></p>-->
 		{/if}
 		{if $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
@@ -639,8 +641,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 							<div class="product_desc">
 								<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{$accessory.legend|escape:'htmlall':'UTF-8'}" class="product_image"><img src="{$link->getImageLink($accessory.link_rewrite, $accessory.id_image, 'medium')}" alt="{$accessory.legend|escape:'htmlall':'UTF-8'}" width="{$mediumSize.width}" height="{$mediumSize.height}" /></a>
 								<a href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{l s='More'}" class="product_description">{$accessory.description_short|strip_tags|truncate:70:'...'}</a>
-c:{$product->condition}						</div>
-{if $product->condition eq 'new'}
+					</div>
+
 							<p class="product_accessories_price">
 								{if $accessory.show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}<span class="price">{if $priceDisplay != 1}{displayWtPrice p=$accessory.price}{else}{displayWtPrice p=$accessory.price_tax_exc}{/if}</span>{/if}
 								<a class="button" href="{$accessoryLink|escape:'htmlall':'UTF-8'}" title="{l s='View'}">{l s='View'}</a>
@@ -651,7 +653,6 @@ c:{$product->condition}						</div>
 									<span class="availability">{if (isset($accessory.quantity_all_versions) && $accessory.quantity_all_versions > 0)}{l s='Product available with different options'}{else}{l s='Out of stock'}{/if}</span>
 								{/if}
 							</p>
-{/if}
 						</li>
 
 					{/foreach}
