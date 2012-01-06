@@ -299,7 +299,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
             
 		</form>
         
-
+s:{$product->supplier_reference}
 {if $product->supplier_reference == ''}
 
 {if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
