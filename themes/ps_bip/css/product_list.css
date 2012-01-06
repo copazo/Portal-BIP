@@ -119,6 +119,13 @@ ul#product_list li #precio-internet {
 	font-weight:bold;
 	margin-bottom: 0.2em;
 }
+ul#product_list li #precio-internetUS {
+/*	display: block;	*/
+	font-size: 11px;
+	color:#FF0000;
+	font-weight:bold;
+	margin-bottom: 0.2em;
+}
 .precio_de_lista {
 	display: block;
 	font-size: 9px;
