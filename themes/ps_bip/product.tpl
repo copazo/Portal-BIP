@@ -298,7 +298,6 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			<!-- Aqui iba el div (con el if) de precio - copazo 1 -->
             
 		</form>
-     c: {$product->condition}  
 {if $product->condition eq 'new'}
 
 {if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
@@ -479,6 +478,17 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				</div>
 			 </div>
 
+
+
+{/if}
+
+{if $product->condition eq 'used'}
+
+
+	<span class="our_price_display">
+
+			<span id="our_price_display_internet" class="label_precio_pdirecta">Precio Cheque 30 Días</br><span class="precio_pdirecta">{convertPrice price=$productPrice}</span></br>
+			</span>
 
 
 {/if}
