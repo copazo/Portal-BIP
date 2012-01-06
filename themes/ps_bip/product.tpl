@@ -484,12 +484,12 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 
 {if $product->condition eq 'used'}
 
-
+<p class="price">
 	<span class="our_price_display">
 
-			<span id="our_price_display_internet" class="label_precio_pdirecta">Precio Cheque 30 Días</br><span class="precio_pdirecta">{convertPrice price=$productPrice}</span></br>
+			<span id="our_price_display_usados" class="label_precio_pdirecta">Precio Cheque 30 Días</br><span class="precio_pdirecta">{convertPrice price=$precio_tienda}</span></br>
 			</span>
-
+</p>
 
 {/if}
 
