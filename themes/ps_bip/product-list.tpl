@@ -92,8 +92,11 @@ P/N # {$product.reference} <BR>
 								checkMinimalQuantity();
 							</script>
 							{/if}
+{if $product.condition eq 'new'}
 							<p{if (!$product.allow_oosp && $product.quantity <= 0) OR !$product.available_for_order OR (isset($restricted_country_mode) AND $restricted_country_mode) OR $PS_CATALOG_MODE} style="display: none;"{/if} id="add_to_cart" class="buttons_bottom_block"><input type="submit" name="Submit" value="{l s='Add to cart'}" class="exclusive" /></p>
-							<!-- 
+{/if}
+
+                                        <!-- 
 							<a class="button ajax_add_to_cart_button exclusive" rel="ajax_id_product_{$product.id_product|intval}" href="{$link->getPageLink('cart.php')}?add&amp;id_product={$product.id_product|intval}{if isset($static_token)}&amp;token={$static_token}{/if}&amp;qty=<script>document.write($("#quantity_wanted").val());</script>" title="{l s='Add to cart'}">{l s='Add to cart'}</a>
 							 -->
 						 </form>
