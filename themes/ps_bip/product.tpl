@@ -298,8 +298,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 			<!-- Aqui iba el div (con el if) de precio - copazo 1 -->
             
 		</form>
-        
-{if !empty($product->supplier_reference)}
+     c: {$product->condition}  
+{if $product->condition=='usado'}
 
 {if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
 				<p class="price">
