@@ -299,7 +299,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
             
 		</form>
      c: {$product->condition}  
-{if $product->condition=='usado'}
+{if $product->condition eq 'new'}
 
 {if $product->show_price AND !isset($restricted_country_mode) AND !$PS_CATALOG_MODE}
 				<p class="price">
