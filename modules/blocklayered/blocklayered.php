@@ -2984,9 +2984,10 @@ class BlockLayered extends Module
 					{
 						foreach ($products as $category)
 						{
+                                                    //mbj
 							$tmpArray[$category['id_category']] = array('name' => $category['name'], 'nbr' => (int)$category['count_products']);
-							//if (isset($selectedFilters['category']) && in_array($category['id_category'], $selectedFilters['category']))
-								//$tmpArray[$category['id_category']]['checked'] = true;
+							if (isset($selectedFilters['category']) && in_array($category['id_category'], $selectedFilters['category']))
+								$tmpArray[$category['id_category']]['checked'] = true;
 						}
 						$filterBlocks[] = array ('type_lite' => 'category', 'type' => 'category', 'id_key' => 0, 'name' => $this->l('Categories'), 'values' => $tmpArray);
 					}
