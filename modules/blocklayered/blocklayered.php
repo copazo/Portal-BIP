@@ -2803,7 +2803,7 @@ class BlockLayered extends Module
 			$products = false;
 			if (!empty($sqlQuery['from']))
 				$products = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS($sqlQuery['select']."\n".$sqlQuery['from']."\n".$sqlQuery['join']."\n".$sqlQuery['where']."\n".$sqlQuery['group']);
-/*
+
                         foreach ($filters as $filterTmp)
 			{
 				$methodName = 'filterProductsBy'.ucfirst($filterTmp['type']);
@@ -2816,7 +2816,7 @@ class BlockLayered extends Module
 						$products = self::$methodName(@$selectedFilters[$filterTmp['type']], $products);
 			
                                
-                        }*/
+                        }
 
 			switch ($filter['type'])
 			{
