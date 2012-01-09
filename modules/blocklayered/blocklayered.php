@@ -2794,9 +2794,9 @@ class BlockLayered extends Module
 							$selected_filters_cleaned = @$selectedFilters[$filterTmp['type']];
 						$subQueryFilter = self::$methodName($selected_filters_cleaned, $filter['type'] == $filterTmp['type']);
 					}
-                                        /*if($filter['type']!="category")
+                                        if($filter['type']!="category")
 					foreach ($subQueryFilter as $key => $value)
-						$sqlQuery[$key] .= $value;*/
+						$sqlQuery[$key] .= $value;
 				}
 			}
 			
