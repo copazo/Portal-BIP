@@ -2991,7 +2991,7 @@ class BlockLayered extends Module
 				
 			}
 		}
-		
+		$filterBlocks = array();//mbj
 		// All non indexable attribute and feature
 		$nonIndexable = array();
 		
