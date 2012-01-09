@@ -70,9 +70,8 @@ function addSlider(type, data, unit)
 {
 	sliderList.push({
 		type: type,
-                unit: unit,
-		data: data
-		
+		data: data,
+		unit: unit
 	});
 }
 
@@ -80,7 +79,7 @@ function initSliders()
 {
 	$(sliderList).each(function(i, slider){
 		$('#layered_'+slider['type']+'_slider').slider(slider['data']);
-		$('#layered_'+slider['type']+'_range').html($('#layered_'+slider['type']+'_slider').slider('values', 0)+slider['unit']+
+		$('#layered_'+slider['type']+'_range').html(slider['unit']+$('#layered_'+slider['type']+'_slider').slider('values', 0)+
 			' - ' + $('#layered_'+slider['type']+'_slider').slider('values', 1 )+slider['unit']);
 	});
 }
