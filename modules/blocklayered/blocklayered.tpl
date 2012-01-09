@@ -118,7 +118,7 @@ current_friendly_url = '#{$current_friendly_url}';
 							</div>
 							<script type="text/javascript">
 							{literal}
-								addSlider('{/literal}{$filter.type}{literal}',{
+								addSlider('',{
 									range: true,
 									min: {/literal}{$filter.min}{literal},
 									max: {/literal}{$filter.max}{literal},
@@ -130,8 +130,6 @@ current_friendly_url = '#{$current_friendly_url}';
 										reloadContent();
 									}
 								}, '');
-
-                                                            $('#layered_{/literal}{$filter.type}{literal}_range').html('$' + $("#slider-range").slider("values", 0) + 'K - $' + $("#slider-range").slider("values", 1) + 'K');
 
 								$(document).ready(function()
 								{
