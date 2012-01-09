@@ -2819,7 +2819,7 @@ class BlockLayered extends Module
 			
                                
                         }
-echo $filter['type']."<br>";
+
 			switch ($filter['type'])
 			{
 				case 'price':
@@ -3128,7 +3128,7 @@ echo $filter['type']."<br>";
 	}
 	
 	public function cleanFilterByIdValue($attributes, $id_value)
-	{
+	{/*
 		$selected_filters = array();
 		if (is_array($attributes))
 			foreach ($attributes as $attribute)
@@ -3136,7 +3136,7 @@ echo $filter['type']."<br>";
 				$attribute_data = explode('_', $attribute);
 				if ($attribute_data[0] == $id_value)
 					$selected_filters[] = $attribute_data[1];
-			}
+			}*/
 		return $selected_filters;
 	}
 	
