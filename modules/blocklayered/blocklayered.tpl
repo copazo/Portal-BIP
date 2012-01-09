@@ -45,7 +45,7 @@ current_friendly_url = '#{$current_friendly_url}';
 								{if $filter.type == $filter_type && isset($filter.values)}
 									{if isset($filter.slider) && $smarty.foreach.f_values.first}
 										<li>
-											<a href="#" rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}">x</a>
+											a:<a href="#" rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}">x</a>
 											{$filter.name|escape:html:'UTF-8'}{l s=':'} 
 											{$filter.values[0]|escape:html:'UTF-8'}{$filter.unit|escape:html:'UTF-8'} - 
 											{$filter.values[1]|escape:html:'UTF-8'}{$filter.unit|escape:html:'UTF-8'}
