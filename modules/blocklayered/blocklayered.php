@@ -2408,6 +2408,7 @@ class BlockLayered extends Module
                
 		foreach ($filters as $filter)
 		{
+                    echo var_dump($filter['type']);
 			$sqlQuery = array('select' => '', 'from' => '', 'join' => '', 'where' => '', 'group' => '');
 			switch ($filter['type'])
 			{
