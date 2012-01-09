@@ -43,9 +43,9 @@ current_friendly_url = '#{$current_friendly_url}';
 						{foreach from=$filter_values key=filter_key item=filter_value name=f_values}
 							{foreach from=$filters item=filter}
 								{if $filter.type == $filter_type && isset($filter.values)}
-<li>
-                                                            <a href="#" rel="layered_category_1a" title="{l s='Cancel' mod='blocklayered'}">all</a>
-</li>
+
+                                                           
+
 									{if isset($filter.slider) && $smarty.foreach.f_values.first}
 										<li>
 											<a href="#" rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}">x</a>
@@ -57,6 +57,7 @@ current_friendly_url = '#{$current_friendly_url}';
 										{foreach from=$filter.values key=id_value item=value}
 											{if $id_value == $filter_key && !is_numeric($filter_value) && ($filter.type eq 'id_attribute_group' || $filter.type eq 'id_feature') || $id_value == $filter_value && $filter.type neq 'id_attribute_group' && $filter.type neq 'id_feature'}
 												<li>
+ <a href="#" rel="layered_category_100" title="{l s='Cancel' mod='blocklayered'}">all</a>
 													<a href="#" rel="layered_{$filter.type_lite}_{$id_value}" title="{l s='Cancel' mod='blocklayered'}">x</a>
 													{$filter.name|escape:html:'UTF-8'}{l s=':'} {$value.name|escape:html:'UTF-8'}
 												</li>
