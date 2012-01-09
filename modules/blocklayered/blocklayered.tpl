@@ -122,7 +122,7 @@ current_friendly_url = '#{$current_friendly_url}';
 									range: true,
 									min: {/literal}{$filter.min}{literal},
 									max: {/literal}{$filter.max}{literal},
-									values: [ 12345, {/literal}{$filter.values[1]}{literal}],
+									values: [ '$12345', {/literal}{$filter.values[1]}{literal}],
 									slide: function( event, ui ) {
 										$('#layered_{/literal}{$filter.type}{literal}_range').html('{/literal}{$filter.unit}{literal}' + ui.values[ 0 ] + ' - ' + '{/literal}{$filter.unit}{literal}' + ui.values[ 1 ]);
 									},
