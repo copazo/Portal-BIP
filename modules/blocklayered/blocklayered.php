@@ -1848,11 +1848,11 @@ class BlockLayered extends Module
 						$selectedFilters['quantity'][] = $value;
 					else if (in_array($res[1], array('category', 'manufacturer')))
 					{
-                                            /*
+                                            
 						if (!isset($selectedFilters[$res[1].($id_key ? '_'.$id_key : '')]))
 							$selectedFilters[$res[1].($id_key ? '_'.$id_key : '')] = array();
 						$selectedFilters[$res[1].($id_key ? '_'.$id_key : '')][] = (int)$value;
-                                                */
+                                                
 					}
 					else if (in_array($res[1], array('id_attribute_group', 'id_feature')))
 					{
