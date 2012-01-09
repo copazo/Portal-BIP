@@ -2353,6 +2353,7 @@ class BlockLayered extends Module
 					break;
 			}
                         
+                
                         
 		$filterBlocks = array();
 
@@ -2990,6 +2991,7 @@ class BlockLayered extends Module
 				
 			}
 		}
+		
 		// All non indexable attribute and feature
 		$nonIndexable = array();
 		
