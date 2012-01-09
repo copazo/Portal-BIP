@@ -2790,10 +2790,12 @@ class BlockLayered extends Module
 						$subQueryFilter = self::$methodName(array(), true);
 					else
 					{
+                                            /*
 						if (!is_null($filterTmp['id_value']))
 							$selected_filters_cleaned = $this->cleanFilterByIdValue(@$selectedFilters[$filterTmp['type']], $filterTmp['id_value']);
 						else
 							$selected_filters_cleaned = @$selectedFilters[$filterTmp['type']];
+                                                */
 						$subQueryFilter = self::$methodName($selected_filters_cleaned, $filter['type'] == $filterTmp['type']);
 					}
                                         if($filter['type']!="category")
@@ -2986,7 +2988,7 @@ class BlockLayered extends Module
 							//if (isset($selectedFilters['category']) && in_array($category['id_category'], $selectedFilters['category']))
 								//$tmpArray[$category['id_category']]['checked'] = true;
 						}
-						//$filterBlocks[] = array ('type_lite' => 'category', 'type' => 'category', 'id_key' => 0, 'name' => $this->l('Categories'), 'values' => $tmpArray);
+						$filterBlocks[] = array ('type_lite' => 'category', 'type' => 'category', 'id_key' => 0, 'name' => $this->l('Categories'), 'values' => $tmpArray);
 					}
                                         
 					break;
