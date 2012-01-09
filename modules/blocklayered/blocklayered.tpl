@@ -47,8 +47,8 @@ current_friendly_url = '#{$current_friendly_url}';
 										<li>
 											a:<a href="#" rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}">x</a>
 											{$filter.name|escape:html:'UTF-8'}{l s=':'} 
-											{$filter.values[0]|escape:html:'UTF-8'}{convertPrice price=$filter.values[0]|floatval} - 
-											{$filter.values[1]|escape:html:'UTF-8'}
+											${convertPrice price=$filter.values[0]|floatval} - 
+											${convertPrice price=$filter.values[1]|floatval}
 										</li>
 									{else}
 										{foreach from=$filter.values key=id_value item=value}
