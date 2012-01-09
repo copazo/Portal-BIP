@@ -44,8 +44,6 @@ current_friendly_url = '#{$current_friendly_url}';
 							{foreach from=$filters item=filter}
 								{if $filter.type == $filter_type && isset($filter.values)}
 
-                                                                <input type="button" name="UnCheckAll" value="Uncheck All"
-                                                                onClick="uncheckAll(document.layered_form.layered_category_2005)">
 
 									{if isset($filter.slider) && $smarty.foreach.f_values.first}
 										<li>
