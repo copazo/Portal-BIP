@@ -45,7 +45,7 @@ current_friendly_url = '#{$current_friendly_url}';
 								{if $filter.type == $filter_type && isset($filter.values)}
 									{if isset($filter.slider) && $smarty.foreach.f_values.first}
 										<li>
-											a:<a href="#" rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}">x</a>
+											<a href="#" rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}">x</a>
 											{$filter.name|escape:html:'UTF-8'}{l s=':'} 
 											{convertPrice price=$filter.values[0]|floatval} - 
 											{convertPrice price=$filter.values[1]|floatval}
@@ -120,8 +120,8 @@ current_friendly_url = '#{$current_friendly_url}';
 							{literal}
 								addSlider('{/literal}{$filter.type}{literal}',{
 									range: true,
-									min: {/literal}{convertPrice price=$filter.min|floatval}{literal},
-									max: {/literal}{convertPrice price=$filter.max|floatval}{literal},
+									min: {/literal}{$filter.min}{literal},
+									max: {/literal}{$filter.max}{literal},
 									values: [ {/literal}{$filter.values[0]}{literal}, {/literal}{$filter.values[1]}{literal}],
 									slide: function( event, ui ) {
 										$('#layered_{/literal}{$filter.type}{literal}_range').html(ui.values[ 0 ] + '{/literal}{$filter.unit}{literal}' + ' - ' + ui.values[ 1 ] + '{/literal}{$filter.unit}{literal}');
