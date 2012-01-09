@@ -1848,9 +1848,11 @@ class BlockLayered extends Module
 						$selectedFilters['quantity'][] = $value;
 					else if (in_array($res[1], array('category', 'manufacturer')))
 					{
+                                            /*
 						if (!isset($selectedFilters[$res[1].($id_key ? '_'.$id_key : '')]))
 							$selectedFilters[$res[1].($id_key ? '_'.$id_key : '')] = array();
 						$selectedFilters[$res[1].($id_key ? '_'.$id_key : '')][] = (int)$value;
+                                                */
 					}
 					else if (in_array($res[1], array('id_attribute_group', 'id_feature')))
 					{
@@ -2790,12 +2792,10 @@ class BlockLayered extends Module
 						$subQueryFilter = self::$methodName(array(), true);
 					else
 					{
-                                            /*
 						if (!is_null($filterTmp['id_value']))
 							$selected_filters_cleaned = $this->cleanFilterByIdValue(@$selectedFilters[$filterTmp['type']], $filterTmp['id_value']);
 						else
 							$selected_filters_cleaned = @$selectedFilters[$filterTmp['type']];
-                                                */
 						$subQueryFilter = self::$methodName($selected_filters_cleaned, $filter['type'] == $filterTmp['type']);
 					}
                                         if($filter['type']!="category")
