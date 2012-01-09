@@ -43,9 +43,9 @@ current_friendly_url = '#{$current_friendly_url}';
 						{foreach from=$filter_values key=filter_key item=filter_value name=f_values}
 							{foreach from=$filters item=filter}
 								{if $filter.type == $filter_type && isset($filter.values)}
-
-                                                            <a href="#" rel="layered_CLEARALL_slider_1" title="{l s='Cancel' mod='blocklayered'}">all</a>
-
+<li>
+                                                            <a href="#" rel="layered_category_1a" title="{l s='Cancel' mod='blocklayered'}">all</a>
+</li>
 									{if isset($filter.slider) && $smarty.foreach.f_values.first}
 										<li>
 											<a href="#" rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}">x</a>
