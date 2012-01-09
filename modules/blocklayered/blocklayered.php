@@ -2986,7 +2986,7 @@ class BlockLayered extends Module
 							//if (isset($selectedFilters['category']) && in_array($category['id_category'], $selectedFilters['category']))
 								//$tmpArray[$category['id_category']]['checked'] = true;
 						}
-						$filterBlocks[] = array ('type_lite' => 'category', 'type' => 'category', 'id_key' => 0, 'name' => $this->l('Categories'), 'values' => $tmpArray);
+						//$filterBlocks[] = array ('type_lite' => 'category', 'type' => 'category', 'id_key' => 0, 'name' => $this->l('Categories'), 'values' => $tmpArray);
 					}
                                         
 					break;
