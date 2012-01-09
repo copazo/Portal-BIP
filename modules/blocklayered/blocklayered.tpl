@@ -124,7 +124,7 @@ current_friendly_url = '#{$current_friendly_url}';
 									max: {/literal}{$filter.max}{literal},
 									values: [ {/literal}{$filter.values[0]}{literal}, {/literal}{$filter.values[1]}{literal}],
 									slide: function( event, ui ) {
-										$('#layered_{/literal}{$filter.type}{literal}_range').html(ui.values[ 0 ] + '{/literal}{$filter.unit}{literal}' + ' - ' + ui.values[ 1 ] + '{/literal}{$filter.unit}{literal}');
+										$('#layered_{/literal}{$filter.type}{literal}_range').html(ui.values[ 0 ] + '{/literal}{$filter.unit}{literal}' + ' - ' + '{/literal}{$filter.unit}{literal}' + ui.values[ 1 ]);
 									},
 									stop: function () {
 										reloadContent();
