@@ -118,7 +118,7 @@ current_friendly_url = '#{$current_friendly_url}';
 							</div>
 							<script type="text/javascript">
 							{literal}
-								addSlider('',{
+								addSlider('{/literal}{$filter.type}{literal}',{
 									range: true,
 									min: {/literal}{$filter.min}{literal},
 									max: {/literal}{$filter.max}{literal},
@@ -129,7 +129,7 @@ current_friendly_url = '#{$current_friendly_url}';
 									stop: function () {
 										reloadContent();
 									}
-								}, '');
+								}, '$');
 
 								$(document).ready(function()
 								{
