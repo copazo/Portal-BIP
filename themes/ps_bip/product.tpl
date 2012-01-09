@@ -585,7 +585,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		<tr>
 			{foreach from=$quantity_discounts item='quantity_discount' name='quantity_discounts'}
 				<td>
-				{if $quantity_discount.price != 0 OR $quantity_discount.reduction_type == 'amount'}
+				{if $quantity_discouconvertnt.price != 0 OR $quantity_discount.reduction_type == 'amount'}
 					-{convertPrice price=$quantity_discount.real_value|floatval}
 				{else}
 					-{$quantity_discount.real_value|floatval}%
