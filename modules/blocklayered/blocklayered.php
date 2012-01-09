@@ -3128,7 +3128,7 @@ class BlockLayered extends Module
 	}
 	
 	public function cleanFilterByIdValue($attributes, $id_value)
-	{/*
+	{
 		$selected_filters = array();
 		if (is_array($attributes))
 			foreach ($attributes as $attribute)
@@ -3136,7 +3136,7 @@ class BlockLayered extends Module
 				$attribute_data = explode('_', $attribute);
 				if ($attribute_data[0] == $id_value)
 					$selected_filters[] = $attribute_data[1];
-			}*/
+			}
 		return $selected_filters;
 	}
 	

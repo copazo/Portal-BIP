@@ -33,7 +33,7 @@ current_friendly_url = '#{$current_friendly_url}';
 <div id="layered_block_left" class="block">
 	<h4>{l s='Catalog' mod='blocklayered'}</h4>
 	<div class="block_content">
-		<form action="#" id="layered_form">
+		<form action="#" id="layered_form" name="layered_form">
 			<div>
 				{if isset($selected_filters) && $n_filters > 0}
 				<div id="enabled_filters">
@@ -43,6 +43,10 @@ current_friendly_url = '#{$current_friendly_url}';
 						{foreach from=$filter_values key=filter_key item=filter_value name=f_values}
 							{foreach from=$filters item=filter}
 								{if $filter.type == $filter_type && isset($filter.values)}
+
+                                                                <input type="button" name="UnCheckAll" value="Uncheck All"
+                                                                onClick="uncheckAll(document.layered_form.layered_category_2005)">
+
 									{if isset($filter.slider) && $smarty.foreach.f_values.first}
 										<li>
 											<a href="#" rel="layered_{$filter.type}_slider" title="{l s='Cancel' mod='blocklayered'}">x</a>

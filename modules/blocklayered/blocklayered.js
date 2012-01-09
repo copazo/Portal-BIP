@@ -89,6 +89,11 @@ function formatCurrency(num) {
     num.substring(num.length-(4*i+3));
     return (((sign)?'':'-') + '$' + num);
 }
+function uncheckAll(field)
+{
+for (i = 0; i < field.length; i++)
+	field[i].checked = false ;
+}
 function initSliders()
 {
 	$(sliderList).each(function(i, slider){
