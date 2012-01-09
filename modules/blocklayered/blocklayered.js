@@ -70,8 +70,9 @@ function addSlider(type, data, unit)
 {
 	sliderList.push({
 		type: type,
-		data: data,
-		unit: unit
+                unit: unit,
+		data: data
+		
 	});
 }
 
