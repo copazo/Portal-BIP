@@ -219,7 +219,7 @@ function reloadContent(params_plus)
 	if ($('#selectPrductSort').length)
 	{
 		var splitData = $('#selectPrductSort').val().split(':');
-		data += '&orderby='+splitData[0]+'&orderwayXXX='+splitData[1];
+		data += '&orderby='+splitData[0]+'&orderway='+splitData[1];
 	}
 	
 	var slideUp = true;
