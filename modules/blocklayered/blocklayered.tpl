@@ -120,7 +120,7 @@ current_friendly_url = '#{$current_friendly_url}';
 							{literal}
 								addSlider('{/literal}{$filter.type}{literal}',{
 									range: true,
-									min: '$'+{/literal}{$filter.min}{literal},
+									min: {/literal}{convertPrice price=$filter.min|floatval}{literal},
 									max: {/literal}{$filter.max}{literal},
 									values: [ {/literal}{$filter.values[0]}{literal}, {/literal}{$filter.values[1]}{literal}],
 									slide: function( event, ui ) {
