@@ -32,7 +32,7 @@ if(!$row2["price"])
 
 	$insert_prod_att ="insert into ${prefijo}layered_price_index (id_product,id_currency,price_min,price_max) values (".$row["id_product"].",4,".round($row2["price"]*0.9).",".($row2["price"]).")";
 	mysql_query($insert_prod_att,$conn_pshoptest);
-echo mysql_error($conn_pshoptest)."<br>";
+
 	$insert_prod_att ="insert into ${prefijo}product_attribute (id_product,price,default_on) values (".$row["id_product"].",".($row2["price"]*0.9).",1)";
 	mysql_query($insert_prod_att,$conn_pshoptest);
 	$insert_id_value=mysql_insert_id();
@@ -49,6 +49,13 @@ echo mysql_error($conn_pshoptest)."<br>";
 	mysql_query($insert_prod_att,$conn_pshoptest);
 	$insert_id_value=mysql_insert_id();
 	$insert_prod_att_comb = "insert into ${prefijo}product_attribute_combination (id_product_attribute,id_attribute) values(".$insert_id_value.",23)";
+	mysql_query($insert_prod_att_comb,$conn_pshoptest);
+        
+        //distribuidor
+	$insert_prod_att ="insert into ${prefijo}product_attribute (id_product,price,default_on) values (".$row["id_product"].",".($row2["price"]).",0)";
+	mysql_query($insert_prod_att,$conn_pshoptest);
+	$insert_id_value=mysql_insert_id();
+	$insert_prod_att_comb = "insert into ${prefijo}product_attribute_combination (id_product_attribute,id_attribute) values(".$insert_id_value.",24)";
 	mysql_query($insert_prod_att_comb,$conn_pshoptest);
 }
 
