@@ -35,6 +35,7 @@ current_friendly_url = '#{$current_friendly_url}';
 	<div class="block_content">
 		<form action="#" id="layered_form" name="layered_form">
 			<div>
+Clean All<input type="checkbox" class="checkbox" name="clean_all" id="clean_all" value="1" /> 
 				{if isset($selected_filters) && $n_filters > 0}
 				<div id="enabled_filters">
 					<span class="layered_subtitle" style="float: none;">{l s='Enabled filters:' mod='blocklayered'}</span>
@@ -57,7 +58,7 @@ current_friendly_url = '#{$current_friendly_url}';
 										{foreach from=$filter.values key=id_value item=value}
 											{if $id_value == $filter_key && !is_numeric($filter_value) && ($filter.type eq 'id_attribute_group' || $filter.type eq 'id_feature') || $id_value == $filter_value && $filter.type neq 'id_attribute_group' && $filter.type neq 'id_feature'}
 												<li>
- <a href="#" rel="layered_category_2005" title="{l s='Cancel' mod='blocklayered'}" onClick="reloadContent();">all</a>
+
 													<a href="#" rel="" title="{l s='Cancel' mod='blocklayered'}">x</a>
 													{$filter.name|escape:html:'UTF-8'}{l s=':'} {$value.name|escape:html:'UTF-8'}
 												</li>
