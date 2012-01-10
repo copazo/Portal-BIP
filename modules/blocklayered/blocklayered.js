@@ -219,7 +219,7 @@ function reloadContent(params_plus)
 	if ($('#selectPrductSort').length)
 	{
 		var splitData = $('#selectPrductSort').val().split(':');
-		data += '&orderby='+splitData[0]+'&orderway='+splitData[1]+'&extr='+$('#selectPrductSort').val(clean_all);
+		data += '&orderby='+splitData[0]+'&orderway='+splitData[1]+'&extr='+$('#clean_all_10').val();
 	}
 	
 	var slideUp = true;
