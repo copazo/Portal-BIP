@@ -194,7 +194,7 @@ function openCloseFilter()
 		e.preventDefault();
 	});
 }
-
+//mbj solucion
 function reloadContent(params_plus)
 {
 	for(i = 0; i < ajaxQueries.length; i++)
@@ -291,6 +291,7 @@ function reloadContent(params_plus)
 							current_friendly_url += '/'+sliderType+'-'+$('#layered_'+sliderType+'_slider').slider('values', 0)+'-'+$('#layered_'+sliderType+'_slider').slider('values', 1)
 				}
 			});
+                        current_friendly_url += 'test/';
 			if (current_friendly_url == '#')
 				current_friendly_url = '#/';
 			window.location = current_friendly_url;
