@@ -1776,7 +1776,7 @@ class BlockLayered extends Module
 
                 foreach ($_GET as $key => $value)
                 {
-                 if($key=='extr' and $value=='true' and $key == 'clean_all_10'){
+                 if($key == 'clean_all_10'){
                      echo "aaaaaaaa:::::::::<br>";
                      return;
                  }   
