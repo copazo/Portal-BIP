@@ -1774,6 +1774,13 @@ class BlockLayered extends Module
 		if ($id_parent == 1)
 			return;
 
+                foreach ($_GET as $key => $value)
+                {
+                 if($key=='extr' and $value=='true' and $key == 'clean_all_10'){
+                     return;
+                 }   
+                }
+                
 		// Force attributes selection (by url '.../2-mycategory/color-blue' or by get parameter 'selected_filters')
 		if (strpos($_SERVER['SCRIPT_FILENAME'], 'blocklayered-ajax.php') === false || Tools::getValue('selected_filters') !== false)
 		{
@@ -1832,6 +1839,8 @@ class BlockLayered extends Module
 		/* Analyze all the filters selected by the user and store them into a tab */
 		$selectedFilters = array('category' => array(), 'manufacturer' => array(), 'quantity' => array(), 'condition' => array());
                 foreach ($_GET as $key => $value)
+                {
+                    
 			if (substr($key, 0, 8) == 'layered_')
 			{
 				preg_match('/^(.*)_[0-9|new|used|refurbished|slider]+$/', substr($key, 8, strlen($key) - 8), $res);
@@ -1866,6 +1875,7 @@ class BlockLayered extends Module
 						$selectedFilters[$res[1]] = $tmpTab;
 				}
 			}
+            }
 		return $selectedFilters;
 	}
 
