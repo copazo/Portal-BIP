@@ -219,7 +219,7 @@ function reloadContent(params_plus)
 	if ($('#selectPrductSort').length)
 	{
 		var splitData = $('#selectPrductSort').val().split(':');
-		data += '&orderby='+splitData[0]+'&orderway='+splitData[1];
+		data += '&orderby='+splitData[0]+'&orderway='+splitData[1]+'&extr=asd';
 	}
 	
 	var slideUp = true;
@@ -291,7 +291,6 @@ function reloadContent(params_plus)
 							current_friendly_url += '/'+sliderType+'-'+$('#layered_'+sliderType+'_slider').slider('values', 0)+'-'+$('#layered_'+sliderType+'_slider').slider('values', 1)
 				}
 			});
-                        current_friendly_url += 'test/';
 			if (current_friendly_url == '#')
 				current_friendly_url = '#/';
 			window.location = current_friendly_url;
