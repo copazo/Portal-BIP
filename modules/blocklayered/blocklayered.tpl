@@ -35,12 +35,12 @@ current_friendly_url = '#{$current_friendly_url}';
 	<div class="block_content">
 		<form action="#" id="layered_form" name="layered_form">
 			<div>
-Clean All <input type="checkbox" class="checkbox" name="clean_all_10" id="clean_all_10" /> 
-<a href="#" type="checkbox" class="checkbox" name="clean_all_10" id="clean_all_10">Limpiar filtros</a>
+
 				{if isset($selected_filters) && $n_filters > 0}
 				<div id="enabled_filters">
 					<span class="layered_subtitle" style="float: none;">{l s='Enabled filters:' mod='blocklayered'}</span>
-					<ul>
+Limpiar filtros <input type="checkbox" class="checkbox" name="clean_all_10" id="clean_all_10" /> 					
+<ul>
 					{foreach from=$selected_filters key=filter_type item=filter_values}
 						{foreach from=$filter_values key=filter_key item=filter_value name=f_values}
 							{foreach from=$filters item=filter}
