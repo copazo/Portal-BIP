@@ -36,6 +36,7 @@ current_friendly_url = '#{$current_friendly_url}';
 		<form action="#" id="layered_form" name="layered_form">
 			<div>
 Clean All <input type="checkbox" class="checkbox" name="clean_all_10" id="clean_all_10" /> 
+<a href="#" type="checkbox" class="checkbox" name="clean_all_10" id="clean_all_10">Limpiar filtros</a>
 				{if isset($selected_filters) && $n_filters > 0}
 				<div id="enabled_filters">
 					<span class="layered_subtitle" style="float: none;">{l s='Enabled filters:' mod='blocklayered'}</span>
