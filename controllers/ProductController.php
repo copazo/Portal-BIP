@@ -215,6 +215,16 @@ class ProductControllerCore extends FrontController
                                 $row['link_used'] = $link->getProductLink((int)$this->product->supplier_reference, $row_us['link_rewrite'], $row['category_used'], $row_us['ean13']);
 
                 
+                              //precio mall - distribuidor - lista - internet
+                                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                                SELECT pa.price
+                                FROM `'._DB_PREFIX_.'product_attribute` pa 
+                                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON p.id_product_attribute = pl.id_product_attribute
+                                WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
+                                        $row['price_distribuidor'] = $subrow['price'];
+                                }
+                
+                                
                                 
 				self::$smarty->assign(array(
 					'quantity_discounts' => $this->formatQuantityDiscounts(SpecificPrice::getQuantityDiscounts((int)$this->product->id, (int)Shop::getCurrentShop(), (int)self::$cookie->id_currency, $id_country, $id_group), $this->product->getPrice(Product::$_taxCalculationMethod == PS_TAX_INC, false), (float)$tax),
