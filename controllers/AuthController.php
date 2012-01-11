@@ -173,6 +173,7 @@ class AuthControllerCore extends FrontController
 								self::$cookie->customer_lastname = $customer->lastname;
 								self::$cookie->customer_firstname = $customer->firstname;
 								self::$cookie->passwd = $customer->passwd;
+                                                                self::$cookie->id_default_group = $customer->id_default_group;
 								self::$cookie->logged = 1;
 								self::$cookie->email = $customer->email;
 								self::$cookie->is_guest = !Tools::getValue('is_new_customer', 1);
