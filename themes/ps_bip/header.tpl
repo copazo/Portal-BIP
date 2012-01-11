@@ -179,7 +179,7 @@ function changeTab(tab)
       <li id="t_mall" class="tienda"><a href="javascript:changeTab('t_mall');">Mall</a></li>
 
     
-        <li id="t_mall" class="tienda"><a href="javascript:changeTab('t_distribuidor');">Distribuidor</a></li>
+        <li id="t_distribuidor" class="tienda"><a href="javascript:changeTab('t_distribuidor');">Distribuidor</a></li>
     
 us:{$cookie->id_default_group}
     </ul>
