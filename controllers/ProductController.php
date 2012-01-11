@@ -219,11 +219,10 @@ class ProductControllerCore extends FrontController
                                 foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                                 SELECT pa.price
                                 FROM `'._DB_PREFIX_.'product_attribute` pa 
-                                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON p.id_product_attribute = pl.id_product_attribute
+                                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
                                 WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
                                         $row['price_distribuidor'] = $subrow['price'];
                                 }
-                $row['price_distribuidor'] = 9999;
                                 
                                 
 				self::$smarty->assign(array(

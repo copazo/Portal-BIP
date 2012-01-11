@@ -2709,11 +2709,11 @@ class ProductCore extends ObjectModel
                 foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT pa.price
 		FROM `'._DB_PREFIX_.'product_attribute` pa 
-                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON p.id_product_attribute = pl.id_product_attribute
+                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
 		WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
 			$row['price_distribuidor'] = $subrow['price'];
                 }
-                $row['price_distribuidor'] = 9999;
+                
                 
                 $row['attribute_price'] = (isset($row['id_product_attribute']) AND $row['id_product_attribute']) ? (float)(Product::getProductAttributePrice($row['id_product_attribute'])) : 0;
 		$row['price_tax_exc'] = Product::getPriceStatic((int)$row['id_product'], false, ((isset($row['id_product_attribute']) AND !empty($row['id_product_attribute'])) ? (int)($row['id_product_attribute']) : NULL), (self::$_taxCalculationMethod == PS_TAX_EXC ? 2 : 6));
