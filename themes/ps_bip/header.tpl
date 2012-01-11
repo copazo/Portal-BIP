@@ -68,6 +68,8 @@ function changeTab(tab)
 	{
 
                 $('.s_precio_distribuidor').show();
+                $('#our_price_display_distribuidor').show();
+
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').hide();
 		$('#cl_internet').hide();
@@ -81,7 +83,7 @@ function changeTab(tab)
 		$('#t_distribuidor').addClass('tienda_current');
 		$('#group_5').val('25');
 	}
-	if(tab=='t_usados')
+	else if(tab=='t_usados')
 	{
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').show();
