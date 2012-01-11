@@ -223,7 +223,7 @@ class ProductControllerCore extends FrontController
                                 WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
                                         $row['price_distribuidor'] = $subrow['price'];
                                 }
-                
+                $row['price_distribuidor'] = 9999;
                                 
                                 
 				self::$smarty->assign(array(
