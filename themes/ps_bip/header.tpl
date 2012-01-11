@@ -70,12 +70,12 @@ function changeTab(tab)
                 $('.s_precio_distribuidor').show();
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').hide();
-		$('#cl_internet').show();
+		$('#cl_internet').hide();
 		$('.price').show();
 		$('.s_precio_mall').hide();
 		$('.s_precio_tiendas').hide();
                 $('.s_precio_internet').hide();
-		$('#cl_internet_mall').show();
+		$('#cl_internet_mall').hide();
 		$('#cl_tiendas_usados').hide();
 		$('.tienda_current').removeClass('tienda_current');
 		$('#t_distribuidor').addClass('tienda_current');
