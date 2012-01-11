@@ -35,7 +35,7 @@
 				<p class="product_desc">
 Codigo BIP : {$product["id_product"]}<BR>
 P/N # {$product.reference} <BR>
-ex # {$product.extra} <BR>
+ex # {$product.price_distribuidor} <BR>
 
 </p>
 				{if isset($prod_features[$product["id_product"]])}

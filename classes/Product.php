@@ -2662,7 +2662,7 @@ class ProductCore extends ObjectModel
 				return $row['id_product'].'-'.$row['id_image'];
 		return Language::getIsoById((int)$id_lang).'-default';
 	}
-
+//mbj
 	public static function getProductProperties($id_lang, $row)
 	{
 		if (!$row['id_product'])
@@ -2696,7 +2696,7 @@ class ProductCore extends ObjectModel
 		SELECT p.*
 		FROM `'._DB_PREFIX_.'product` p 
                     INNER JOIN '._DB_PREFIX_.'product_lang pl ON p.id_product = pl.id_product
-		WHERE id_product = '.(int)$row['supplier_reference']) as $subrow){
+		WHERE id_product = '.(int)$ro1w['supplier_reference']) as $subrow){
 			$row_us['id_category_default'] = $subrow['id_category_default'];
                         $row_us['link_rewrite'] = $subrow['link_rewrite'];
                         $row_us['ean13'] = $subrow['ean13'];
@@ -2705,7 +2705,14 @@ class ProductCore extends ObjectModel
                 $row['category_used'] = Category::getLinkRewrite((int)$row_us['id_category_default'], (int)($id_lang));
                 $row['link_used'] = $link->getProductLink((int)$row['supplier_reference'], $row_us['link_rewrite'], $row['category_used'], $row_us['ean13']);
 		
-                
+              //precio mall - distribuidor - lista - internet
+                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT pa.price
+		FROM `'._DB_PREFIX_.'product_attribute` pa 
+                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON p.id_product_attribute = pl.id_product_attribute
+		WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
+			$row['price_distribuidor'] = $subrow['price'];
+                }
                 
                 
                 $row['attribute_price'] = (isset($row['id_product_attribute']) AND $row['id_product_attribute']) ? (float)(Product::getProductAttributePrice($row['id_product_attribute'])) : 0;
