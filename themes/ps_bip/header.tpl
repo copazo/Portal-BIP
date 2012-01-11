@@ -176,13 +176,15 @@ function changeTab(tab)
       <li id="t_internet" class="tienda_current"><a href="javascript:changeTab('t_internet');">Internet</a></li>
       <li id="t_tiendas" class="tienda"><a href="javascript:changeTab('t_tiendas');">Tiendas</a></li>
       <li id="t_usados" class="tienda"><a href="{$link->getURLSiteBase()}4017-usados/">Usados</a></li>
-        <li id="t_distribuidor" class="tienda"><a href="javascript:changeTab('t_distribuidor');">Distribuidor</a></li>
-    
-      <li id="t_mall" class="tienda"><a href="javascript:changeTab('t_mall');">Mall</a></li>
+      
+{if $cookie->id_default_group == 2}
+<li id="t_distribuidor" class="tienda"><a href="javascript:changeTab('t_distribuidor');">Distribuidor</a></li>
+{/if}
+      <!--<li id="t_mall" class="tienda"><a href="javascript:changeTab('t_mall');">Mall</a></li>-->
 
     
 
-us:{$cookie->id_default_group}
+
     </ul>
   </div>
 	<script>changeTab($.cookie('bip_tab'));</script>
