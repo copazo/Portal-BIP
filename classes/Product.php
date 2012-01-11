@@ -2711,8 +2711,29 @@ class ProductCore extends ObjectModel
 		FROM `'._DB_PREFIX_.'product_attribute` pa 
                     INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
 		WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
-			$row['price_distribuidor'] = $subrow['price'];
+			$row['price_distribuidor'] = round($subrow['price']);
                 }
+                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT pa.price
+		FROM `'._DB_PREFIX_.'product_attribute` pa 
+                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
+		WHERE pac.id_attribute = 23 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
+			$row['price_tienda'] = round($subrow['price']);
+                }  
+                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT pa.price
+		FROM `'._DB_PREFIX_.'product_attribute` pa 
+                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
+		WHERE pac.id_attribute = 22 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
+			$row['price_mall'] = round($subrow['price']);
+                } 
+                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+		SELECT pa.price
+		FROM `'._DB_PREFIX_.'product_attribute` pa 
+                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
+		WHERE pac.id_attribute = 21 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
+			$row['price_internet'] = round($subrow['price']);
+                } 
                 
                 
                 $row['attribute_price'] = (isset($row['id_product_attribute']) AND $row['id_product_attribute']) ? (float)(Product::getProductAttributePrice($row['id_product_attribute'])) : 0;

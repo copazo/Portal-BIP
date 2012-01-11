@@ -35,7 +35,6 @@
 				<p class="product_desc">
 Codigo BIP : {$product["id_product"]}<BR>
 P/N # {$product.reference} <BR>
-ex # {$product.price_distribuidor} <BR>
 
 </p>
 				{if isset($prod_features[$product["id_product"]])}
@@ -57,9 +56,10 @@ ex # {$product.price_distribuidor} <BR>
 				<div>
 
 {if $product.condition eq 'new'}
-					<span class="s_precio_tiendas" style="display: inline;">Precio Tienda: {convertPrice price=round(($product.price*100)/90)}</span>
-					<span class="s_precio_mall" style="display: inline;">Precio Mall: {convertPrice price=round(($product.price*100)/90)}</span>
-					<span class="s_precio_internet" style="display: inline;">{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}<span class="price" style="display: inline;" id="precio-lista">Precio Lista: {if !$priceDisplay}{convertPrice price=round(($product.price*100)/90)}{else}{convertPrice price=$product.price_tax_exc}{/if}</span><br /><span class="price" style="display: inline;" id="precio-internet">Precio M&iacute;nimo Internet:<br /><span class="price-internet-valor"> {if !$priceDisplay}{convertPrice price=($product.price)}{else}{convertPrice price=$product.price_tax_exc}{/if}</span></span>{/if}</span>
+                                        <span class="s_precio_distribuidor" style="display: inline;">Precio Distribuidor: {$product.price_distribuidor}</span>
+					<span class="s_precio_tiendas" style="display: inline;">Precio Tienda: {$product.price_tienda}</span>
+					<span class="s_precio_mall" style="display: inline;">Precio Mall: {$product.price_mall}</span>
+					<span class="s_precio_internet" style="display: inline;">{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}<span class="price" style="display: inline;" id="precio-lista">Precio Lista: {$product.price_tienda}</span><br /><span class="price" style="display: inline;" id="precio-internet">Precio M&iacute;nimo Internet:<br /><span class="price-internet-valor"> {$product.price_internet}</span></span>{/if}</span>
 {/if}	
 {if $product.condition eq 'used'}
                                         <span style="display: inline;"><span class="price" style="display: inline;" id="precio-internetUS">Cheque 30 Días: {convertPrice price=round(($product.price*100)/90)}</span></span><br>
