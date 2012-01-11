@@ -66,17 +66,16 @@ function changeTab(tab)
 
 	if(tab=='t_distribuidor')
 	{
+
+                $('.s_precio_distribuidor').show();
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').hide();
-
-		$('#cl_usados').show();
+		$('#cl_internet').show();
 		$('.price').show();
 		$('.s_precio_mall').hide();
 		$('.s_precio_tiendas').hide();
                 $('.s_precio_internet').hide();
-                $('.s_precio_distribuidor').show();
-
-		$('#cl_internet_mall').hide();
+		$('#cl_internet_mall').show();
 		$('#cl_tiendas_usados').hide();
 		$('.tienda_current').removeClass('tienda_current');
 		$('#t_distribuidor').addClass('tienda_current');
