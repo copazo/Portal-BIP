@@ -64,12 +64,30 @@ function changeTab(tab)
 {
 	$('.forma_pago').hide();
 
+	if(tab=='t_distribuidor')
+	{
+                $('#our_price_display_internet').hide();
+                $('#our_price_display_tienda').show();
 
+		$('#cl_usados').show();
+		$('.price').show();
+		$('.s_precio_mall').hide();
+		$('.s_precio_tiendas').hide();
+                $('.s_precio_internet').hide();
+                $('.s_precio_distribuidor').show();
+
+		$('#cl_internet_mall').hide();
+		$('#cl_tiendas_usados').hide();
+		$('.tienda_current').removeClass('tienda_current');
+		$('#t_usados').addClass('tienda_current');
+		$('#group_5').val('25');
+	}
 	if(tab=='t_usados')
 	{
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').show();
 
+                $('.s_precio_distribuidor').hide();
 		$('#cl_usados').show();
 		$('.price').show();
 		$('.s_precio_mall').hide();
@@ -83,7 +101,7 @@ function changeTab(tab)
 	}
 	else if(tab=='t_internet')
 	{
-
+                $('.s_precio_distribuidor').hide();
                 $('#our_price_display_internet').show();
                 $('#our_price_display_tienda').hide();
 		$('#cl_internet').show();
@@ -99,6 +117,7 @@ function changeTab(tab)
 	}else if(tab=='t_tiendas2')
 	{
                 cambiarCuotas();
+                $('.s_precio_distribuidor').hide();
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').show();
 		$('#cl_tienda').show();
@@ -114,7 +133,7 @@ function changeTab(tab)
 	}
 	else if(tab=='t_tiendas')
 	{
-
+                $('.s_precio_distribuidor').hide();
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').show();
 		$('#cl_tienda').show();
@@ -130,7 +149,7 @@ function changeTab(tab)
 	}
 	else if(tab=='t_mall')
 	{
-
+                $('.s_precio_distribuidor').hide();
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').show();
 		$('#cl_mall').show();
@@ -144,6 +163,7 @@ function changeTab(tab)
 		$('#group_5').val('24');
 
 	}else{
+            $('.s_precio_distribuidor').hide();
             $('#cl_internet').show();
             $('.s_precio_mall').hide();
             $('.s_precio_tiendas').hide();
