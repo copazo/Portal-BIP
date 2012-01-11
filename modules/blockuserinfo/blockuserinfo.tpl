@@ -29,7 +29,7 @@
 	<p id="header_user_info">
 		{l s='Welcome' mod='blockuserinfo'},
 		{if $cookie->isLogged()}
-			<span>{$cookie->customer_firstname} {$cookie->customer_lastname}</span>
+			us:{$cookie->id_default_group}  <span>{$cookie->customer_firstname} {$cookie->customer_lastname}</span>
 			(<a href="{$link->getPageLink('index.php')}?mylogout" title="{l s='Log me out' mod='blockuserinfo'}">{l s='Log out' mod='blockuserinfo'}</a>)
 		{else}
 			<a href="{$link->getPageLink('my-account.php', true)}">{l s='Log in' mod='blockuserinfo'}</a>
