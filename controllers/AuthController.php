@@ -254,7 +254,7 @@ class AuthControllerCore extends FrontController
 					self::$cookie->id_customer = (int)($customer->id);
 					self::$cookie->customer_lastname = $customer->lastname;
 					self::$cookie->customer_firstname = $customer->firstname;
-                                        self::$cookie->id_default_group = "aaaaaaa";
+                                        self::$cookie->id_default_group = $customer->id_default_group;
 					self::$cookie->logged = 1;
 					self::$cookie->is_guest = $customer->isGuest();
 					self::$cookie->passwd = $customer->passwd;
