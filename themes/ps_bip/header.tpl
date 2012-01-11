@@ -178,7 +178,7 @@ function changeTab(tab)
       <li id="t_usados" class="tienda"><a href="{$link->getURLSiteBase()}4017-usados/">Usados</a></li>
       <li id="t_mall" class="tienda"><a href="javascript:changeTab('t_mall');">Mall</a></li>
 
-    {if $cookie->id_default_group eq 2}
+    {if $cookie->id_default_group == 2}
         <li id="t_mall" class="tienda"><a href="javascript:changeTab('t_distribuidor');">Distribuidor</a></li>
     {/if}
 
