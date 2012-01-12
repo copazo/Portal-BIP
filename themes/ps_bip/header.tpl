@@ -88,6 +88,7 @@ function changeTab(tab)
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').show();
 
+                $('#our_price_display_distribuidor').hide();
                 $('.s_precio_distribuidor').hide();
 		$('#cl_usados').show();
 		$('.price').show();
@@ -102,6 +103,7 @@ function changeTab(tab)
 	}
 	else if(tab=='t_internet')
 	{
+$('#our_price_display_distribuidor').hide();
                 $('.s_precio_distribuidor').hide();
                 $('#our_price_display_internet').show();
                 $('#our_price_display_tienda').hide();
@@ -117,6 +119,7 @@ function changeTab(tab)
 		$('#group_5').val('25');
 	}else if(tab=='t_tiendas2')
 	{
+$('#our_price_display_distribuidor').hide();
                 cambiarCuotas();
                 $('.s_precio_distribuidor').hide();
                 $('#our_price_display_internet').hide();
@@ -134,6 +137,7 @@ function changeTab(tab)
 	}
 	else if(tab=='t_tiendas')
 	{
+$('#our_price_display_distribuidor').hide();
                 $('.s_precio_distribuidor').hide();
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').show();
@@ -150,6 +154,7 @@ function changeTab(tab)
 	}
 	else if(tab=='t_mall')
 	{
+$('#our_price_display_distribuidor').hide();
                 $('.s_precio_distribuidor').hide();
                 $('#our_price_display_internet').hide();
                 $('#our_price_display_tienda').show();
@@ -164,6 +169,7 @@ function changeTab(tab)
 		$('#group_5').val('24');
 
 	}else{
+$('#our_price_display_distribuidor').hide();
             $('.s_precio_distribuidor').hide();
             $('#cl_internet').show();
             $('.s_precio_mall').hide();
