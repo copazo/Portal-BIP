@@ -220,6 +220,14 @@ class ProductControllerCore extends FrontController
                                 SELECT pa.price
                                 FROM `'._DB_PREFIX_.'product_attribute` pa 
                                     INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
+                                WHERE pac.id_attribute = 25 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
+                                        $row['price_distribuidor_p'] = round($subrow['price']);
+                                }
+
+                                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                                SELECT pa.price
+                                FROM `'._DB_PREFIX_.'product_attribute` pa 
+                                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
                                 WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
                                         $row['price_distribuidor'] = round($subrow['price']);
                                 }

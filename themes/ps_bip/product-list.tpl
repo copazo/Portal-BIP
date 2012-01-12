@@ -56,7 +56,14 @@ P/N # {$product.reference} <BR>
 				<div>
 
 {if $product.condition eq 'new'}
-                                        <span class="s_precio_distribuidor" style="display: inline;">Precio Distribuidor: {$product.price_distribuidor}</span>
+                                        <span class="s_precio_distribuidor" style="display: inline;">Precio Distribuidor: 
+{if $cookie->id_default_group == 2}
+{$product.price_distribuidor}
+{/if}
+{if $cookie->id_default_group == 3}
+{$product.price_distribuidor_p}
+{/if}
+</span>
 					<span class="s_precio_tiendas" style="display: inline;">Precio Tienda: {$product.price_tienda}</span>
 					<span class="s_precio_mall" style="display: inline;">Precio Mall: {$product.price_mall}</span>
 					<span class="s_precio_internet" style="display: inline;">{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}<span class="price" style="display: inline;" id="precio-lista">Precio Lista: {$product.price_tienda}</span><br /><span class="price" style="display: inline;" id="precio-internet">Precio M&iacute;nimo Internet:<br /><span class="price-internet-valor"> {$product.price_internet}</span></span>{/if}</span>
