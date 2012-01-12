@@ -249,7 +249,7 @@ class ProductControllerCore extends FrontController
                                 SELECT pa.price
                                 FROM `'._DB_PREFIX_.'product_attribute` pa 
                                     INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
-                                WHERE pac.id_attribute = 21 and  pa.id_product = '.(int)$this->product->supplier_reference) as $subrow){
+                                WHERE pac.id_attribute = 21 and  pa.id_product = '.(int)$this->product->id_product) as $subrow){
                                         $row['price_internet'] = round($subrow['price']);
                                 } 
                                 
