@@ -2765,7 +2765,7 @@ pl.name like "%'.$whereLikeFilter.'%" OR pl.name like "%'.$wLikeArr[0].'%" OR pl
                                         LEFT JOIN '._DB_PREFIX_.'category_lang cl ON p.`id_category_default` = cl.id_category
 ';
                                         
-                                        $sqlQuery['where'] = ' WHERE cp.id_category = c.id_category and (cl.name LIKE  "%'.$whereLikeFilter.'%" OR pl.name like "%'.$whereLikeFilter.'%" OR pl.name like "%'.$wLikeArr[0].'%" OR pl.name like "%'.$wLikeArr[1].'%"  OR pl.name like "%'.$wLikeArr[2].'%" OR p.id_product ="'.$whereLikeFilter.'" OR p.reference = "'.$whereLikeFilter.'")   ';
+                                        $sqlQuery['where'] = ' WHERE cp.id_category = c.id_category and (cl.name LIKE  "%'.$whereLikeFilter.'%" OR cl.name LIKE  "%'.$catArr[0].'%" OR cl.name LIKE  "%'.$catArr[1].'%" OR cl.name LIKE  "%'.$catArr[2].'%" OR pl.name like "%'.$whereLikeFilter.'%" OR pl.name like "%'.$wLikeArr[0].'%" OR pl.name like "%'.$wLikeArr[1].'%"  OR pl.name like "%'.$wLikeArr[2].'%" OR p.id_product ="'.$whereLikeFilter.'" OR p.reference = "'.$whereLikeFilter.'")   ';
                                         
                                         $sqlQuery['group'] = ') count_products
 					FROM '._DB_PREFIX_.'category c
