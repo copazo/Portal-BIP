@@ -166,7 +166,8 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 {/literal}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-PROOO:{$link_extr}
+PROOO:{$link_extr|escape:'htmlall':'UTF-8'}<br>
+lin:{$link_used|escape:'htmlall':'UTF-8'}
 <div id="global_block" class="clearfix">
 <div id="primary_block" class="clearfix">
 
