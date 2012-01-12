@@ -3570,8 +3570,8 @@ class AdminProducts extends AdminTab
 			if (!$nb_feature)
 				echo '<tr><td colspan="3" style="text-align:center;">'.$this->l('No features defined').'</td></tr>';
 			echo '</table>';
-
-			// Listing
+echo $tab_products['id_feature']."::::<br>";
+			// Listing mbj
 			if ($nb_feature)
 			{
 				echo '
@@ -3604,8 +3604,7 @@ class AdminProducts extends AdminTab
 							if ($current_item == $value['id_feature_value'])
 								$custom = false;
 							echo '<option value="'.$value['id_feature_value'].'"'.(($current_item == $value['id_feature_value']) ? ' selected="selected"' : '').'>'.substr($value['value'], 0, 40).(Tools::strlen($value['value']) > 40 ? '...' : '').'&nbsp;</option>';
-						
-                                                        echo "1:".$current_item."  -  2:".$value['id_feature_value']."<br>";
+
                                                 }
 
 						echo '</select>';
