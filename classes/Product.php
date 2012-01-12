@@ -2706,13 +2706,24 @@ class ProductCore extends ObjectModel
                 $row['link_used'] = $link->getProductLink((int)$row['supplier_reference'], $row_us['link_rewrite'], $row['category_used'], $row_us['ean13']);
 		
               //precio mall - distribuidor - lista - internet
-                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-		SELECT pa.price
-		FROM `'._DB_PREFIX_.'product_attribute` pa 
-                    INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
-		WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
-			$row['price_distribuidor'] = round($subrow['price']);
+                if($cookie->id_default_group == 3){
+                    foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT pa.price
+                    FROM `'._DB_PREFIX_.'product_attribute` pa 
+                        INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
+                    WHERE pac.id_attribute = 25 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
+                            $row['price_distribuidor'] = round($subrow['price']);
+                    }
+                }elseif($cookie->id_default_group == 2){
+                    foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                    SELECT pa.price
+                    FROM `'._DB_PREFIX_.'product_attribute` pa 
+                        INNER JOIN '._DB_PREFIX_.'product_attribute_combination pac ON pa.id_product_attribute = pac.id_product_attribute
+                    WHERE pac.id_attribute = 24 and  pa.id_product = '.(int)$row['id_product']) as $subrow){
+                            $row['price_distribuidor'] = round($subrow['price']);
+                    }
                 }
+                
                 foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
 		SELECT pa.price
 		FROM `'._DB_PREFIX_.'product_attribute` pa 

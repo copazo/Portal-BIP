@@ -111,7 +111,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 	
 
 	if({$combination.list}==22)
-	{assign var='precio_tienda' value=$combination.price}
+	{assign var='precio_tienda' value=$price_tienda}
 	
 	
 		addCombination({$idCombination|intval}, new Array({$combination.list}), {$combination.quantity}, {$combination.price}, {$combination.ecotax}, {$combination.id_image}, '{$combination.reference|addslashes}', {$combination.unit_impact}, {$combination.minimal_quantity});
