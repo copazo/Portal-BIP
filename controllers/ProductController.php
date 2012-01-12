@@ -215,6 +215,7 @@ class ProductControllerCore extends FrontController
                                 $row['link_used'] = $link->getProductLink((int)$this->product->supplier_reference, $row_us['link_rewrite'], $row['category_used'], $row_us['ean13']);
 
                 
+                                $row['link_extr'] = $row['id_product'];
                               //precio mall - distribuidor - lista - internet
                                 foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                                 SELECT pa.price
