@@ -166,8 +166,6 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 {/literal}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-PROOO:{$link_extr|escape:'htmlall':'UTF-8'}<br>
-lin:{$link_used|escape:'htmlall':'UTF-8'}
 <div id="global_block" class="clearfix">
 <div id="primary_block" class="clearfix">
 
@@ -343,15 +341,26 @@ lin:{$link_used|escape:'htmlall':'UTF-8'}
 					</span>-->
 					<span class="our_price_display">
 					{if $priceDisplay >= 0 && $priceDisplay <= 2}
-						<span id="our_price_display_internet" class="label_precio_pdirecta">Precio Transferencia Directa</br><span class="precio_pdirecta">{$product->price_internet}</span></br>
+						<span id="our_price_display_internet" class="label_precio_pdirecta">Precio Transferencia Directa</br><span class="precio_pdirecta">{$price_internet}</span></br>
                         <span id="our_price_display_credito" class="label_precio_pelectronico">Precio Pago Electrónico</br><span class="precio_pelectronico">{convertPrice price=($price_tienda-round($price_tienda*0.07))}</span></span></br>
                         <span id="precio-lista" style="display: inline;" class="label_precio_pnormal">Precio Normal</br><span class="precio_pnormal">{convertPrice price=$price_tienda}</span></span></br>
 						</span>
 					<span id="our_price_display_tienda">
-                    	<span id="our_price_display_contado" class="label_precio_pdirecta">Precio Contado</br><span class="precio_pdirecta">{convertPrice price=round($precio_tienda-($precio_tienda)/10)}</span></span></br>
-                        <span id="our_price_display_credito" class="label_precio_pelectronico">Precio Pago Electrónico</br><span class="precio_pelectronico">{convertPrice price=($precio_tienda-round($precio_tienda*0.07))}</span></span></br>
+                    	<span id="our_price_display_contado" class="label_precio_pdirecta">Precio Contado</br><span class="precio_pdirecta">{convertPrice price=round($price_tienda-($price_tienda)/10)}</span></span></br>
+                        <span id="our_price_display_credito" class="label_precio_pelectronico">Precio Pago Electrónico</br><span class="precio_pelectronico">{convertPrice price=($price_tienda-round($price_tienda*0.07))}</span></span></br>
 					</span>
-						
+
+                        <span id="our_price_display_distribuidor">
+                            <span id="our_price_display_distribuidor" class="label_precio_pdirecta">Precio Distribuidor</br><span class="precio_pdirecta">
+{if $cookie->id_default_group == 2}
+{$price_distribuidor}
+{/if}
+{if $cookie->id_default_group == 3}
+{$price_distribuidor_p}
+{/if}
+
+                        </span></span></br>
+                        </span>
 <!--							{if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) OR !isset($display_tax_label))}
 								{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}
 							{/if}-->

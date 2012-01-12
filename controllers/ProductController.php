@@ -215,7 +215,6 @@ class ProductControllerCore extends FrontController
                                 $row['link_used'] = $link->getProductLink((int)$this->product->supplier_reference, $row_us['link_rewrite'], $row['category_used'], $row_us['ean13']);
 
                 
-                                $row['link_extr'] = 'id::'.$row['id_product'];
                               //precio mall - distribuidor - lista - internet
                                 foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
                                 SELECT pa.price
@@ -258,6 +257,11 @@ class ProductControllerCore extends FrontController
 					'quantity_discounts' => $this->formatQuantityDiscounts(SpecificPrice::getQuantityDiscounts((int)$this->product->id, (int)Shop::getCurrentShop(), (int)self::$cookie->id_currency, $id_country, $id_group), $this->product->getPrice(Product::$_taxCalculationMethod == PS_TAX_INC, false), (float)$tax),
 					'product' => $this->product,
                                         'link_used' => $row['link_used'],
+                                        'price_distribuidor_p' => $row['price_distribuidor_p'],
+                                        'price_distribuidor' => $row['price_distribuidor'],
+                                        'price_tienda' => $row['price_tienda'],
+                                        'price_mall' => $row['price_mall'],
+                                        'price_internet' => $row['price_internet'],
 					'ecotax_tax_inc' => $ecotaxTaxAmount,
 					'ecotax_tax_exc' => Tools::ps_round($this->product->ecotax, 2),
 					'ecotaxTax_rate' => $ecotax_rate,
