@@ -51,11 +51,17 @@ if(!$row2["price"])
 	$insert_prod_att_comb = "insert into ${prefijo}product_attribute_combination (id_product_attribute,id_attribute) values(".$insert_id_value.",23)";
 	mysql_query($insert_prod_att_comb,$conn_pshoptest);
         
-        //distribuidor
+        //distribuidor grande
 	$insert_prod_att ="insert into ${prefijo}product_attribute (id_product,price,default_on) values (".$row["id_product"].",".($row2["price"]).",0)";
 	mysql_query($insert_prod_att,$conn_pshoptest);
 	$insert_id_value=mysql_insert_id();
 	$insert_prod_att_comb = "insert into ${prefijo}product_attribute_combination (id_product_attribute,id_attribute) values(".$insert_id_value.",24)";
+	mysql_query($insert_prod_att_comb,$conn_pshoptest);
+        //distribuidor chico
+	$insert_prod_att ="insert into ${prefijo}product_attribute (id_product,price,default_on) values (".$row["id_product"].",".($row2["price"]).",0)";
+	mysql_query($insert_prod_att,$conn_pshoptest);
+	$insert_id_value=mysql_insert_id();
+	$insert_prod_att_comb = "insert into ${prefijo}product_attribute_combination (id_product_attribute,id_attribute) values(".$insert_id_value.",25)";
 	mysql_query($insert_prod_att_comb,$conn_pshoptest);
 }
 
