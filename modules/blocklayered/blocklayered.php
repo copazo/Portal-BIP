@@ -2753,7 +2753,7 @@ pl.name like "%'.$whereLikeFilter.'%" OR pl.name like "%'.$wLikeArr[0].'%" OR pl
                                             LEFT JOIN '._DB_PREFIX_.'product_lang pl ON (pl.id_product = p.id_product) 
                                             WHERE cp.id_category = c.id_category and (cl.name LIKE  "%'.$whereLikeFilter.'%" OR 
 pl.name like "%'.$whereLikeFilter.'%" OR pl.name like "%'.$wLikeArr[0].'%" OR pl.name like "%'.$wLikeArr[1].'%"  OR pl.name like "%'.$wLikeArr[2].'%" OR p.id_product ="'.$whereLikeFilter.'" OR p.reference = "'.$whereLikeFilter.'")   )>=1
-					GROUP BY cl.name ORDER BY level_depth, c.position';
+					GROUP BY cl.name ORDER BY level_depth, c.position order by count_products desc';
                                         }else{
                                         
                                         if($usado==true){
