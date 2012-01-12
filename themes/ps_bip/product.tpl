@@ -340,7 +340,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 					</span>-->
 					<span class="our_price_display">
 					{if $priceDisplay >= 0 && $priceDisplay <= 2}
-						<span id="our_price_display_internet" class="label_precio_pdirecta">Precio Transferencia Directa</br><span class="precio_pdirecta">{convertPrice price=$productPrice}</span></br>
+						<span id="our_price_display_internet" class="label_precio_pdirecta">Precio Transferencia Directa</br><span class="precio_pdirecta">{$product->price_internet}</span></br>
                         <span id="our_price_display_credito" class="label_precio_pelectronico">Precio Pago Electrónico</br><span class="precio_pelectronico">{convertPrice price=($price_tienda-round($price_tienda*0.07))}</span></span></br>
                         <span id="precio-lista" style="display: inline;" class="label_precio_pnormal">Precio Normal</br><span class="precio_pnormal">{convertPrice price=$price_tienda}</span></span></br>
 						</span>
