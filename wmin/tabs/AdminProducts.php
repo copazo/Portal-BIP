@@ -3587,7 +3587,7 @@ class AdminProducts extends AdminTab
 
 					$featureValues = FeatureValue::getFeatureValuesWithLang((int)$cookie->id_lang, (int)$tab_features['id_feature']);
 
-					echo $tab_features['id_feature'].'::<br>
+					echo '<br>
 					<tr>
 						<td>'.$tab_features['name'].'</td>
 						<td style="width: 30%">';
@@ -3604,7 +3604,9 @@ class AdminProducts extends AdminTab
 							if ($current_item == $value['id_feature_value'])
 								$custom = false;
 							echo '<option value="'.$value['id_feature_value'].'"'.(($current_item == $value['id_feature_value']) ? ' selected="selected"' : '').'>'.substr($value['value'], 0, 40).(Tools::strlen($value['value']) > 40 ? '...' : '').'&nbsp;</option>';
-						}
+						
+                                                        echo "1:".$current_item."  -  2:".$value['id_feature_value']."<br>";
+                                                }
 
 						echo '</select>';
 					}
