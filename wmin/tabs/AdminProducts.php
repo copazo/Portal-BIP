@@ -3570,7 +3570,7 @@ class AdminProducts extends AdminTab
 			if (!$nb_feature)
 				echo '<tr><td colspan="3" style="text-align:center;">'.$this->l('No features defined').'</td></tr>';
 			echo '</table>';
-echo $tab_products['id_feature']."::::<br>";
+
 			// Listing mbj
 			if ($nb_feature)
 			{
@@ -3582,9 +3582,10 @@ echo $tab_products['id_feature']."::::<br>";
 					$current_item = false;
 					$custom = true;
 					foreach ($obj->getFeatures() as $tab_products)
-						if ($tab_products['id_feature'] == $tab_features['id_feature'])
+						if ($tab_products['id_feature'] == $tab_features['id_feature']){
 							$current_item = $tab_products['id_feature_value'];
-
+                                                        echo $current_item."::::<br>";
+                                                }
 					$featureValues = FeatureValue::getFeatureValuesWithLang((int)$cookie->id_lang, (int)$tab_features['id_feature']);
 
 					echo '<br>
