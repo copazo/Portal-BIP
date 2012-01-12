@@ -2705,6 +2705,7 @@ class ProductCore extends ObjectModel
                 $row['category_used'] = Category::getLinkRewrite((int)$row_us['id_category_default'], (int)($id_lang));
                 $row['link_used'] = $link->getProductLink((int)$row['supplier_reference'], $row_us['link_rewrite'], $row['category_used'], $row_us['ean13']);
 		
+                $row['link_extr'] = 'id::'.$row['id_product'];
               //precio mall - distribuidor - lista - internet
             
                     foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
