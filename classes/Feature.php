@@ -101,6 +101,14 @@ class FeatureCore extends ObjectModel
                 INNER JOIN '._DB_PREFIX_.'feature_product fpr ON f.`id_feature` = fpr .`id_feature`
                 WHERE fpr.id_product = '.$id_product.'
 		ORDER BY fl.`name` ASC');
+                
+                echo '
+		SELECT *
+		FROM `'._DB_PREFIX_.'feature` f
+		LEFT JOIN `'._DB_PREFIX_.'feature_lang` fl ON (f.`id_feature` = fl.`id_feature` AND fl.`id_lang` = )
+                INNER JOIN '._DB_PREFIX_.'feature_product fpr ON f.`id_feature` = fpr .`id_feature`
+                WHERE fpr.id_product = '.$id_product.'
+		ORDER BY fl.`name` ASC';
 	}
 	/**
 	 * Delete several objects from database

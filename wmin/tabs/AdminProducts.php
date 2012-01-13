@@ -3540,7 +3540,7 @@ class AdminProducts extends AdminTab
 		if ($obj->id)
 		{
 			//$feature = Feature::getFeatures((int)($cookie->id_lang));
-                        $feature = Feature::getFeaturesById((int)$obj->id);
+                        $feature = Feature::getFeaturesById((int)($obj->id));
                         
 			$ctab = '';
 			foreach ($feature AS $tab)
