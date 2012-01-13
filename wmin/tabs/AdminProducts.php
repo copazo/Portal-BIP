@@ -3667,7 +3667,7 @@ function mano(a) {
 }
 </script>
 
-			<hr style="width:100%;" /><br /><p onMouseOver="mano(this)" class="heading">.</p>';
+			<hr style="width:100%;" /><br /><p onMouseOver="mano(this)" class="heading">Mostrar/Esconder</p>';
 			// Header
 			$nb_feature = Feature::nbFeatures((int)($cookie->id_lang));
 			echo '<div class="content">
@@ -3735,7 +3735,12 @@ function mano(a) {
 								<textarea class="custom_'.$tab_features['id_feature'].'_" name="custom_'.$tab_features['id_feature'].'_'.$language['id_lang'].'" cols="40" rows="1"
 									onkeyup="if (isArrowKey(event)) return ;$(\'#feature_'.$tab_features['id_feature'].'_value\').val(0);" >'.htmlentities(Tools::getValue('custom_'.$tab_features['id_feature'].'_'.$language['id_lang'], FeatureValue::selectLang($tab_customs, $language['id_lang'])), ENT_COMPAT, 'UTF-8').'</textarea>
 							</div>';
-					echo '
+				
+                                        
+                                        
+                                        
+                                        
+                                        echo '
 						</td>
 					</tr>';
 				}
