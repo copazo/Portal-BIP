@@ -3536,7 +3536,7 @@ class AdminProducts extends AdminTab
 	{
 		global $cookie, $currentIndex;
 		parent::displayForm();
-
+echo "id: ".$obj->id."<br>";
 		if ($obj->id)
 		{
 			$feature = Feature::getFeatures((int)($cookie->id_lang));
