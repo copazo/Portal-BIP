@@ -3630,10 +3630,7 @@ class AdminProducts extends AdminTab
 						</td>
 					</tr>';
 				}
-				echo '
-				<tr>
-					<td style="height: 50px; text-align: center;" colspan="3"><input type="submit" name="submitProductFeature" id="submitProductFeature" value="'.$this->l('Save modifications').'" class="button" /></td>
-				</tr>';
+				
 			}
 			echo '</table>
 			<hr style="width:100%;" />
