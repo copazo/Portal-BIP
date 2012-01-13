@@ -3667,7 +3667,7 @@ function mano(a) {
 }
 </script>
 
-			<hr style="width:100%;" /><br /><p onMouseOver="mano(this)" class="heading">Mx</p>';
+			<hr style="width:100%;" /><br /><p onMouseOver="mano(this)" class="heading">.</p>';
 			// Header
 			$nb_feature = Feature::nbFeatures((int)($cookie->id_lang));
 			echo '<div class="content">
