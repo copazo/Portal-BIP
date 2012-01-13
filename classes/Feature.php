@@ -113,6 +113,28 @@ class FeatureCore extends ObjectModel
 		ORDER BY fl.`name` ASC');
 
 	}
+        //sin uniones
+        public static function getFeaturesByIdWithout($id_product)
+	{
+            
+                foreach (Db::getInstance()->ExecuteS('
+                                SELECT p.*
+                                FROM `'._DB_PREFIX_.'product` p 
+                                WHERE id_product = '.$id_product) as $subrow){
+                                        $category = $subrow['id_category_default'];
+
+                }
+            
+            
+		return Db::getInstance()->ExecuteS('
+		SELECT *
+		FROM `'._DB_PREFIX_.'feature` f
+		LEFT JOIN `'._DB_PREFIX_.'feature_lang` fl ON (f.`id_feature` = fl.`id_feature` )
+                INNER JOIN '._DB_PREFIX_.'layered_category lcat ON (f.`id_feature` = lcat.`id_value`)
+                WHERE  lcat.id_category<>'.$category.'
+		ORDER BY fl.`name` ASC');
+
+	}
 	/**
 	 * Delete several objects from database
 	 *
