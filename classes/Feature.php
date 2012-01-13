@@ -99,7 +99,7 @@ class FeatureCore extends ObjectModel
                                 SELECT p.*
                                 FROM `'._DB_PREFIX_.'product` p 
                                 INNER JOIN '._DB_PREFIX_.'product_lang pl ON p.id_product = pl.id_product
-                                WHERE id_product = '.(int)$id_producte) as $subrow){
+                                WHERE id_product = '.(int)$id_product) as $subrow){
                                         $row_us['id_category_default'] = $subrow['id_category_default'];
 
                 }
