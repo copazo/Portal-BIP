@@ -3658,7 +3658,7 @@ jQuery(document).ready(function() {
 });
 </script>
 
-			<hr style="width:100%;" /><br /><p class="heading">Mx</p>';
+			<hr style="width:100%;" /><br /><p style="cursor:hand" class="heading">Mx</p>';
 			// Header
 			$nb_feature = Feature::nbFeatures((int)($cookie->id_lang));
 			echo '<div class="content">
