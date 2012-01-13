@@ -3589,7 +3589,7 @@ class AdminProducts extends AdminTab
                                                 }
 					$featureValues = FeatureValue::getFeatureValuesWithLang((int)$cookie->id_lang, (int)$tab_features['id_feature']);
 
-					echo '<br>
+					echo '
 					<tr>
 						<td>'.$tab_features['name'].'</td>
 						<td style="width: 30%">';
@@ -3691,7 +3691,7 @@ class AdminProducts extends AdminTab
                                                 }
 					$featureValues = FeatureValue::getFeatureValuesWithLang((int)$cookie->id_lang, (int)$tab_features['id_feature']);
 
-					echo '<br>
+					echo '
 					<tr>
 						<td>'.$tab_features['name'].'</td>
 						<td style="width: 30%">';
