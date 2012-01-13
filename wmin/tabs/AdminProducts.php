@@ -3658,7 +3658,7 @@ jQuery(document).ready(function() {
 });
 </script>
 
-			<hr style="width:100%;" /><br /><p class="heading">Header-1 </p>';
+			<hr style="width:100%;" /><br /><p class="heading">Header-1 </p><div class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit orem ipsum dolor sit amet, consectetuer adipiscing elit</div>';
 			// Header
 			$nb_feature = Feature::nbFeatures((int)($cookie->id_lang));
 			echo '
@@ -3676,7 +3676,7 @@ jQuery(document).ready(function() {
 			if ($nb_feature)
 			{
 				echo '
-				<table class="content" cellpadding="5" style="width: 900px; margin-top: 10px">';
+				<table  cellpadding="5" style="width: 900px; margin-top: 10px">';
 
 				foreach ($feature AS $tab_features)
 				{
