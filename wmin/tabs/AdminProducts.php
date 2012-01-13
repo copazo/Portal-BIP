@@ -3581,6 +3581,7 @@ class AdminProducts extends AdminTab
 
 				foreach ($feature AS $tab_features)
 				{
+                                        $inArr[] = $tab_features['id_feature']; 
 					$current_item = false;
 					$custom = true;
 					foreach ($obj->getFeatures() as $tab_products)
@@ -3596,6 +3597,7 @@ class AdminProducts extends AdminTab
 
 					if (sizeof($featureValues))
 					{
+                                            
 						echo '
 							<select id="feature_'.$tab_features['id_feature'].'_value" name="feature_'.$tab_features['id_feature'].'_value"
 								onchange="$(\'.custom_'.$tab_features['id_feature'].'_\').val(\'\');">
@@ -3683,6 +3685,9 @@ class AdminProducts extends AdminTab
 
 				foreach ($feature AS $tab_features)
 				{
+                                    if (in_array($tab_features['id_feature'], $inArr)) {
+                                        continue;
+                                    }
 					$current_item = false;
 					$custom = true;
 					foreach ($obj->getFeatures() as $tab_products)
