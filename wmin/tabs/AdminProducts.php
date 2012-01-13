@@ -3646,24 +3646,25 @@ class AdminProducts extends AdminTab
 			$ctab = rtrim($ctab, '¤');
 
 			echo '
-			<table cellpadding="5">
-				<tr>
-					<td colspan="2">
-						<b>'.$this->l('Assign features to this product:').'</b><br />
-						<ul style="margin: 10px 0 0 20px;">
-							<li>'.$this->l('You can specify a value for each relevant feature regarding this product, empty fields will not be displayed.').'</li>
-							<li>'.$this->l('You can either set a specific value, or select among existing pre-defined values you added previously.').'</li>
-						</ul>
-					</td>
-				</tr>
-			</table>
+                            
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  jQuery(".content").hide();
+  //toggle the componenet with class msg_body
+  jQuery(".heading").click(function()
+  {
+    jQuery(this).next(".content").slideToggle(500);
+  });
+});
+</script>
+
 			<hr style="width:100%;" /><br />';
 			// Header
 			$nb_feature = Feature::nbFeatures((int)($cookie->id_lang));
 			echo '
-			<table border="0" cellpadding="0" cellspacing="0" class="table" style="width:900px;">
+			<table  border="0" cellpadding="0" cellspacing="0" class="table" style="width:900px;">
 				<tr>
-					<th>'.$this->l('Feature').'</td>
+					<th id="heading">'.$this->l('Feature').'</td>
 					<th style="width:30%">'.$this->l('Pre-defined value').'</td>
 					<th style="width:40%"><u>'.$this->l('or').'</u> '.$this->l('Customized value').'</td>
 				</tr>';
@@ -3675,7 +3676,7 @@ class AdminProducts extends AdminTab
 			if ($nb_feature)
 			{
 				echo '
-				<table cellpadding="5" style="width: 900px; margin-top: 10px">';
+				<table id="content" cellpadding="5" style="width: 900px; margin-top: 10px">';
 
 				foreach ($feature AS $tab_features)
 				{
