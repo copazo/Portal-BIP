@@ -110,7 +110,7 @@ class FeatureCore extends ObjectModel
 		FROM `'._DB_PREFIX_.'feature` f
 		LEFT JOIN `'._DB_PREFIX_.'feature_lang` fl ON (f.`id_feature` = fl.`id_feature` )
                 INNER JOIN '._DB_PREFIX_.'layered_category lcat ON (f.`id_feature` = lcat.`id_value`)
-                WHERE  lcat.id_category='.$row_us['id_category_default'].'
+                WHERE  lcat.id_category=2005
 		ORDER BY fl.`name` ASC');
 
 	}
