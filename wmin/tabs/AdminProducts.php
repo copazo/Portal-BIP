@@ -3658,10 +3658,10 @@ jQuery(document).ready(function() {
 });
 </script>
 
-			<hr style="width:100%;" /><br /><p class="heading">Header-1 </p><div class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit orem ipsum dolor sit amet, consectetuer adipiscing elit</div>';
+			<hr style="width:100%;" /><br /><p class="heading">Header-1 </p>';
 			// Header
 			$nb_feature = Feature::nbFeatures((int)($cookie->id_lang));
-			echo '
+			echo '<div class="content">
 			<table  border="0" cellpadding="0" cellspacing="0" class="table" style="width:900px;">
 				<tr>
 					<th id="heading">'.$this->l('Feature').'</td>
@@ -3735,7 +3735,7 @@ jQuery(document).ready(function() {
 					<td style="height: 50px; text-align: center;" colspan="3"><input type="submit" name="submitProductFeature" id="submitProductFeature" value="'.$this->l('Save modifications').'" class="button" /></td>
 				</tr>';
 			}
-			echo '</table>
+			echo '</table></div>
 			<hr style="width:100%;" />
 			<div style="text-align:center;">
 				<a href="index.php?tab=AdminFeatures&addfeature&token='.Tools::getAdminToken('AdminFeatures'.(int)(Tab::getIdFromClassName('AdminFeatures')).(int)($cookie->id_employee)).'" onclick="return confirm(\''.$this->l('You will lose all modifications not saved, you may want to save modifications first?', __CLASS__, true, false).'\');"><img src="../img/admin/add.gif" alt="new_features" title="'.$this->l('Add a new feature').'" />&nbsp;'.$this->l('Add a new feature').'</a>
