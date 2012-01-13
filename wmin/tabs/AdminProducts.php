@@ -3658,13 +3658,13 @@ jQuery(document).ready(function() {
 });
 </script>
 
-			<hr style="width:100%;" /><br /><p class="heading">Header-1 </p>';
+			<hr style="width:100%;" /><br /><table style="width:900px;"><tr><th><a href="#" class="heading">Esconder/Mostrar</a></th></tr></table>';
 			// Header
 			$nb_feature = Feature::nbFeatures((int)($cookie->id_lang));
 			echo '<div class="content">
 			<table  border="0" cellpadding="0" cellspacing="0" class="table" style="width:900px;">
 				<tr>
-					<th id="heading">'.$this->l('Feature').'</td>
+					<th >'.$this->l('Feature').'</td>
 					<th style="width:30%">'.$this->l('Pre-defined value').'</td>
 					<th style="width:40%"><u>'.$this->l('or').'</u> '.$this->l('Customized value').'</td>
 				</tr>';
