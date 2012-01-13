@@ -95,12 +95,11 @@ class FeatureCore extends ObjectModel
         public static function getFeaturesById($id_product)
 	{
             
-                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
+                foreach (Db::getInstance()->ExecuteS('
                                 SELECT p.*
                                 FROM `'._DB_PREFIX_.'product` p 
-                                INNER JOIN '._DB_PREFIX_.'product_lang pl ON p.id_product = pl.id_product
-                                WHERE id_product = '.(int)$id_product) as $subrow){
-                                        $row_us['id_category_default'] = $subrow['id_category_default'];
+                                WHERE id_product = '.$id_product) as $subrow){
+                                        $category = $subrow['id_category_default'];
 
                 }
             
@@ -110,7 +109,7 @@ class FeatureCore extends ObjectModel
 		FROM `'._DB_PREFIX_.'feature` f
 		LEFT JOIN `'._DB_PREFIX_.'feature_lang` fl ON (f.`id_feature` = fl.`id_feature` )
                 INNER JOIN '._DB_PREFIX_.'layered_category lcat ON (f.`id_feature` = lcat.`id_value`)
-                WHERE  lcat.id_category=2005
+                WHERE  lcat.id_category='.$category.'
 		ORDER BY fl.`name` ASC');
 
 	}
