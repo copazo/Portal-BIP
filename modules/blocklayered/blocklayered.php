@@ -1917,25 +1917,25 @@ class BlockLayered extends Module
 
                 }
                 $tmp_lett = explode('|', $row_us['letters']);
-                echo var_dump($tmp_lett);
+                //echo var_dump($tmp_lett);
                 $wLikeArr=explode(" ",$whereLikeFilter); 
                 
-		if($wLikeArr[0]=="" and !in_array($wLikeArr[0],$tmp_lett))
+		if($wLikeArr[0]=="" /*or !in_array($wLikeArr[0],$tmp_lett)*/)
                     $wLikeArr[0] = $whereLikeFilter;
-                if($wLikeArr[1]=="" and !in_array($wLikeArr[1],$tmp_lett))
+                if($wLikeArr[1]=="" /*or !in_array($wLikeArr[0],$tmp_lett)*/)
                     $wLikeArr[1] = $whereLikeFilter;
-                if($wLikeArr[2]=="" and !in_array($wLikeArr[2],$tmp_lett))
+                if($wLikeArr[2]=="" /*or !in_array($wLikeArr[0],$tmp_lett)*/)
                     $wLikeArr[2] = $whereLikeFilter;
                 
                 $catArr[0] = substr($wLikeArr[0], 0, -2);
                 $catArr[1] = substr($wLikeArr[1], 0, -2);
                 $catArr[2] = substr($wLikeArr[2], 0, -2);
                 
-                if($catArr[0]=="" and !in_array($catArr[0],$tmp_lett))
+                if($catArr[0]=="")
                     $catArr[0] = $whereLikeFilter;
-                if($catArr[1]=="" and !in_array($catArr[1],$tmp_lett))
+                if($catArr[1]=="")
                     $catArr[1] = $whereLikeFilter;
-                if($catArr[2]=="" and !in_array($catArr[2],$tmp_lett))
+                if($catArr[2]=="")
                     $catArr[2] = $whereLikeFilter;
                 
 		$parent = new Category((int)$id_parent);
@@ -2374,40 +2374,25 @@ class BlockLayered extends Module
                 }
 		$parent = new Category((int)$id_parent);
                 
-                
-                
-                
-                foreach (Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('
-                                SELECT  value
-                                FROM `'._DB_PREFIX_.'configuration_lang` clan
-                                WHERE id_configuration = 46 and id_lang = 3 ') as $subrow){
-                                        $row_us['letters'] = $subrow['value'];
-
-                }
-                $tmp_lett = explode('|', $row_us['letters']);
-                echo var_dump($tmp_lett);
                 $wLikeArr=explode(" ",$whereLikeFilter); 
-                
-		if($wLikeArr[0]=="" and !in_array($wLikeArr[0],$tmp_lett))
+		
+                if($wLikeArr[0]=="")
                     $wLikeArr[0] = $whereLikeFilter;
-                if($wLikeArr[1]=="" and !in_array($wLikeArr[1],$tmp_lett))
+                if($wLikeArr[1]=="")
                     $wLikeArr[1] = $whereLikeFilter;
-                if($wLikeArr[2]=="" and !in_array($wLikeArr[2],$tmp_lett))
+                if($wLikeArr[2]=="")
                     $wLikeArr[2] = $whereLikeFilter;
                 
                 $catArr[0] = substr($wLikeArr[0], 0, -2);
                 $catArr[1] = substr($wLikeArr[1], 0, -2);
                 $catArr[2] = substr($wLikeArr[2], 0, -2);
                 
-                if($catArr[0]=="" and !in_array($catArr[0],$tmp_lett))
+                if($catArr[0]=="")
                     $catArr[0] = $whereLikeFilter;
-                if($catArr[1]=="" and !in_array($catArr[1],$tmp_lett))
+                if($catArr[1]=="")
                     $catArr[1] = $whereLikeFilter;
-                if($catArr[2]=="" and !in_array($catArr[2],$tmp_lett))
+                if($catArr[2]=="")
                     $catArr[2] = $whereLikeFilter;
-                
-                
-                
                 
 		/* Get the filters for the current category */
 		$filters = Db::getInstance(_PS_USE_SQL_SLAVE_)->ExecuteS('SELECT * FROM '._DB_PREFIX_.'layered_category WHERE id_category = '.(int)$id_parent.'
