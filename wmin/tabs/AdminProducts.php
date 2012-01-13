@@ -3618,25 +3618,16 @@ class AdminProducts extends AdminTab
 
 					echo '
 						</td>
-						<td style="width:40%" class="translatable">';
-					$tab_customs = ($custom ? FeatureValue::getFeatureValueLang($current_item) : array());
-					foreach ($this->_languages as $language)
-						echo '
-							<div class="lang_'.$language['id_lang'].'" style="display: '.($language['id_lang'] == $this->_defaultFormLanguage ? 'block' : 'none').'; float: left;">
-								<textarea class="custom_'.$tab_features['id_feature'].'_" name="custom_'.$tab_features['id_feature'].'_'.$language['id_lang'].'" cols="40" rows="1"
-									onkeyup="if (isArrowKey(event)) return ;$(\'#feature_'.$tab_features['id_feature'].'_value\').val(0);" >'.htmlentities(Tools::getValue('custom_'.$tab_features['id_feature'].'_'.$language['id_lang'], FeatureValue::selectLang($tab_customs, $language['id_lang'])), ENT_COMPAT, 'UTF-8').'</textarea>
-							</div>';
+						';
+				
 					echo '
-						</td>
+						
 					</tr>';
 				}
 				
 			}
 			echo '</table>
-			<hr style="width:100%;" />
-			<div style="text-align:center;">
-				<a href="index.php?tab=AdminFeatures&addfeature&token='.Tools::getAdminToken('AdminFeatures'.(int)(Tab::getIdFromClassName('AdminFeatures')).(int)($cookie->id_employee)).'" onclick="return confirm(\''.$this->l('You will lose all modifications not saved, you may want to save modifications first?', __CLASS__, true, false).'\');"><img src="../img/admin/add.gif" alt="new_features" title="'.$this->l('Add a new feature').'" />&nbsp;'.$this->l('Add a new feature').'</a>
-			</div>';
+			';
 		}
 		if ($obj->id)
 		{
