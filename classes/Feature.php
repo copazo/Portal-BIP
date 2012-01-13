@@ -114,7 +114,7 @@ class FeatureCore extends ObjectModel
 
 	}
         //sin uniones
-        public static function getFeaturesByIdWithout($id_product)
+        public static function getFeaturesByIdWithout($id_lang,$id_product)
 	{
             
 		return Db::getInstance()->ExecuteS('
