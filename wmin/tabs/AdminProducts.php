@@ -2645,12 +2645,7 @@ class AdminProducts extends AdminTab
 							 echo ($currency->format % 2 != 0 ? $currency->sign.' ' : '').'<span id="finalPriceWithoutTax" style="font-weight: bold;"></span>'.($currency->format % 2 == 0 ? ' '.$currency->sign : '').' '.($default_country->display_tax_label ? '('.$this->l('tax excl.').')' : '').'</span>
 						</td>
 					</tr>
-					<tr>
-						<td class="col-left">&nbsp;</td>
-						<td>
-							<div class="hint clear" style="display: block;width: 70%;">'.$this->l('You can define many discounts and specific price rules in the Prices tab').'</div>
-						</td>
-					</tr>
+			
 					<tr><td colspan="2" style="padding-bottom:5px;"><hr style="width:100%;" /></td></tr>';
 
 
