@@ -146,6 +146,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 	var precioProducto;
 	function calculaCuotas(nCuotas)
 	{
+alert($('#quantity_wanted').val)
                 if(nCuotas.value==0)
                     $('#valcuotas').text(formatCurrency);
                 if(nCuotas.value==1)
