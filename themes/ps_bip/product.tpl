@@ -189,7 +189,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 	</p>
 	{/if}
 
-	<!-- right infos-->
+	<!-- rright infos-->
 	<div id="pb-right-column">
 		<!-- product img-->
 		<div id="image-block">
