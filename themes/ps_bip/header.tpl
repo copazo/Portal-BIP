@@ -207,7 +207,7 @@ $('#our_price_display_distribuidor').hide();
 {if $cookie->id_default_group == 2 or $cookie->id_default_group == 3}
 <li id="t_distribuidor" class="tienda"><a href="javascript:changeTab('t_distribuidor');">Distribuidor</a></li>
 {/if}
-      <!--<li id="t_mall" class="tienda"><a href="javascript:changeTab('t_mall');">Mall</a></li>-->
+      <li id="t_mall" class="tienda"><a href="javascript:changeTab('t_mall');">Mall</a></li>
 
     
 
