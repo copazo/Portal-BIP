@@ -62,15 +62,15 @@ P/N # {$product.reference} <BR>
 {if $product.condition eq 'new'}
                                         <span class="s_precio_distribuidor" style="display: inline;">Precio Distribuidor: 
 {if $cookie->id_default_group == 2}
-{$product.price_distribuidor}
+{convertPrice price=$product.price_distribuidor}
 {/if}
 {if $cookie->id_default_group == 3}
-{$product.price_distribuidor_p}
+{convertPrice price=$product.price_distribuidor_p}
 {/if}
 </span>
-					<span class="s_precio_tiendas" style="display: inline;">Precio Tienda: {$product.price_tienda}</span>
-					<span class="s_precio_mall" style="display: inline;">Precio Mall: {$product.price_mall}</span>
-					<span class="s_precio_internet" style="display: inline;">{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}<span class="price" style="display: inline;" id="precio-lista">Precio Lista: {$product.price_tienda}</span><br /><span class="price" style="display: inline;" id="precio-internet">Precio M&iacute;nimo Internet:<br /><span class="price-internet-valor"> {$product.price_internet}</span></span>{/if}</span>
+					<span class="s_precio_tiendas" style="display: inline;">Precio Tienda: {convertPrice price=$product.price_tienda}</span>
+					<span class="s_precio_mall" style="display: inline;">Precio Mall: {convertPrice price=$product.price_mall}</span>
+					<span class="s_precio_internet" style="display: inline;">{if isset($product.show_price) && $product.show_price && !isset($restricted_country_mode)}<span class="price" style="display: inline;" id="precio-lista">Precio Lista: {convertPrice price=$product.price_tienda}</span><br /><span class="price" style="display: inline;" id="precio-internet">Precio M&iacute;nimo Internet:<br /><span class="price-internet-valor"> {convertPrice price=$product.price_internet}</span></span>{/if}</span>
 {/if}	
 {if $product.condition eq 'used'}
                                         <span style="display: inline;"><span class="price" style="display: inline;" id="precio-internetUS">Cheque 30 Días: {convertPrice price=round(($product.price*100)/90)}</span></span><br>
