@@ -146,19 +146,18 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 	var precioProducto;
 	function calculaCuotas(nCuotas)
 	{
-alert($('#quantity_wanted').val())
                 if(nCuotas.value==0)
                     $('#valcuotas').text(formatCurrency);
                 if(nCuotas.value==1)
-                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt($('#quantity_wanted').val()+'{/literal}{$precio_tienda}{literal}'))*0.1)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
+                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt($('#quantity_wanted').val()*'{/literal}{$precio_tienda}{literal}'))*0.1)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
                 if(nCuotas.value==2)
-                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt('{/literal}{$precio_tienda}{literal}'))*0.08)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
+                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt($('#quantity_wanted').val()*'{/literal}{$precio_tienda}{literal}'))*0.08)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
                 if(nCuotas.value==3)
-                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt('{/literal}{$precio_tienda}{literal}'))*0.06)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
+                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt($('#quantity_wanted').val()*'{/literal}{$precio_tienda}{literal}'))*0.06)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
                 if(nCuotas.value==4)
-                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt('{/literal}{$precio_tienda}{literal}'))*0.04)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
+                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt($('#quantity_wanted').val()*'{/literal}{$precio_tienda}{literal}'))*0.04)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
                 if(nCuotas.value==5)
-                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt('{/literal}{$precio_tienda}{literal}'))*0.02)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
+                    $('#valcuotas').text(formatCurrency(Math.round((parseInt('{/literal}{$precio_tienda}{literal}')-(parseInt($('#quantity_wanted').val()*'{/literal}{$precio_tienda}{literal}'))*0.02)/nCuotas.value), currencyFormat, currencySign, currencyBlank));
                 if(nCuotas.value==6)
                     $('#valcuotas').text(formatCurrency(('{/literal}{$precio_tienda}{literal}'/nCuotas.value), currencyFormat, currencySign, currencyBlank));    
         }
@@ -265,9 +264,9 @@ alert($('#quantity_wanted').val())
 			</p>
 			<h1>{$product->name|escape:'htmlall':'UTF-8'} (C&oacute;d. {$product->id|intval})</h1>
             <div id="contenedor1PP">
-            <p class="atributos1">Código BIP: {$product->id|intval}</p>
+            <p class="atributos1">C.BIP: {$product->id|intval}</p>
             <!--<p style="float:left;" id="product_reference" class="atributos2" {if isset($groups) OR !$product->reference}style="display: none;"{/if}><label for="product_reference">{l s='Reference :'} </label>&nbsp;<span class="atributos2">{$product->reference|escape:'htmlall':'UTF-8'}</span></p>-->
-            <p class="atributos2">PartNumber:{$product->reference}</p>
+            <p class="atributos2">P/N:{$product->reference}</p>
             </div>
 			
                         {if $product->description_short}
