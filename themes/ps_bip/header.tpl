@@ -196,7 +196,7 @@ $('#our_price_display_distribuidor').hide();
 <!-- Header -->
 <div id="header"> <a id="header_logo" href="{$base_dir}" title="{$shop_name|escape:'htmlall':'UTF-8'}"> <img class="logo" src="{$img_ps_dir}logo.jpg?{$img_update_time}" alt="{$shop_name|escape:'htmlall':'UTF-8'}" {if $logo_image_width}width="{$logo_image_width}"{/if} {if $logo_image_height}height="{$logo_image_height}" {/if} /> </a>
   <div id="slogan_store"> <a href="#" id="Banner"> <img src="{$base_dir}themes/ps_bip/img/img_slogan_header_bip_01.jpg" height="22" width="254" /></a> </div>
-  <div id="link_marcas"> <a href="{$base_dir}manufacturer.php" id="todasmarcas">todas las marcas</a> | <a href="#" id="giftcard">giftcard</a> </div>
+  <div id="link_marcas"> <a href="{$base_dir}manufacturer.php" id="todasmarcas">Marcas</a> | <a href="{$link->getURLSiteBase()}4017-usados/" id="giftcard">Usados</a> | <a href="#" id="giftcard">giftcard</a> </div>
   <div id="header_right"> {$HOOK_TOP} </div>
   <div id="menu_tiendas">
     <ul class="tienda">
