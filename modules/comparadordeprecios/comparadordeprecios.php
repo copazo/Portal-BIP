@@ -1,29 +1,5 @@
 <?php
-/*
-* 2007-2011 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2011 PrestaShop SA
-*  @version  Release: $Revision: 8005 $
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*/
+
 
 if (!defined('_PS_VERSION_'))
 	exit;
@@ -58,6 +34,8 @@ class ComparadorDePrecios extends Module
 							  dacoURL varchar(2000) NOT NULL,
 							  dacoValida int(1) NOT NULL DEFAULT '0',
 							  dacoRelacion varchar(100) NOT NULL,
+							  dacoCategoryDefault varchar(200) NOT NULL,
+							  dacoMarca varchar(200) NOT NULL,
 							  dacoPrecioComparacion bigint(20) NOT NULL,
 							  dacoComparacionActiva int(11) NOT NULL DEFAULT '0',
 							  dacoFuncionando int(11) NOT NULL DEFAULT '0',
@@ -79,6 +57,8 @@ class ComparadorDePrecios extends Module
 		$viewProdPrice = "CREATE OR REPLACE VIEW view_prod_price AS select t.id_product AS id_product,i.price AS internet,t.price AS tienda,m.price AS mall from ((view_prod_price_type i join view_prod_price_type t) join view_prod_price_type m) where ((i.id_product = t.id_product) and (t.id_product = m.id_product) and (ucase(i.name) = 'INTERNET') and (ucase(t.name) = 'TIENDAS') and (ucase(m.name) = 'MALL'))";
 
 		return (parent::install() AND $this->registerHook('extraLeft')
+				AND $this->registerHook('productTab')
+				AND $this->registerHook('productTabContent')
 				AND Db::getInstance()->Execute($comparadorprecios) 
 				AND Db::getInstance()->Execute($comparadorprecioshist) 
 				AND Db::getInstance()->Execute($viewProdPriceType) 
@@ -129,14 +109,20 @@ class ComparadorDePrecios extends Module
 			if (empty($_POST['dacoURL']) OR empty($_POST['dacoURL']))
 				$error = $this->l('Debes completar todos los campos.');
 			elseif (empty($_POST['dacoEmail']) OR !Validate::isEmail($_POST['dacoEmail']))
-				$error = $this->l('El email ingresado es inválido.');
+				$error = $this->l('El email ingresado es invÃ¡lido.');
 			elseif (!isset($_POST['dacoUsuario']) OR !isset($_POST['dacoBip']) OR !is_numeric($_POST['dacoBip']))
 				$error = $this->l('Ha ocurrido un error durante el proceso.');
 			else{
-				if (! Db::getInstance()->AutoExecute("comparadorprecios", array('dacoBip' =>  $_POST['dacoBip'], 'dacoEmail' =>  $_POST['dacoEmail'], 'dacoUsuario' =>  $_POST['dacoUsuario'],'dacoURL' =>  $_POST['dacoURL']), 'INSERT')){
+			
+				if (empty($_POST['product_manufacturer'])){
+					$manofacturer="Sin Marca";
+				}else{
+					$manofacturer=$_POST['product_manufacturer'];
+				}
+				if (! Db::getInstance()->AutoExecute("comparadorprecios", array('dacoBip' =>  $_POST['dacoBip'], 'dacoEmail' =>  $_POST['dacoEmail'], 'dacoUsuario' =>  $_POST['dacoUsuario'],'dacoURL' =>  $_POST['dacoURL'],'dacoCategoryDefault' =>  $_POST['categoryDefault'],'dacoMarca' =>  $manofacturer), 'INSERT')){
 					$error = $this->l('Ha ocurrido un error al guardar los datos.');
 				}else{
-					Tools::redirect(_MODULE_DIR_.'/'.$this->name.'/comparadordeprecios-form.php?id_product='.(int)$product->id.'&submited');
+					Tools::redirect(_MODULE_DIR_.'/'.$this->name.'/comparadordeprecios-form.php?content_only=1&id_product='.(int)$product->id.'&submited');
 				}
 			}
 		}
@@ -174,7 +160,8 @@ class ComparadorDePrecios extends Module
 				$correo = '';
 			}
 		
-		
+		$manu = new Manufacturer((int)$product->id_manufacturer, false, (int)$cookie->id_lang);
+		$categoryDefault = new Category((int)$product->id_category_default, (int)$cookie->id_lang);
 		$smarty->assign(array(
 			'cover' => $cover,
 			'errors' => $error,
@@ -183,6 +170,8 @@ class ComparadorDePrecios extends Module
 			'product' => $product,
 			'tipoUsuario' => $tipoUsuario,
 			'email' => $correo,
+			'product_manufacturer' => $manu->name,
+			'categoryDefault' => $categoryDefault->name,
 			'productLink' => $productLink
 		));
 
@@ -199,5 +188,36 @@ class ComparadorDePrecios extends Module
 		return '<table><tr><td><iframe src="../modules/comparadordeprecios/comparacionPreciosIndex.php" name="ZONE1" width="920"  marginwidth="0" height="620" marginheight="0" scrolling="auto" frameborder="0" id="ZONE1" border="0"></iframe></td></tr></table>';
 	}
 
+	public function hookProductTab($params)
+    {
+		return '<li><a href="#idTab59999" class="idTabHrefShort">Compara en otra tienda</a></li>';
+	}
 	
+	public function hookProductTabContent($params)
+    {
+		global $cookie, $link;
+		/* Product informations */
+		$product = new Product((int)Tools::getValue('id_product'), false, (int)$cookie->id_lang);
+			
+		$queryComparacion = " 
+		SELECT cp.dacoId, cp.dacoTienda, cp.dacoPrecioComparacion
+		FROM (
+		SELECT max(dacoId) dacoId, dacoTienda
+		FROM comparadorprecios
+		WHERE dacoBip !=".$product->id."
+		GROUP BY dacoTienda
+		ORDER BY dacoTienda ASC) ids, comparadorprecios cp
+		WHERE cp.dacoId = ids.dacoId
+		ORDER BY dacoTienda ASC ";
+		$resultComparacion = Db::getInstance()->ExecuteS($queryComparacion);
+		
+		$output = '<div id="idTab59999"><table>';
+		foreach($resultComparacion as $linea){
+			$output.= '<tr><td>'.$linea["dacoTienda"].'</td><td>$'.number_format($linea["dacoPrecioComparacion"],0,',','.').'</td></tr>';
+		}
+		$output.= '</table></div>';
+		return $output;
+	}
+
+		
 }
