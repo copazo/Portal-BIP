@@ -1922,9 +1922,9 @@ class BlockLayered extends Module
                 
 		if($wLikeArr[0]=="" /*or !in_array($wLikeArr[0],$tmp_lett)*/)
                     $wLikeArr[0] = $whereLikeFilter;
-                if($wLikeArr[1]=="" /*or !in_array($wLikeArr[0],$tmp_lett)*/)
+                if($wLikeArr[1]=="" /*or !in_array($wLikeArr[1],$tmp_lett)*/)
                     $wLikeArr[1] = $whereLikeFilter;
-                if($wLikeArr[2]=="" /*or !in_array($wLikeArr[0],$tmp_lett)*/)
+                if($wLikeArr[2]=="" /*or !in_array($wLikeArr[2],$tmp_lett)*/)
                     $wLikeArr[2] = $whereLikeFilter;
                 
                 $catArr[0] = substr($wLikeArr[0], 0, -2);

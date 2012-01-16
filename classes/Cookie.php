@@ -227,6 +227,7 @@ class	CookieCore
 		unset($this->_content['id_cart']);
 		unset($this->_content['id_address_invoice']);
 		unset($this->_content['id_address_delivery']);
+                unset($this->_content['id_default_group']);
 		$this->_modified = true;
 		$this->write();
 	}
