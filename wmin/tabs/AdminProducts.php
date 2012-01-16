@@ -1588,10 +1588,10 @@ class AdminProducts extends AdminTab
 		$countAttachments = (int)Db::getInstance()->getValue('SELECT COUNT(*) FROM '._DB_PREFIX_.'product_attachment WHERE id_product = '.(int)$obj->id);
 		if ($obj->id)
 			echo '
-			<div class="tab-page" id="step3"><h4 class="tab">3. '.$this->l('Prices').'</h4></div>
-			<div class="tab-page" id="step4"><h4 class="tab">4. '.$this->l('Combinations').' ('.$countAttributes.')</h4></div>
+			<!--<div class="tab-page" id="step3"><h4 class="tab">3. '.$this->l('Prices').'</h4></div>-->
+			<!--<div class="tab-page" id="step4"><h4 class="tab">4. '.$this->l('Combinations').' ('.$countAttributes.')</h4></div>-->
 			<div class="tab-page" id="step5"><h4 class="tab">5. '.$this->l('Features').'</h4></div>
-			<div class="tab-page" id="step6"><h4 class="tab">6. '.$this->l('Customization').'</h4></div>
+			<!--<div class="tab-page" id="step6"><h4 class="tab">6. '.$this->l('Customization').'</h4></div>-->
 			<div class="tab-page" id="step7"><h4 class="tab">7. '.$this->l('Attachments').' ('.$countAttachments.')</h4></div>';
 		echo '<script type="text/javascript">
 					var toload = new Array();
