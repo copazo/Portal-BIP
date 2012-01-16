@@ -21,7 +21,7 @@
 *  @copyright  2007-2011 PrestaShop SA
 *  @version  Release: $Revision: 8290 $
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
+*  IInternational Registered Trademark & Property of PrestaShop SA
 *}
 
 {if isset($products)}
