@@ -34,7 +34,7 @@
 				<h3>{if isset($product.new) && $product.new == 1}<span class="new">{l s='New'}</span>{/if}<a href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.name|escape:'htmlall':'UTF-8'}">{$product.name|truncate:35:'...'|escape:'htmlall':'UTF-8'}</a></h3>
 				<p class="product_desc">
 C.BIP : {$product["id_product"]}<BR>
-P/N # {$product.reference} <BR>
+P/N #  {$product.reference} <BR>
 
 </p>
 				{if isset($prod_features[$product["id_product"]])}
