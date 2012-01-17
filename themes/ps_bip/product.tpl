@@ -263,11 +263,6 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 				<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
 			</p>
 			<h1>{$product->name|escape:'htmlall':'UTF-8'} (C&oacute;d. {$product->id|intval})</h1>
-            <div id="contenedor1PP">
-            <p class="atributos1">C.BIP: {$product->id|intval}</p>
-            <!--<p style="float:left;" id="product_reference" class="atributos2" {if isset($groups) OR !$product->reference}style="display: none;"{/if}><label for="product_reference">{l s='Reference :'} </label>&nbsp;<span class="atributos2">{$product->reference|escape:'htmlall':'UTF-8'}</span></p>-->
-            <p class="atributos2">P/N:{$product->reference}</p>
-            </div>
 			
                         {if $product->description_short}
                             <div id="short_description_content" class="rte align_justify">{$product->description_short}</div>
@@ -296,7 +291,11 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
                         {/if}    
 
 			<!-- prices -->
-            
+            <div id="contenedor1PP">
+            <p class="atributos1">C.BIP: {$product->id|intval}</p>
+            <!--<p style="float:left;" id="product_reference" class="atributos2" {if isset($groups) OR !$product->reference}style="display: none;"{/if}><label for="product_reference">{l s='Reference :'} </label>&nbsp;<span class="atributos2">{$product->reference|escape:'htmlall':'UTF-8'}</span></p>-->
+            <p class="atributos2">P/N:{$product->reference}</p>
+            </div>
 			<!-- Aqui iba el div (con el if) de precio - copazo 1 -->
             
 		</form>
@@ -569,7 +568,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 
 {if $product->supplier_reference != ''}
 <p class="compare">
-<a href="{$link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
+<a href="{$link_used|escape:'htmlall':'UTF-8'}"  target="_self"><img src="http://demo.exe.cl/exeBIP/themes/ps_bip/img/icono_usado_01.gif" width="32px" height="32px" align="middle" />&nbsp;Ver producto Usado</a>
 </p>
 {/if}
 	</div>
@@ -642,7 +641,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		</ul>
 	{/if}
 	{if isset($accessories) AND $accessories}
-		<!-- accessoriess -->
+		<!-- accessories -->
 		<ul id="idTab4" class="bullet">
 			<div class="block products_block accessories_block clearfix">
 				<div class="block_content">

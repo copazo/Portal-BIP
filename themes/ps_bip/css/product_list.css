@@ -180,6 +180,16 @@ ul#product_list p.encontraste {
     height: 10px;
     margin-bottom: 5px;
     width: 200px;
+	clear: both;
+}
+ul#product_list p.encontraste a {
+	color: #0066CC;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:9px;
+	font-style:normal;
+	white-space:nowrap;
+	text-decoration:underline;
+	text-transform:none;
 }
 ul#product_list li a.encontraste_link {
 	color: #0066CC;

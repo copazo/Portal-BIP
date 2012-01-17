@@ -21,7 +21,7 @@
 *  @copyright  2007-2011 PrestaShop SA
 *  @version  Release: $Revision: 8290 $
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  IInternational Registered Trademark & Property of PrestaShop SA
+*  International Registered Trademark & Property of PrestaShop SA
 *}
 
 {if isset($products)}
@@ -33,7 +33,7 @@
 				<a href="{$product.link|escape:'htmlall':'UTF-8'}" class="product_img_link" title="{$product.name|escape:'htmlall':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'home')}"  alt="{$product.legend|escape:'htmlall':'UTF-8'}" {if isset($homeSize)} width="{$homeSize.width}" height="{$homeSize.height}"{/if} /></a>
 				<h3>{if isset($product.new) && $product.new == 1}<span class="new">{l s='New'}</span>{/if}<a href="{$product.link|escape:'htmlall':'UTF-8'}" title="{$product.name|escape:'htmlall':'UTF-8'}">{$product.name|truncate:35:'...'|escape:'htmlall':'UTF-8'}</a></h3>
 				<p class="product_desc">
-Codigo BIP : {$product["id_product"]}<BR>
+C.BIP : {$product["id_product"]}<BR>
 P/N # {$product.reference} <BR>
 
 </p>
@@ -44,7 +44,7 @@ P/N # {$product.reference} <BR>
 					<li class="lista_atributo">{$feature.value|escape:'htmlall':'UTF-8'}</li>
 					{/if}
 				{/foreach}
-                <p class="encontraste"><a rel="iframe" class="iframe" href="modules/comparadordeprecios/comparadordeprecios-form.php?content_only=1&id_product={$product.id_product|intval}">&iquest;¿D&oacute;nde encontr&oacute; este producto m&aacute;s barato?</a></p>
+                <p class="encontraste"><a rel="iframe" class="iframe" href="modules/comparadordeprecios/comparadordeprecios-form.php?content_only=1&id_product={$product.id_product|intval}">&iquest;D&oacute;nde encontr&oacute; este producto m&aacute;s barato?</a></p>
                 </ul>
 				
 				<script type="text/javascript" src="js/jquery/jquery.fancybox-1.3.4.js"></script>
@@ -122,7 +122,7 @@ P/N # {$product.reference} <BR>
 {/if}
 {if $product.supplier_reference != ''}
 <p class="compare">
-<a href="{$product.link_used|escape:'htmlall':'UTF-8'}"  target="_blank"><img src="../img/alert.png" width="32px" height="32px" ALIGN=MIDDLE />Homologo Usado </a>
+<a href="{$product.link_used|escape:'htmlall':'UTF-8'}"  target="_self"><img src="http://demo.exe.cl/exeBIPdev/themes/ps_bip/img/icono_usado_01.gif" width="32px" height="32px" align="middle" />&nbsp;Ver producto Usado</a>
 </p>
 {/if}
 
