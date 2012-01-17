@@ -29,6 +29,11 @@ $row2=mysql_fetch_array($res_productos2,$conn_bippg);
 if(!$row2["price"])
     $row2["price"]=0;
 
+if($row2["price"]==0)
+    $query_updat = mysql_query("UPDATE ps_product SET active=0 WHERE id_product=".$row2["id_product"]."");
+
+
+
 
 	$insert_prod_att ="insert into ${prefijo}layered_price_index (id_product,id_currency,price_min,price_max) values (".$row["id_product"].",4,".round($row2["price"]*0.9).",".($row2["price"]).")";
 	mysql_query($insert_prod_att,$conn_pshoptest);

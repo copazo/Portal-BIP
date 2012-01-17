@@ -642,7 +642,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		</ul>
 	{/if}
 	{if isset($accessories) AND $accessories}
-		<!-- accessories -->
+		<!-- accessoriess -->
 		<ul id="idTab4" class="bullet">
 			<div class="block products_block accessories_block clearfix">
 				<div class="block_content">
